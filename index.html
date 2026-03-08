@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Marcus Wagner Galerie</title>
+<title>Marcus Wagner</title>
 
 <style>
 body{
@@ -11,24 +11,54 @@ body{
     color: red;
     margin: 0;
     text-align: center;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/320px-PNG_transparency_demonstration_1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
 }
 
-/* Galerie-Container */
+/* Box für alte Inhalte */
+.content-box{
+    background-color: white;
+    display: inline-block;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Navigation Links untereinander */
+nav a{
+    display: block;
+    margin: 10px 0;
+    color: red;
+    text-decoration: none;
+}
+
+/* Bild im alten Inhalt */
+.content-box img{
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+}
+
+/* Galerie */
 .gallery{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px; /* Abstand zwischen Bildern */
+    gap: 10px;
     padding: 20px;
 }
 
-/* Kleine Vorschaubilder */
+/* Kleine Vorschaubilder ohne roten Rand */
 .gallery img{
     width: 150px;
     height: 100px;
     object-fit: cover;
     cursor: pointer;
-    border: 2px solid red;
     border-radius: 5px;
     transition: transform 0.2s;
 }
@@ -39,7 +69,7 @@ body{
 
 /* Lightbox (vergrößertes Bild) */
 .lightbox{
-    display: none; /* versteckt */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -66,13 +96,49 @@ body{
     color: white;
     cursor: pointer;
 }
+
+/* Footer */
+footer{
+    margin-top: 40px;
+    padding: 20px;
+}
 </style>
 </head>
 
 <body>
 
-<h1>MARCUS WAGNER GALERIE</h1>
+<header>
+<h1>MARCUS WAGNER</h1>
+</header>
 
+<main>
+
+<!-- Alte Infos in weißer Box -->
+<div class="content-box">
+
+<p>Official Website</p>
+<p>News</p>
+<p>Enjoy yourself</p>
+
+<img src="https://via.placeholder.com/300x200?text=Hauptbild" alt="Hauptbild">
+
+<nav>
+<a href="info.html">Info</a>
+<a href="https://drive.google.com/file/d/1X_fR6boAKGk2_Z-8O8EyrlMRoGeDKqxy/view?usp=sharing">Portfolio Deutsch</a>
+<a href="https://www.hopeartservice.vip">H0pe Art Service</a>
+</nav>
+
+<!-- Alte CV Infos -->
+<p>CV</p>
+<p>*1996 Wien, lebt in Wien und Klosterneuburg</p>
+<p>Seit 2017 - Malerei und Animationsfilm Judith Eisler, Universität für Angewandte Kunst Wien</p>
+<p>2024 - University of Newcastle, UK</p>
+<p>2024/2025 - Klasse Maximiliane Baumgartner, Kunstakademie Düsseldorf</p>
+<p>2025 - Klasse Skulptur und Raum Hans Schabus, Universität für Angewandte Kunst Wien</p>
+
+</div>
+
+<!-- Galerie -->
 <div class="gallery">
     <img src="https://via.placeholder.com/300x200?text=Bild+1" alt="Bild 1">
     <img src="https://via.placeholder.com/300x200?text=Bild+2" alt="Bild 2">
@@ -89,6 +155,12 @@ body{
     <span class="close-btn" id="closeBtn">&times;</span>
     <img id="lightboxImg" src="">
 </div>
+
+</main>
+
+<footer>
+<a href="mailto:marcuswagnerinfo@gmail.com">marcuswagnerinfo@gmail.com</a>
+</footer>
 
 <script>
 // Lightbox-Funktion
@@ -108,7 +180,6 @@ closeBtn.addEventListener('click', () => {
     lightbox.style.display = 'none';
 });
 
-// Klick außerhalb schließt Lightbox
 lightbox.addEventListener('click', e => {
     if(e.target !== lightboxImg && e.target !== closeBtn){
         lightbox.style.display = 'none';
