@@ -5,25 +5,44 @@
 <title>info</title>
 
 <style>
-
 body{
     font-family: "Times New Roman", serif;
+    text-align: center; /* Alles zentrieren */
+    margin: 0;
+    padding: 0;
 }
 
-/* Bild kleiner machen */
+/* Alle Bilder kleiner machen und zentrieren */
 img{
     width: 200px;
     height: auto;
+    display: block;
+    margin: 20px auto; /* Abstand und zentriert */
 }
+
+/* Links blockweise und zentriert */
+a{
+    display: block;
+    margin: 10px 0;
+    color: red;
+    text-decoration: none;
+}
+
+/* Back-to-home Button */
 .back-home {
   position: fixed;       /* Bleibt beim Scrollen sichtbar */
- bottom: 20px;             /* Abstand vom unteren Rand */
+  bottom: 20px;          /* Abstand vom unteren Rand */
   right: 20px;           /* Abstand vom rechten Rand */
   padding: 10px 15px;    /* Innenabstand */
   text-decoration: none; /* Kein Unterstrich */
   border-radius: 5px;    /* Leicht abgerundete Ecken */
   z-index: 1000;         /* Immer über allem anderen */
+  background-color: #eee;
+  color: red;
   transition: background-color 0.3s;
+}
+.back-home:hover {
+  background-color: #ccc;
 }
 </style>
 
@@ -32,29 +51,31 @@ img{
 <body>
 
 <header>
-<nav>
-</nav>
+<h1>Marcus Wagner</h1>
 </header>
 
 <main>
+<div>
 
 <p>*1996 Wien, lebt in Wien und Klosterneuburg</p>
-<p>Seit 2017 - Malerei und Animationsfilm Judith Eisler, Universität für Angewandte Kunst Wien; 2024 - University of Newcastle, UK; 2024/2025 - Klasse Maximiliane Baumgartner, Kunstakademie Düsseldorf
-2025 - Klasse Skulptur und Raum Hans Schabus, Universität für Angewandte Kunst Wien
+<p>Seit 2017 - Malerei und Animationsfilm Judith Eisler, Universität für Angewandte Kunst Wien</p>
+<p>2024 - University of Newcastle, UK</p>
+<p>2024/2025 - Klasse Maximiliane Baumgartner, Kunstakademie Düsseldorf</p>
+<p>2025 - Klasse Skulptur und Raum Hans Schabus, Universität für Angewandte Kunst Wien</p>
 
 <p>Kuratorische Projekte:</p>
 <a href="https://www.hopeartservice.vip">H0pe Art Service</a>
 
-<br><br>
+<img src="src/marcuswagner.JPG" alt="Marcus Wagner">
 
-<img src="src/marcuswagner.JPG"/>
-
+</div>
 </main>
 
 <footer>
-<nav>
-</nav>
+<p>&copy; 2026 Marcus Wagner</p>
 </footer>
+
 <a href="/" class="back-home">Back to Home</a>
+
 </body>
 </html>
