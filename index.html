@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marcus Wagner - Businesscard</title>
 <style>
-body {
-    background-color: #00ffff;
+  body{  
+background-color: #00ffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,15 +17,14 @@ body {
 }
 
 .card {
-    width: 350px;
-    max-width: 90%; /* Mobile Anpassung */
-    height: 200px;
+    width: 350px; /* ursprüngliche Breite wiederhergestellt */
+    height: 200px; /* ursprüngliche Höhe */
     background: linear-gradient(135deg, #ffcc00, #ff6600);
     border: 3px solid #0000ff;
     box-shadow: 5px 5px 0 #ff00ff;
     padding: 20px;
     color: #000;
-    position: absolute; /* Damit es beweglich ist */
+    position: absolute; /* damit es beweglich ist */
     z-index: 10;
     box-sizing: border-box;
     cursor: grab;
@@ -76,18 +75,7 @@ body {
     transition: opacity 0.3s ease;
     z-index: 5;
 }
-
-/* Mobile Abstand an den Seiten */
-@media (max-width: 768px) {
-    body {
-        padding: 0 15px;
-        box-sizing: border-box;
-    }
-    .card {
-        width: 100%;
-        max-width: 350px;
-    }
-}
+    }    
 </style>
 </head>
 <body>
