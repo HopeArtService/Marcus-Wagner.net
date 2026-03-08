@@ -12,13 +12,28 @@ body{
     color: red;
     margin: 0;
     padding: 0;
-    text-align: center; /* Zentriert alles standardmäßig */
+    text-align: center;
 }
 
 /* Header: Titel links oben */
 header{
     text-align: left;
     padding: 20px;
+    position: relative; /* für Button rechts oben */
+}
+
+/* Deutsch/Englisch Button rechts oben */
+#lang-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 5px 10px;
+    border: 1px solid red;
+    background: white;
+    color: red;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
 }
 
 /* Bilder kleiner und zentriert */
@@ -37,8 +52,10 @@ a{
     text-decoration: none;
 }
 
-/* Back-to-home Button */
-
+/* Verstecke englischen Text standardmäßig */
+.lang-en {
+    display: none;
+}
 </style>
 
 </head>
@@ -46,42 +63,45 @@ a{
 
 <header>
 <h1>Marcus Wagner</h1>
+<button id="lang-toggle">EN</button>
 </header>
 
 <main>
-
+<!-- Deutsch -->
+<span class="lang lang-de">
 <p>*1996 Wien, lebt in Wien und Klosterneuburg</p>
 <p>Seit 2017 - Malerei und Animationsfilm Judith Eisler, Universität für Angewandte Kunst Wien</p>
 <p>2024 - University of Newcastle, UK</p>
 <p>2024/2025 - Klasse Maximiliane Baumgartner, Kunstakademie Düsseldorf</p>
 <p>2025 - Klasse Skulptur und Raum Hans Schabus, Universität für Angewandte Kunst Wien</p>
-<p></p> 
 
-<p></p>     
-
-<a href="https://www.hopeartservice.vip"><p>Projekte: H0pe Art Service</a>
-<p></p>
+<a href="https://www.hopeartservice.vip">Projekte: H0pe Art Service</a>
 
 <a href="https://drive.google.com/file/d/1X_fR6boAKGk2_Z-8O8EyrlMRoGeDKqxy/view?usp=sharing" target="_blank">
-  <p>Portfolio<img src="src/portfolio.jpg" alt="Portfolio" width="80%">
-</a>    
-
-<p></p>    
+Portfolio<img src="src/portfolio.jpg" alt="Portfolio" width="80%">
+</a>
 
 <img src="src/marcuswagner.JPG" alt="Print">
-&copy; Lilith Ona
-  
-  
+<p>&copy; Lilith Ona</p>
+</span>
 
-</main>
+<!-- Englisch -->
+<span class="lang lang-en">
+<p>*1996 Vienna, lives in Vienna and Klosterneuburg</p>
+<p>Since 2017 - Painting and Animation Film Judith Eisler, University of Applied Arts Vienna</p>
+<p>2024 - University of Newcastle, UK</p>
+<p>2024/2025 - Class Maximiliane Baumgartner, Düsseldorf Art Academy</p>
+<p>2025 - Class Sculpture and Space Hans Schabus, University of Applied Arts Vienna</p>
 
-<footer>
+<a href="https://www.hopeartservice.vip">Projects: H0pe Art Service</a>
 
-</footer>
+<a href="https://drive.google.com/file/d/1X_fR6boAKGk2_Z-8O8EyrlMRoGeDKqxy/view?usp=sharing" target="_blank">
+Portfolio<img src="src/portfolio.jpg" alt="Portfolio" width="80%">
+</a>
 
-
-
-</div>
+<img src="src/marcuswagner.JPG" alt="Print">
+<p>&copy; Lilith Ona</p>
+</span>
 
 </main>
 
@@ -89,6 +109,18 @@ a{
 <a href="mailto:marcuswagnerinfo@gmail.com">marcuswagnerinfo@gmail.com</a>
 <p>&copy; 2026 Marcus Wagner</p>    
 </footer>
+
+<script>
+// Deutsch/Englisch Toggle
+const btn = document.getElementById('lang-toggle');
+btn.addEventListener('click', () => {
+    const de = document.querySelectorAll('.lang-de');
+    const en = document.querySelectorAll('.lang-en');
+    de.forEach(el => el.style.display = el.style.display === 'none' ? 'block' : 'none');
+    en.forEach(el => el.style.display = el.style.display === 'none' ? 'block' : 'none');
+    btn.textContent = btn.textContent === 'EN' ? 'DE' : 'EN';
+});
+</script>
 
 </body>
 </html>
