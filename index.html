@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Marcus Wagner</title>
 
 <style>
-body{
+body {
     font-family: "Times New Roman", serif;
     background-color: white;
     font-size: 16px;
@@ -15,14 +15,14 @@ body{
     text-align: center;
 }
 
-/* Header: Titel links oben */
-header{
+/* Header: Titel links, Button rechts */
+header {
     text-align: left;
     padding: 20px;
-    position: relative; /* für Button rechts oben */
+    position: relative;
 }
 
-/* Deutsch/Englisch Button rechts oben */
+/* Deutsch/Englisch Toggle-Button rechts oben */
 #lang-toggle {
     position: absolute;
     top: 20px;
@@ -44,30 +44,32 @@ img:not(.portfolio-img) {
     margin: 20px auto;
 }
 
-/* Portfolio-Bild größer */
+/* Portfolio-Bild groß, zentriert und klickbar */
 .portfolio-img {
-    width: 100%;       /* volle Breite des Containers */
-    max-width: 800px;  /* optional: maximale Breite */
-    height: auto;
     display: block;
-    margin: 20px auto; /* zentriert */
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    transition: 0.3s;
 }
-/* Links untereinander und zentriert */
-a{
+
+.portfolio-img:hover {
+    opacity: 0.85;
+    cursor: pointer;
+}
+
+/* Links untereinander */
+a {
     display: block;
     margin: 10px 0;
     color: red;
     text-decoration: none;
 }
 
-/* Standardmäßig verstecke Englisch */
+/* Standardmäßig Englisch ausblenden */
 .lang-en {
     display: none;
-}
-
-/* Klasse zum Umschalten */
-.lang-show {
-    display: block !important;
 }
 </style>
 </head>
@@ -91,8 +93,10 @@ a{
 
 <a href="https://www.hopeartservice.vip">Projekte: H0pe Art Service</a>
 
+<!-- Portfolio-Bild groß und klickbar -->
 <a href="https://drive.google.com/file/d/1X_fR6boAKGk2_Z-8O8EyrlMRoGeDKqxy/view?usp=sharing" target="_blank">
-Portfolio<img src="src/portfolio.jpg" alt="Portfolio" width="80%">
+  Portfolio
+  <img src="src/portfolio.jpg" alt="Portfolio" class="portfolio-img">
 </a>
 
 <img src="src/marcuswagner.JPG" alt="Print">
@@ -109,6 +113,7 @@ Portfolio<img src="src/portfolio.jpg" alt="Portfolio" width="80%">
 
 <a href="https://www.hopeartservice.vip">Projects: H0pe Art Service</a>
 
+<!-- Portfolio-Bild groß und klickbar -->
 <a href="https://drive.google.com/file/d/1X_fR6boAKGk2_Z-8O8EyrlMRoGeDKqxy/view?usp=sharing" target="_blank">
   Portfolio
   <img src="src/portfolio.jpg" alt="Portfolio" class="portfolio-img">
