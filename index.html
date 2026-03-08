@@ -113,14 +113,21 @@ const img = document.getElementById("blinkImage");
 const card = document.querySelector(".card");
 const margin = 20; 
 const displayTime = 3000; // Bild sichtbar für 3 Sekunden
-const intervalTime = 5000; // Abstand zwischen Bildwechseln (5 Sekunden)
+const intervalTime = 5000; // Abstand zwischen Bildwechseln
+let lastIndex = -1; // merkt sich zuletzt angezeigtes Bild
 
 function showImage() {
-    // Zufälliges Bild auswählen
-    const randomImage = images[Math.floor(Math.random() * images.length)];
+    // Zufälliges Bild auswählen, das nicht das gleiche wie zuletzt ist
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * images.length);
+    } while (randomIndex === lastIndex);
+    lastIndex = randomIndex;
+
+    const randomImage = images[randomIndex];
     img.src = randomImage;
 
-    // Zufällige Größe (optional einheitlicher)
+    // Zufällige Größe
     const size = Math.random() * 150 + 100;
 
     // Position zufällig, aber nicht über der Karte
@@ -152,7 +159,6 @@ function showImage() {
 
 // Start Intervall: garantiert kein Überlappen
 setInterval(showImage, intervalTime);
-    
     </script>
 </body>
 </html>
