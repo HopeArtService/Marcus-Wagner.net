@@ -5,18 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marcus Wagner - Businesscard</title>
 <style>
-/* Body for centering the card */
 body {
-    background-color: #00ffff; /* bright cyan background */
+    background-color: #00ffff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: "Courier New", monospace; /* classic pixel font feel */
-    
+    font-family: "Courier New", monospace;
 }
 
-/* The card itself */
 .card {
     width: 350px;
     height: 200px;
@@ -28,29 +25,10 @@ body {
     position: relative;
 }
 
-/* Name and title */
-.card h1 {
-    font-size: 24px;
-    margin: 0;
-    color: #000080;
-    text-shadow: 1px 1px #fff;
-}
+.card h1 { font-size: 24px; margin: 0; color: #000080; text-shadow: 1px 1px #fff; }
+.card h2 { font-size: 16px; margin: 5px 0 15px; color: #ff0000; }
+.card p { font-size: 14px; margin: 2px 0; }
 
-.card h2 {
-    font-size: 16px;
-    margin: 5px 0 15px;
-    color: #ff0000;
-}
-
-  
-
-/* Contact info */
-.card p {
-    font-size: 14px;
-    margin: 2px 0;
-}
-
-/* Decorative 90s box */
 .card::after {
     content: "";
     position: absolute;
@@ -62,24 +40,16 @@ body {
     transform: rotate(15deg);
 }
 
-.invisible-link {
-    color: inherit;           /* übernimmt die Textfarbe des umgebenden Textes */
-    text-decoration: none;    /* entfernt Unterstreichung */
-    cursor: pointer;          /* optional: zeigt beim Hover, dass es klickbar ist */
-}
-
-.invisible-link:hover {
-    text-decoration: underline; /* optional: nur beim Hover sichtbar */
-}
+.invisible-link { color: inherit; text-decoration: none; cursor: pointer; }
+.invisible-link:hover { text-decoration: underline; }
 
 .blink-img {
     position: absolute;
     pointer-events: none;
     z-index: 1;
     opacity: 0;
-    transition: opacity 0.15s;
+    transition: opacity 0.3s;
 }
-    
 </style>
 </head>
 <body>
@@ -92,13 +62,12 @@ body {
     <p>Website: www.marcus-wagner.net</p>
     <p><a href="cv.html" class="invisible-link">Bio</a></p>
     <p><a href="https://drive.google.com/file/d/1X_fR6boAKGk2_Z-8O8EyrlMRoGeDKqxy/view?usp=sharing" class="invisible-link">Portfolio</a></p> 
-    <p> <a href="https://www.hopeartservice.vip" class="invisible-link">&hearts;</a></p>
-   
+    <p><a href="https://www.hopeartservice.vip" class="invisible-link">&hearts;</a></p>
 </div>
 
 <img id="blinkImage" class="blink-img">
 
-    <script>
+<script>
 const images = [
     "src/Scan 5.jpg",
     "src/Scan 10.jpg",
@@ -111,29 +80,22 @@ const images = [
 
 const img = document.getElementById("blinkImage");
 const card = document.querySelector(".card");
-const margin = 20; 
-const displayTime = 3000; // Bild sichtbar für 3 Sekunden
-const intervalTime = 5000; // Abstand zwischen Bildwechseln
-let lastIndex = -1; // merkt sich zuletzt angezeigtes Bild
+const margin = 20;
+const displayTime = 3000;
+const intervalTime = 5000;
 
-function showImage() {
-    // Zufälliges Bild auswählen, das nicht das gleiche wie zuletzt ist
-    let randomIndex;
-    do {
-        randomIndex = Math.floor(Math.random() * images.length);
-    } while (randomIndex === lastIndex);
-    lastIndex = randomIndex;
+// Shuffle Funktion
+function shuffleArray(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+}
 
-    const randomImage = images[randomIndex];
-    img.src = randomImage;
-
-    // Zufällige Größe
-    const size = Math.random() * 150 + 100;
-
-    // Position zufällig, aber nicht über der Karte
+// Position prüfen, dass kein Überlappen mit Karte
+function getRandomPosition(size) {
     const rect = card.getBoundingClientRect();
     let x, y;
-
     do {
         x = Math.random() * (window.innerWidth - size);
         y = Math.random() * (window.innerHeight - size);
@@ -143,22 +105,49 @@ function showImage() {
         y + size > rect.top - margin &&
         y < rect.bottom + margin
     );
+    return {x, y};
+}
+
+// Bilder in Shuffle-Reihenfolge anzeigen
+let imageQueue = [...images];
+shuffleArray(imageQueue);
+let lastImage = null;
+
+function showNextImage() {
+    if (imageQueue.length === 0) {
+        imageQueue = [...images];
+        shuffleArray(imageQueue);
+    }
+
+    let nextImage = imageQueue.shift();
+
+    // Sicherstellen, dass es nicht das gleiche wie vorher ist
+    if (nextImage === lastImage && imageQueue.length > 0) {
+        imageQueue.push(nextImage);
+        nextImage = imageQueue.shift();
+    }
+    lastImage = nextImage;
+
+    img.src = nextImage;
+    const size = Math.random() * 150 + 100;
+    const pos = getRandomPosition(size);
 
     img.style.width = size + "px";
-    img.style.left = x + "px";
-    img.style.top = y + "px";
+    img.style.left = pos.x + "px";
+    img.style.top = pos.y + "px";
 
-    // Bild einblenden
     img.style.opacity = 1;
 
-    // Nach displayTime ausblenden
     setTimeout(() => {
         img.style.opacity = 0;
     }, displayTime);
 }
 
-// Start Intervall: garantiert kein Überlappen
-setInterval(showImage, intervalTime);
-    </script>
+// Start Intervall
+showNextImage();
+setInterval(showNextImage, intervalTime);
+
+</script>
+
 </body>
 </html>
