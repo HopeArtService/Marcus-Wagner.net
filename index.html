@@ -75,7 +75,19 @@ background-color: #00ffff;
     transition: opacity 0.3s ease;
     z-index: 5;
 }
-    }    
+    
+/* Mobile Anpassung: Abstand an den Seiten */
+@media (max-width: 768px) {
+    body {
+        padding: 0 15px; /* Abstand links/rechts */
+        box-sizing: border-box;
+    }
+    .card {
+        width: 350px; /* gleiche Breite wie Desktop */
+        max-width: calc(100% - 30px); /* damit es auf kleinen Bildschirmen nicht über den Rand geht */
+    }
+} 
+}   
 </style>
 </head>
 <body>
