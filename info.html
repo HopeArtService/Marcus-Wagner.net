@@ -15,7 +15,16 @@ img{
     width: 200px;
     height: auto;
 }
-
+.back-home {
+  position: fixed;       /* Bleibt beim Scrollen sichtbar */
+ bottom: 20px;             /* Abstand vom unteren Rand */
+  right: 20px;           /* Abstand vom rechten Rand */
+  padding: 10px 15px;    /* Innenabstand */
+  text-decoration: none; /* Kein Unterstrich */
+  border-radius: 5px;    /* Leicht abgerundete Ecken */
+  z-index: 1000;         /* Immer über allem anderen */
+  transition: background-color 0.3s;
+}
 </style>
 
 </head>
@@ -29,12 +38,11 @@ img{
 
 <main>
 
-<p>CV</p>
 <p>*1996 Wien, lebt in Wien und Klosterneuburg</p>
 <p>Seit 2017 - Malerei und Animationsfilm Judith Eisler, Universität für Angewandte Kunst Wien; 2024 - University of Newcastle, UK; 2024/2025 - Klasse Maximiliane Baumgartner, Kunstakademie Düsseldorf
 2025 - Klasse Skulptur und Raum Hans Schabus, Universität für Angewandte Kunst Wien
 
-<p>Kuratorische Projekte</p>
+<p>Kuratorische Projekte:</p>
 <a href="https://www.hopeartservice.vip">H0pe Art Service</a>
 
 <br><br>
@@ -47,6 +55,6 @@ img{
 <nav>
 </nav>
 </footer>
-
+<a href="/" class="back-home">Back to Home</a>
 </body>
 </html>
