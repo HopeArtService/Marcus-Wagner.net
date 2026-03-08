@@ -71,8 +71,6 @@ body {
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s ease;
-    max-width: 200px;
-    max-height: 200px;
     z-index: 5;
 }
 </style>
@@ -90,6 +88,8 @@ body {
     <p><a href="https://www.hopeartservice.vip" class="invisible-link">&hearts;</a></p>
 </div>
 
+<img id="blinkImage" class="blink-img">
+
 <script>
 const images = [
     "src/Scan 5.jpg",
@@ -101,60 +101,58 @@ const images = [
     "src/20251006MarcusWagner4717.jpg"
 ];
 
-const card = document.querySelector('.card');
+const img = document.getElementById("blinkImage");
+const card = document.querySelector(".card");
 const margin = 20;
-const displayTime = 1300;
-const intervalTime = 2000;
-
-// Mobile Check
+const displayTime = 1300; // 1,3 Sekunden sichtbar
+const intervalTime = 2000; // 2 Sekunden Zyklus
 const isMobile = window.innerWidth <= 768;
 
-function createBlinkImage() {
-    const img = document.createElement('img');
-    img.classList.add('blink-img');
-    document.body.appendChild(img);
+function showNextImage() {
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+    img.src = randomImage;
 
-    // Starte Animation Zyklus
-    setInterval(() => {
-        const randomImage = images[Math.floor(Math.random() * images.length)];
-        img.src = randomImage;
+    const size = Math.random() * 200 + 50;
 
-        const size = Math.random() * 200 + 50;
+    let x, y;
+    if (isMobile) {
+        // Auf Handy innerhalb des Bildschirms
+        x = Math.random() * (window.innerWidth - size);
+        y = Math.random() * (window.innerHeight - size);
+    } else {
+        // Auf Desktop: nicht über Karte, nicht zu nah an Rändern
+        const rect = card.getBoundingClientRect();
+        const safeMargin = 50; // Abstand zur Karte und Bildschirmrand
+        const maxX = window.innerWidth - size - safeMargin;
+        const maxY = window.innerHeight - size - safeMargin;
+        const minX = safeMargin;
+        const minY = safeMargin;
 
-        let x, y;
-        if (isMobile) {
-            // Bilder nur innerhalb des sichtbaren Bildschirms
-            x = Math.random() * (window.innerWidth - size);
-            y = Math.random() * (window.innerHeight - size);
-        } else {
-            const rect = card.getBoundingClientRect();
-            do {
-                x = Math.random() * (window.innerWidth - size);
-                y = Math.random() * (window.innerHeight - size);
-            } while (
-                x + size > rect.left - margin &&
-                x < rect.right + margin &&
-                y + size > rect.top - margin &&
-                y < rect.bottom + margin
-            );
-        }
+        do {
+            x = Math.random() * (maxX - minX) + minX;
+            y = Math.random() * (maxY - minY) + minY;
+        } while (
+            x + size > rect.left - margin &&
+            x < rect.right + margin &&
+            y + size > rect.top - margin &&
+            y < rect.bottom + margin
+        );
+    }
 
-        img.style.width = size + 'px';
-        img.style.left = x + 'px';
-        img.style.top = y + 'px';
+    img.style.width = size + "px";
+    img.style.left = x + "px";
+    img.style.top = y + "px";
 
-        img.style.opacity = 1;
-        setTimeout(() => {
-            img.style.opacity = 0;
-        }, displayTime);
+    img.style.opacity = 1;
 
-    }, intervalTime);
+    setTimeout(() => {
+        img.style.opacity = 0;
+    }, displayTime);
 }
 
-// Erstelle mehrere Bilder gleichzeitig für smoother Effekt
-for (let i = 0; i < 3; i++) {
-    createBlinkImage();
-}
+// Start
+showNextImage();
+setInterval(showNextImage, intervalTime);
 </script>
 
 </body>
