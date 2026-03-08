@@ -103,32 +103,33 @@ const images = [
 
 const img = document.getElementById("blinkImage");
 const card = document.querySelector(".card");
-const margin = 20;
-const displayTime = 1800; // 1,3 Sekunden sichtbar
-const intervalTime = 3000; // 2 Sekunden Zyklus
+const displayTime = 1300; // 1,3 Sekunden sichtbar
+const intervalTime = 2000; // 2 Sekunden Zyklus
+const margin = 20; // Abstand zur Karte
+const isMobile = window.innerWidth <= 768;
 
+let areaIndex = 0; // Bereich-Zähler, für gleichmäßige Verteilung
 
-function getRandomPosition(size) {
+function getNextArea() {
     const rect = card.getBoundingClientRect();
-    const safeMargin = 50; // Abstand zur Karte und Bildschirmrand
-    const maxX = window.innerWidth - size - safeMargin;
-    const maxY = window.innerHeight - size - safeMargin;
+    const safeMargin = 20; // Abstand zum Bildschirmrand
+    const maxX = window.innerWidth - safeMargin;
+    const maxY = window.innerHeight - safeMargin;
     const minX = safeMargin;
     const minY = safeMargin;
 
-    let x, y;
+    // Bereiche: 0 = oben, 1 = rechts, 2 = unten, 3 = links
+    const areas = [
+        {xMin: rect.left - margin, xMax: rect.right + margin, yMin: minY, yMax: rect.top - margin},      // oben
+        {xMin: rect.right + margin, xMax: maxX, yMin: minY, yMax: maxY},                                  // rechts
+        {xMin: rect.left - margin, xMax: rect.right + margin, yMin: rect.bottom + margin, yMax: maxY},  // unten
+        {xMin: minX, xMax: rect.left - margin, yMin: minY, yMax: maxY}                                    // links
+    ];
 
-    do {
-        x = Math.random() * (maxX - minX) + minX;
-        y = Math.random() * (maxY - minY) + minY;
-    } while (
-        x + size > rect.left - margin &&
-        x < rect.right + margin &&
-        y + size > rect.top - margin &&
-        y < rect.bottom + margin
-    );
+    const area = areas[areaIndex % areas.length];
+    areaIndex++;
 
-    return { x, y };
+    return area;
 }
 
 function showNextImage() {
@@ -140,11 +141,15 @@ function showNextImage() {
     let position;
     if (isMobile) {
         position = {
-            x: Math.random() * (window.innerWidth - size),
-            y: Math.random() * (window.innerHeight - size)
+            x: Math.random() * (window.innerWidth - size - 30) + 15,
+            y: Math.random() * (window.innerHeight - size - 30) + 15
         };
     } else {
-        position = getRandomPosition(size);
+        const area = getNextArea();
+        position = {
+            x: Math.random() * (area.xMax - area.xMin - size) + area.xMin,
+            y: Math.random() * (area.yMax - area.yMin - size) + area.yMin
+        };
     }
 
     img.style.width = size + "px";
