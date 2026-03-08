@@ -71,6 +71,14 @@ body {
 .invisible-link:hover {
     text-decoration: underline; /* optional: nur beim Hover sichtbar */
 }
+
+.blink-img {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
     
 </style>
 </head>
@@ -84,9 +92,53 @@ body {
     <p>Website: www.marcus-wagner.net</p>
     <p>Visit Portfolio: <a href="https://drive.google.com/file/d/1X_fR6boAKGk2_Z-8O8EyrlMRoGeDKqxy/view?usp=sharing" class="invisible-link">Here</a></p>
     <p> &hearts; <a href="https://www.hopeartservice.vip" class="invisible-link"></a></p>
-
    
 </div>
+
+<img id="blinkImage" class="blink-img">
+
+<script>
+
+const images = [
+"src/Scan 5.jpg",
+"src/Scan 10.jpg",
+"src/maske.jpg",
+"src/scan_6.jpg"
+"src/Scan 3.jpg"
+];
+
+const img = document.getElementById("blinkImage");
+
+function randomBlink(){
+
+    const randomImage = images[Math.floor(Math.random()*images.length)];
+
+    const size = Math.random()*200 + 50;
+
+    const x = Math.random()*window.innerWidth;
+    const y = Math.random()*window.innerHeight;
+
+    img.src = randomImage;
+
+    img.style.width = size + "px";
+    img.style.left = x + "px";
+    img.style.top = y + "px";
+
+    img.style.opacity = 1;
+
+    setTimeout(()=>{
+        img.style.opacity = 0;
+    },300);
+
+    const next = Math.random()*1000 + 1000;
+
+    setTimeout(randomBlink,next);
+}
+
+randomBlink();
+
+</script>    
+    
 
 </body>
 </html>
