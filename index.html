@@ -52,13 +52,18 @@ a{
     text-decoration: none;
 }
 
-/* Verstecke englischen Text standardmäßig */
+/* Standardmäßig verstecke Englisch */
 .lang-en {
     display: none;
 }
-</style>
 
+/* Klasse zum Umschalten */
+.lang-show {
+    display: block !important;
+}
+</style>
 </head>
+
 <body>
 
 <header>
@@ -67,8 +72,9 @@ a{
 </header>
 
 <main>
+
 <!-- Deutsch -->
-<span class="lang lang-de">
+<div class="lang lang-de">
 <p>*1996 Wien, lebt in Wien und Klosterneuburg</p>
 <p>Seit 2017 - Malerei und Animationsfilm Judith Eisler, Universität für Angewandte Kunst Wien</p>
 <p>2024 - University of Newcastle, UK</p>
@@ -83,10 +89,10 @@ Portfolio<img src="src/portfolio.jpg" alt="Portfolio" width="80%">
 
 <img src="src/marcuswagner.JPG" alt="Print">
 <p>&copy; Lilith Ona</p>
-</span>
+</div>
 
 <!-- Englisch -->
-<span class="lang lang-en">
+<div class="lang lang-en">
 <p>*1996 Vienna, lives in Vienna and Klosterneuburg</p>
 <p>Since 2017 - Painting and Animation Film Judith Eisler, University of Applied Arts Vienna</p>
 <p>2024 - University of Newcastle, UK</p>
@@ -101,7 +107,7 @@ Portfolio<img src="src/portfolio.jpg" alt="Portfolio" width="80%">
 
 <img src="src/marcuswagner.JPG" alt="Print">
 <p>&copy; Lilith Ona</p>
-</span>
+</div>
 
 </main>
 
@@ -114,11 +120,18 @@ Portfolio<img src="src/portfolio.jpg" alt="Portfolio" width="80%">
 // Deutsch/Englisch Toggle
 const btn = document.getElementById('lang-toggle');
 btn.addEventListener('click', () => {
-    const de = document.querySelectorAll('.lang-de');
-    const en = document.querySelectorAll('.lang-en');
-    de.forEach(el => el.style.display = el.style.display === 'none' ? 'block' : 'none');
-    en.forEach(el => el.style.display = el.style.display === 'none' ? 'block' : 'none');
-    btn.textContent = btn.textContent === 'EN' ? 'DE' : 'EN';
+    const de = document.querySelector('.lang-de');
+    const en = document.querySelector('.lang-en');
+    
+    if (de.style.display !== 'none') {
+        de.style.display = 'none';
+        en.style.display = 'block';
+        btn.textContent = 'DE';
+    } else {
+        de.style.display = 'block';
+        en.style.display = 'none';
+        btn.textContent = 'EN';
+    }
 });
 </script>
 
