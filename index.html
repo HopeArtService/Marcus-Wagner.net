@@ -18,14 +18,17 @@ body {
 
 .card {
     width: 350px;
+    max-width: 90%; /* Mobile Anpassung */
     height: 200px;
     background: linear-gradient(135deg, #ffcc00, #ff6600);
     border: 3px solid #0000ff;
     box-shadow: 5px 5px 0 #ff00ff;
     padding: 20px;
     color: #000;
-    position: relative;
+    position: absolute; /* Damit es beweglich ist */
     z-index: 10;
+    box-sizing: border-box;
+    cursor: grab;
 }
 
 .card h1 {
@@ -73,11 +76,23 @@ body {
     transition: opacity 0.3s ease;
     z-index: 5;
 }
+
+/* Mobile Abstand an den Seiten */
+@media (max-width: 768px) {
+    body {
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+    .card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
 </style>
 </head>
 <body>
 
-<div class="card">
+<div class="card" id="card">
     <h1>Marcus Wagner</h1>
     <h2>Artist</h2>
     <p>Email: marcuswagnerinfo@gmail.com</p>
@@ -102,23 +117,23 @@ const images = [
 ];
 
 const img = document.getElementById("blinkImage");
-const card = document.querySelector(".card");
-const displayTime = 1300; // 1,3 Sekunden sichtbar
-const intervalTime = 2000; // 2 Sekunden Zyklus
-const margin = 20; // Abstand zur Karte
+const card = document.getElementById("card");
+const displayTime = 1300;
+const intervalTime = 2000;
+const margin = 20;
 const isMobile = window.innerWidth <= 768;
 
-let areaIndex = 0; // Bereich-Zähler, für gleichmäßige Verteilung
+let areaIndex = 0;
 
+// Funktion: nächster Bereich rund um Karte
 function getNextArea() {
     const rect = card.getBoundingClientRect();
-    const safeMargin = 20; // Abstand zum Bildschirmrand
+    const safeMargin = 20;
     const maxX = window.innerWidth - safeMargin;
     const maxY = window.innerHeight - safeMargin;
     const minX = safeMargin;
     const minY = safeMargin;
 
-    // Bereiche: 0 = oben, 1 = rechts, 2 = unten, 3 = links
     const areas = [
         {xMin: rect.left - margin, xMax: rect.right + margin, yMin: minY, yMax: rect.top - margin},      // oben
         {xMin: rect.right + margin, xMax: maxX, yMin: minY, yMax: maxY},                                  // rechts
@@ -128,17 +143,16 @@ function getNextArea() {
 
     const area = areas[areaIndex % areas.length];
     areaIndex++;
-
     return area;
 }
 
+// Zeige nächstes Bild (wartet, bis vorheriges verschwunden ist)
 function showNextImage() {
     const randomImage = images[Math.floor(Math.random() * images.length)];
     img.src = randomImage;
-
     const size = Math.random() * 200 + 50;
-
     let position;
+
     if (isMobile) {
         position = {
             x: Math.random() * (window.innerWidth - size - 30) + 15,
@@ -157,14 +171,45 @@ function showNextImage() {
     img.style.top = position.y + "px";
     img.style.opacity = 1;
 
+    // erst nach displayTime das nächste Bild anzeigen
     setTimeout(() => {
         img.style.opacity = 0;
+        setTimeout(showNextImage, intervalTime - displayTime);
     }, displayTime);
 }
 
 // Start
 showNextImage();
-setInterval(showNextImage, intervalTime);
+
+// --- Drag & Drop für Mobile ---
+let isDragging = false;
+let offsetX, offsetY;
+
+card.addEventListener("touchstart", function(e) {
+    isDragging = true;
+    const touch = e.touches[0];
+    const rect = card.getBoundingClientRect();
+    offsetX = touch.clientX - rect.left;
+    offsetY = touch.clientY - rect.top;
+}, {passive: true});
+
+card.addEventListener("touchmove", function(e) {
+    if (!isDragging) return;
+    const touch = e.touches[0];
+    let x = touch.clientX - offsetX;
+    let y = touch.clientY - offsetY;
+
+    // Begrenzung innerhalb des Bildschirms
+    x = Math.max(0, Math.min(window.innerWidth - card.offsetWidth, x));
+    y = Math.max(0, Math.min(window.innerHeight - card.offsetHeight, y));
+
+    card.style.left = x + "px";
+    card.style.top = y + "px";
+}, {passive: true});
+
+card.addEventListener("touchend", function() {
+    isDragging = false;
+});
 </script>
 
 </body>
