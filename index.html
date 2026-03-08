@@ -119,6 +119,79 @@ a {
   <img src="src/portfolio.jpg" alt="Portfolio" class="portfolio-img">
 </a>
 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blueimp Gallery Beispiel</title>
+
+<!-- Blueimp CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.44.0/css/blueimp-gallery.min.css">
+
+<style>
+/* Miniaturbilder */
+.gallery-container img {
+    width: 150px;
+    height: auto;
+    margin: 10px;
+    cursor: pointer;
+    border: 2px solid red;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.gallery-container img:hover {
+    opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Meine Galerie</h1>
+
+<!-- Galerie Thumbnails -->
+<div class="gallery-container">
+    <a href="src/image1.jpg" title="Bild 1" data-gallery>
+        <img src="src/image1_thumb.jpg" alt="Bild 1">
+    </a>
+    <a href="src/image2.jpg" title="Bild 2" data-gallery>
+        <img src="src/image2_thumb.jpg" alt="Bild 2">
+    </a>
+    <a href="src/image3.jpg" title="Bild 3" data-gallery>
+        <img src="src/image3_thumb.jpg" alt="Bild 3">
+    </a>
+</div>
+
+<!-- Blueimp Gallery Container -->
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+
+<!-- Blueimp JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.44.0/js/jquery.blueimp-gallery.min.js"></script>
+
+<script>
+// Optional: Kann auch automatisch auf alle Links mit data-gallery reagieren
+document.querySelectorAll('a[data-gallery]').forEach(link => {
+    link.addEventListener('click', function(event){
+        event.preventDefault();
+        blueimp.Gallery([this.href], {
+            index: 0, // Startet mit dem angeklickten Bild
+            event: event
+        });
+    });
+});
+</script>
+
+</body>
+</html>    
 <img src="src/marcuswagner.JPG" alt="Print">
 <p>&copy; Lilith Ona</p>
 </div>
