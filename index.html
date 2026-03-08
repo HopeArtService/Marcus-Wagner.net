@@ -37,20 +37,21 @@ header{
 }
 
 /* Bilder kleiner und zentriert */
-img{
+img:not(.portfolio-img) {
     width: 200px;
     height: auto;
     display: block;
     margin: 20px auto;
 }
 
+/* Portfolio-Bild größer */
 .portfolio-img {
-    width: 80%;       /* größere Breite, an Bildschirm angepasst */
-    max-width: 800px; /* optional: maximale Größe */
-    height: auto;     /* Höhe proportional */
+    width: 100%;       /* volle Breite des Containers */
+    max-width: 800px;  /* optional: maximale Breite */
+    height: auto;
     display: block;
-    margin: 10px auto; /* zentriert */
-}    
+    margin: 20px auto; /* zentriert */
+}
 /* Links untereinander und zentriert */
 a{
     display: block;
