@@ -13,6 +13,7 @@ body {
     align-items: center;
     height: 100vh;
     font-family: "Courier New", monospace; /* classic pixel font feel */
+    
 }
 
 /* The card itself */
@@ -60,6 +61,17 @@ body {
     border: 3px dashed #00ff00;
     transform: rotate(15deg);
 }
+
+.invisible-link {
+    color: inherit;           /* übernimmt die Textfarbe des umgebenden Textes */
+    text-decoration: none;    /* entfernt Unterstreichung */
+    cursor: pointer;          /* optional: zeigt beim Hover, dass es klickbar ist */
+}
+
+.invisible-link:hover {
+    text-decoration: underline; /* optional: nur beim Hover sichtbar */
+}
+    
 </style>
 </head>
 <body>
@@ -70,7 +82,7 @@ body {
     <p>Email: marcuswagnerinfo@gmail.com</p>
     <p>Phone: +43 @marcuswagner.xd</p>
     <p>Website: www.marcus-wagner.net</p>
-    <p>Visit Portfolio: <a href="https://drive.google.com/file/d/1X_fR6boAKGk2_Z-8O8EyrlMRoGeDKqxy/view?usp=sharing">Here</a></p>
+    <p>Visit Portfolio: <a href="https://drive.google.com/file/d/1X_fR6boAKGk2_Z-8O8EyrlMRoGeDKqxy/view?usp=sharing" class="invisible-link">Here</a></p>
 </div>
 
 </body>
