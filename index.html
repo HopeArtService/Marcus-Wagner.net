@@ -7,7 +7,7 @@
 <style>
 /* Body for centering the card */
 body {
-    background-color: #00ffff;
+    background-color: #00ffff; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,9 +18,8 @@ body {
 
 /* The card itself */
 .card {
-    width: 90%; /* flexibel für mobile */
-    max-width: 350px;
-    height: auto; /* Höhe passt sich Text an */
+    width: 350px;
+    height: 200px;
     background: linear-gradient(135deg, #ffcc00, #ff6600);
     border: 3px solid #0000ff;
     box-shadow: 5px 5px 0 #ff00ff;
@@ -33,24 +32,23 @@ body {
 
 /* Name and title */
 .card h1 {
-    font-size: 6vw; /* passt sich Bildschirmbreite an */
+    font-size: 24px;
     margin: 0;
     color: #000080;
     text-shadow: 1px 1px #fff;
 }
 
 .card h2 {
-    font-size: 4vw;
+    font-size: 16px;
     margin: 5px 0 15px;
     color: #ff0000;
 }
 
 /* Contact info */
 .card p {
-    font-size: 3.5vw;
+    font-size: 14px;
     margin: 2px 0;
     line-height: 1.2;
-    word-wrap: break-word;
 }
 
 /* Decorative 90s box */
@@ -83,8 +81,8 @@ body {
     z-index: 1;
     opacity: 0;
     transition: opacity 0.35s ease;
-    max-width: 30vw; /* Bilder auf mobile kleiner */
-    max-height: 30vh;
+    max-width: 200px; /* verhindert zu große Bilder auf Handy */
+    max-height: 200px;
 }
 </style>
 </head>
@@ -110,23 +108,21 @@ const images = [
     "src/Scan 10.jpg",
     "src/maske.jpg",
     "src/scan_6.jpg",
-    "src/Scan 3.jpg",
-    "src/20251006MarcusWagner4709.jpg",
-    "src/20251006MarcusWagner4717.jpg"
+    "src/Scan 3.jpg"
 ];
 
 const img = document.getElementById("blinkImage");
 const card = document.querySelector(".card");
-const margin = 10; // kleinerer Abstand auf Handy
-const displayTime = 1300;
-const intervalTime = 2000;
+const margin = 20; 
+const displayTime = 1300; 
+const intervalTime = 2000; 
 
 function showImage() {
     const randomImage = images[Math.floor(Math.random() * images.length)];
     img.src = randomImage;
 
-    // zufällige Größe, aber begrenzt für mobile
-    const size = Math.min(Math.random() * 150 + 50, window.innerWidth * 0.3);
+    // zufällige Größe, max. 200px, damit es auf Handy passt
+    const size = Math.min(Math.random() * 200 + 50, 200);
 
     const rect = card.getBoundingClientRect();
     let x, y;
@@ -152,7 +148,7 @@ function showImage() {
     }, displayTime);
 }
 
-// Fester Zyklus
+// fixer Zyklus, gleiche 2 Sekunden Takt
 setInterval(showImage, intervalTime);
 </script>
 
