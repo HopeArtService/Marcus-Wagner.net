@@ -1,150 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marcus Wagner - Businesscard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Marcus Wagner</title>
+
 <style>
 body {
-    background-color: #00ffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: "Courier New", monospace;
+    font-family: "Times New Roman", serif;
+    background-color: white;
+    font-size: 16px;
+    color: red;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
-.card {
-    width: 350px;
-    height: 200px;
-    background: linear-gradient(135deg, #ffcc00, #ff6600);
-    border: 3px solid #0000ff;
-    box-shadow: 5px 5px 0 #ff00ff;
+/* Header: Titel links, Button rechts */
+header {
+    text-align: left;
     padding: 20px;
-    color: #000;
     position: relative;
 }
 
-.card h1 { font-size: 24px; margin: 0; color: #000080; text-shadow: 1px 1px #fff; }
-.card h2 { font-size: 16px; margin: 5px 0 15px; color: #ff0000; }
-.card p { font-size: 14px; margin: 2px 0; }
-
-.card::after {
-    content: "";
+/* Deutsch/Englisch Toggle-Button rechts oben */
+#lang-toggle {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
-    width: 50px;
-    height: 50px;
-    border: 3px dashed #00ff00;
-    transform: rotate(15deg);
+    top: 20px;
+    right: 20px;
+    padding: 5px 10px;
+    border: 1px solid red;
+    background: white;
+    color: red;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
 }
 
-.invisible-link { color: inherit; text-decoration: none; cursor: pointer; }
-.invisible-link:hover { text-decoration: underline; }
+/* Bilder kleiner und zentriert */
+img:not(.portfolio-img) {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
 
-.blink-img {
-    position: absolute;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.3s;
+/* Portfolio-Bild groß, zentriert und klickbar */
+.portfolio-img {
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    transition: 0.3s;
+}
+
+.portfolio-img:hover {
+    opacity: 0.85;
+    cursor: pointer;
+}
+
+/* Links untereinander */
+a {
+    display: block;
+    margin: 10px 0;
+    color: red;
+    text-decoration: none;
+}
+
+/* Standardmäßig Englisch ausblenden */
+.lang-en {
+    display: none;
 }
 </style>
 </head>
+
 <body>
 
-<div class="card">
-    <h1>Marcus Wagner</h1>
-    <h2>Artist</h2>
-    <p>Email: marcuswagnerinfo@gmail.com</p>
-    <p>Phone: +43 @marcuswagner.xd</p>
-    <p>Website: www.marcus-wagner.net</p>
-    <p><a href="cv.html" class="invisible-link">Bio</a></p>
+<header>
+<h1>Marcus Wagner</h1>
+<button id="lang-toggle">EN</button>
+</header>
+
+<main>
+
+<!-- Deutsch -->
+<div class="lang lang-de">
+<p>*1996 Wien, lebt in Wien und Klosterneuburg</p>
+<p>Seit 2017 - Malerei und Animationsfilm Judith Eisler, Universität für Angewandte Kunst Wien</p>
+<p>2024 - Fine Art, University of Newcastle, UK</p>
+<p>2024/2025 - Klasse Maximiliane Baumgartner, Kunstakademie Düsseldorf, DE</p>
+<p>Aktuell - Klasse Skulptur und Raum Hans Schabus, Universität für Angewandte Kunst Wien</p>
+
+<a href="https://www.hopeartservice.vip">Projekte: H0pe Art Service</a>
+<p></p>
+<!-- Portfolio-Bild groß und klickbar -->
+<a href="https://drive.google.com/file/d/1X_fR6boAKGk2_Z-8O8EyrlMRoGeDKqxy/view?usp=sharing" target="_blank">
+  Portfolio &darr;
+  <img src="src/portfolio.jpg" alt="Portfolio" class="portfolio-img">
+</a>
+
+<img src="src/marcuswagner.JPG" alt="Print">
+<p>&copy; Lilith Ona</p>
 </div>
-  
-<img id="blinkImage" class="blink-img">
+
+<!-- Englisch -->
+<div class="lang lang-en">
+<p>*1996 Vienna, lives in Vienna and Klosterneuburg</p>
+<p>Since 2017 - Painting and Animation Film Judith Eisler, University of Applied Arts Vienna, AT</p>
+<p>2024 - Fine Art, University of Newcastle, UK</p>
+<p>2024/2025 - Class Maximiliane Baumgartner, Academy of Fine Arts Düsseldorf, DE </p>
+<p>Currently - Department Sculpture and Space Hans Schabus, University of Applied Arts Vienna, AT</p>
+
+<a href="https://www.hopeartservice.vip">Projects: H0pe Art Service</a>
+
+<!-- Portfolio-Bild groß und klickbar -->
+<a href="https://drive.google.com/file/d/1X_fR6boAKGk2_Z-8O8EyrlMRoGeDKqxy/view?usp=sharing" target="_blank">
+  Portfolio
+  <img src="src/portfolio.jpg" alt="Portfolio" class="portfolio-img">
+</a>
+
+
+</body>
+</html>    
+<img src="src/marcuswagner.JPG" alt="Print">
+<p>&copy; Lilith Ona</p>
+</div>
+
+</main>
+
+<footer>
+<a href="mailto:marcuswagnerinfo@gmail.com">marcuswagnerinfo@gmail.com</a>
+<p>&copy; 2026 Marcus Wagner</p>    
+</footer>
 
 <script>
-const images = [
-    "src/Scan 5.jpg",
-    "src/Scan 10.jpg",
-    "src/maske.jpg",
-    "src/scan_6.jpg",
-    "src/Scan 3.jpg",
-    "src/20251006MarcusWagner4709.jpg",
-    "src/20251006MarcusWagner4717.jpg"
-];
-
-const img = document.getElementById("blinkImage");
-const card = document.querySelector(".card");
-const margin = 20;
-const displayTime = 1500;
-const intervalTime = 2200;
-
-// Shuffle Funktion
-function shuffleArray(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
+// Deutsch/Englisch Toggle
+const btn = document.getElementById('lang-toggle');
+btn.addEventListener('click', () => {
+    const de = document.querySelector('.lang-de');
+    const en = document.querySelector('.lang-en');
+    
+    if (de.style.display !== 'none') {
+        de.style.display = 'none';
+        en.style.display = 'block';
+        btn.textContent = 'DE';
+    } else {
+        de.style.display = 'block';
+        en.style.display = 'none';
+        btn.textContent = 'EN';
     }
-}
-
-// Position prüfen, dass kein Überlappen mit Karte
-function getRandomPosition(size) {
-    const rect = card.getBoundingClientRect();
-    let x, y;
-    do {
-        x = Math.random() * (window.innerWidth - size);
-        y = Math.random() * (window.innerHeight - size);
-    } while (
-        x + size > rect.left - margin &&
-        x < rect.right + margin &&
-        y + size > rect.top - margin &&
-        y < rect.bottom + margin
-    );
-    return {x, y};
-}
-
-// Bilder in Shuffle-Reihenfolge anzeigen
-let imageQueue = [...images];
-shuffleArray(imageQueue);
-let lastImage = null;
-
-function showNextImage() {
-    if (imageQueue.length === 0) {
-        imageQueue = [...images];
-        shuffleArray(imageQueue);
-    }
-
-    let nextImage = imageQueue.shift();
-
-    // Sicherstellen, dass es nicht das gleiche wie vorher ist
-    if (nextImage === lastImage && imageQueue.length > 0) {
-        imageQueue.push(nextImage);
-        nextImage = imageQueue.shift();
-    }
-    lastImage = nextImage;
-
-    img.src = nextImage;
-    const size = Math.random() * 150 + 100;
-    const pos = getRandomPosition(size);
-
-    img.style.width = size + "px";
-    img.style.left = pos.x + "px";
-    img.style.top = pos.y + "px";
-
-    img.style.opacity = 1;
-
-    setTimeout(() => {
-        img.style.opacity = 0;
-    }, displayTime);
-}
-
-// Start Intervall
-showNextImage();
-setInterval(showNextImage, intervalTime);
-
+});
 </script>
 
 </body>
