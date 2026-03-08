@@ -2,22 +2,29 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Marcus Wagner Galerie</title>
+<title>Marcus Wagner</title>
 
 <style>
+
 body{
     font-family: "Times New Roman", serif;
     background-color: white;
+    font-size: 16px;
     color: red;
     margin: 0;
     text-align: center;
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/320px-PNG_transparency_demonstration_1.png");
-    background-size: cover;
+    background-image: url("src/METEORID.jpg");
+    background-size: 800px;
     background-position: center;
     background-repeat: no-repeat; 
 }
 
-/* Alte Inhalte in Box */
+/* Header */
+header{
+    padding: 20px;
+}
+
+/* Box für Texte und Links */
 .content-box{
     background-color: white;
     display: inline-block;
@@ -29,72 +36,23 @@ body{
     margin: 20px auto;
 }
 
-/* Navigation Links untereinander */
+/* Navigation Links */
 nav a{
-    display: block;
-    margin: 10px 0;
+    display: inline-block;
+    margin: 0 10px;
     color: red;
     text-decoration: none;
 }
 
-/* Bilder im alten Inhalt */
-.content-box img{
-    max-width: 100%;
-    height: auto;
-    margin: 10px 0;
-}
-
-/* Galerie */
-.gallery{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px;
+/* Hauptbereich */
+main{
     padding: 20px;
 }
 
-/* Kleine Vorschaubilder */
-.gallery img{
-    width: 80px;
-    height: 60px;
-    object-fit: cover;
-    cursor: pointer;
-    border-radius: 3px;
-    transition: transform 0.2s;
-}
-
-.gallery img:hover{
-    transform: scale(1.2);
-}
-
-/* Lightbox (vergrößertes Bild) */
-.lightbox{
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.lightbox img{
-    max-width: 90%;
-    max-height: 90%;
-    border: 5px solid white;
-    border-radius: 10px;
-}
-
-.close-btn{
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
-    color: white;
-    cursor: pointer;
+/* Bild */
+img{
+    max-width: 100%;
+    height: auto;
 }
 
 /* Footer */
@@ -102,6 +60,7 @@ footer{
     margin-top: 40px;
     padding: 20px;
 }
+
 </style>
 </head>
 
@@ -113,101 +72,20 @@ footer{
 
 <main>
 
-<!-- Alte Inhalte in weißer Box -->
 <div class="content-box">
-
-<p>Official Website</p>
-<p>News</p>
-<p>Enjoy yourself</p>
-
-<img src="https://via.placeholder.com/300x200?text=Hauptbild" alt="Hauptbild">
 
 <nav>
 <a href="info.html">Info</a>
 <a href="https://drive.google.com/file/d/1X_fR6boAKGk2_Z-8O8EyrlMRoGeDKqxy/view?usp=sharing">Portfolio Deutsch</a>
-<a href="https://www.hopeartservice.vip">H0pe Art Service</a>
 </nav>
 
-<p>CV</p>
-<p>*1996 Wien, lebt in Wien und Klosterneuburg</p>
-<p>Seit 2017 - Malerei und Animationsfilm Judith Eisler, Universität für Angewandte Kunst Wien</p>
-<p>2024 - University of Newcastle, UK</p>
-<p>2024/2025 - Klasse Maximiliane Baumgartner, Kunstakademie Düsseldorf</p>
-<p>2025 - Klasse Skulptur und Raum Hans Schabus, Universität für Angewandte Kunst Wien</p>
-
 </div>
-
-<!-- Galerie mit vielen kleinen Bildern -->
-<div class="gallery">
-    <!-- Beispiel 32 Bilder -->
-    <img src="https://via.placeholder.com/150x100?text=1" alt="Bild 1">
-    <img src="https://via.placeholder.com/150x100?text=2" alt="Bild 2">
-    <img src="https://via.placeholder.com/150x100?text=3" alt="Bild 3">
-    <img src="https://via.placeholder.com/150x100?text=4" alt="Bild 4">
-    <img src="https://via.placeholder.com/150x100?text=5" alt="Bild 5">
-    <img src="https://via.placeholder.com/150x100?text=6" alt="Bild 6">
-    <img src="https://via.placeholder.com/150x100?text=7" alt="Bild 7">
-    <img src="https://via.placeholder.com/150x100?text=8" alt="Bild 8">
-    <img src="https://via.placeholder.com/150x100?text=9" alt="Bild 9">
-    <img src="https://via.placeholder.com/150x100?text=10" alt="Bild 10">
-    <img src="https://via.placeholder.com/150x100?text=11" alt="Bild 11">
-    <img src="https://via.placeholder.com/150x100?text=12" alt="Bild 12">
-    <img src="https://via.placeholder.com/150x100?text=13" alt="Bild 13">
-    <img src="https://via.placeholder.com/150x100?text=14" alt="Bild 14">
-    <img src="https://via.placeholder.com/150x100?text=15" alt="Bild 15">
-    <img src="https://via.placeholder.com/150x100?text=16" alt="Bild 16">
-    <img src="https://via.placeholder.com/150x100?text=17" alt="Bild 17">
-    <img src="https://via.placeholder.com/150x100?text=18" alt="Bild 18">
-    <img src="https://via.placeholder.com/150x100?text=19" alt="Bild 19">
-    <img src="https://via.placeholder.com/150x100?text=20" alt="Bild 20">
-    <img src="https://via.placeholder.com/150x100?text=21" alt="Bild 21">
-    <img src="https://via.placeholder.com/150x100?text=22" alt="Bild 22">
-    <img src="https://via.placeholder.com/150x100?text=23" alt="Bild 23">
-    <img src="https://via.placeholder.com/150x100?text=24" alt="Bild 24">
-    <img src="https://via.placeholder.com/150x100?text=25" alt="Bild 25">
-    <img src="https://via.placeholder.com/150x100?text=26" alt="Bild 26">
-    <img src="https://via.placeholder.com/150x100?text=27" alt="Bild 27">
-    <img src="https://via.placeholder.com/150x100?text=28" alt="Bild 28">
-    <img src="https://via.placeholder.com/150x100?text=29" alt="Bild 29">
-    <img src="https://via.placeholder.com/150x100?text=30" alt="Bild 30">
-    <img src="https://via.placeholder.com/150x100?text=31" alt="Bild 31">
-    <img src="https://via.placeholder.com/150x100?text=32" alt="Bild 32">
-</div>
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-    <span class="close-btn" id="closeBtn">&times;</span>
-    <img id="lightboxImg" src="">
-</div>
+<img src="https://via.placeholder.com/150x100?text=32" alt="Bild 32">
+</main>
 
 <footer>
 <a href="mailto:marcuswagnerinfo@gmail.com">marcuswagnerinfo@gmail.com</a>
 </footer>
-
-<script>
-// Lightbox-Funktion
-const galleryImages = document.querySelectorAll('.gallery img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightboxImg');
-const closeBtn = document.getElementById('closeBtn');
-
-galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
-        lightbox.style.display = 'flex';
-        lightboxImg.src = img.src;
-    });
-});
-
-closeBtn.addEventListener('click', () => {
-    lightbox.style.display = 'none';
-});
-
-lightbox.addEventListener('click', e => {
-    if(e.target !== lightboxImg && e.target !== closeBtn){
-        lightbox.style.display = 'none';
-    }
-});
-</script>
 
 </body>
 </html>
