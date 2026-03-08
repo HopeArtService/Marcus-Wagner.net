@@ -98,7 +98,7 @@ body {
 
 <img id="blinkImage" class="blink-img">
 
-<script>
+    <script>
 const images = [
     "src/Scan 5.jpg",
     "src/Scan 10.jpg",
@@ -112,18 +112,18 @@ const images = [
 const img = document.getElementById("blinkImage");
 const card = document.querySelector(".card");
 const margin = 20; 
-const displayTime = 2300; // Bild sichtbar für 1,3 Sekunden
-const intervalTime = 4000; // Gesamtzyklus 2 Sekunden
+const displayTime = 3000; // Bild sichtbar für 3 Sekunden
+const intervalTime = 5000; // Abstand zwischen Bildwechseln (5 Sekunden)
 
 function showImage() {
     // Zufälliges Bild auswählen
     const randomImage = images[Math.floor(Math.random() * images.length)];
     img.src = randomImage;
 
-    // Zufällige Größe
-    const size = Math.random() * 160 + 80;
+    // Zufällige Größe (optional einheitlicher)
+    const size = Math.random() * 150 + 100;
 
-    // Position random, aber nicht über der Karte
+    // Position zufällig, aber nicht über der Karte
     const rect = card.getBoundingClientRect();
     let x, y;
 
@@ -147,15 +147,12 @@ function showImage() {
     // Nach displayTime ausblenden
     setTimeout(() => {
         img.style.opacity = 0;
-        // Warte restliche Zeit bis zum nächsten Zyklus
-        setTimeout(showImage, intervalTime - displayTime);
     }, displayTime);
 }
 
-// Start initial
-showImage();
-</script> 
+// Start Intervall: garantiert kein Überlappen
+setInterval(showImage, intervalTime);
     
-
+    </script>
 </body>
 </html>
