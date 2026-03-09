@@ -53,13 +53,32 @@ body {
 
 .invisible-link:hover { text-decoration: underline; }
 
+
 .blink-img {
     position: absolute;
     pointer-events: none;
-    z-index: 1;  /* unterhalb der Karte */
+    z-index: 1;
     opacity: 0;
     transition: opacity 0.3s;
+    max-width: 90vw;
+    height: auto;
+}    
+
+@media (max-width: 600px) {
+
+body {
+    padding: 20px;
+    align-items: flex-start;
 }
+
+.card {
+    width: 100%;
+    max-width: 350px;
+    margin-top: 40px;
+}
+
+}
+    
 </style>
 </head>
 <body>
@@ -137,7 +156,8 @@ function showNextImage() {
     lastImage = nextImage;
 
     img.src = nextImage;
-    const size = Math.random() * 150 + 100;
+ const maxSize = Math.min(window.innerWidth * 0.4, 250);
+const size = Math.random() * (maxSize - 100) + 100;
     const pos = getRandomPosition(size);
 
     img.style.width = size + "px";
