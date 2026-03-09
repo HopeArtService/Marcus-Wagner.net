@@ -39,11 +39,9 @@ body {
 }
 
 .card h3 {
-    font-size: 14px;
-    margin: 0;
-    color: #000080;
-    text-shadow: 1px 1px #fff;
-    margin-top: 10px;
+    font-size: 16px;
+    margin: 5px 0 15px;
+    color: #ff0000;
 }
 
 
