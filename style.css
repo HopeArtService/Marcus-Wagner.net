@@ -126,26 +126,6 @@ body {
     height: auto;
 }
 
-.work {
-    text-align: left;      /* Link linksbündig unter dem Bild */
-    margin-bottom: 15px;   /* Abstand zu nächstem Bild */
-}
-
-.work img {
-    display: block;        /* verhindert, dass der Link neben dem Bild erscheint */
-    width: 95%;
-    margin-bottom: 5px;    /* kleiner Abstand zwischen Bild und Link */
-}
-
-.work a {
-    text-decoration: none;
-    color: #0000ff;        /* Linkfarbe anpassen */
-    font-size: 14px;
-}
-
-.work a:hover {
-    text-decoration: underline;
-}
 
 /* ================= MOBILE ================= */
 @media (max-width: 600px) {
