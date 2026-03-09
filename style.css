@@ -38,6 +38,15 @@ body {
     color: #ff0000;
 }
 
+.card h3 {
+    font-size: 14px;
+    margin: 0;
+    color: #000080;
+    text-shadow: 1px 1px #fff;
+    margin-top: 10px;
+}
+
+
 /* Text in card */
 .card p{
     font-size: 14px;
