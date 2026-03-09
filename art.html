@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marcus Wagner – Bio</title>
 
 <style>
-
-/* Body for centering the card */
 body {
     background-color: #00ffff;
     display: flex;
@@ -15,12 +13,12 @@ body {
     align-items: center;
     height: 100vh;
     font-family: "Courier New", monospace;
+    margin:0;
 }
 
-/* The card itself */
 .card {
     width: 350px;
-    height: 200px;
+    max-height: 600px;
     background: linear-gradient(135deg, #ffcc00, #ff6600);
     border: 3px solid #0000ff;
     box-shadow: 5px 5px 0 #ff00ff;
@@ -28,9 +26,9 @@ body {
     color: #000;
     position: relative;
     overflow-y: auto;
+    text-align: center;
 }
 
-/* Name and title */
 .card h1 {
     font-size: 24px;
     margin: 0;
@@ -44,89 +42,96 @@ body {
     color: #ff0000;
 }
 
-/* Text */
-.card p{
+.card p {
     font-size:14px;
-    margin:2px 0;
-    max-width:230px;
+    margin:5px 0;
 }
 
-/* Decorative 90s box */
-.card::after {
-    content: "";
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    width: 50px;
-    height: 50px;
-    border: 3px dashed #00ff00;
-    transform: rotate(15deg);
-}
-
-.card::-webkit-scrollbar {
-    width: 8px;
-}
-
-.card::-webkit-scrollbar-track {
-    background: #ffcc00;
-}
-
-.card::-webkit-scrollbar-thumb {
-    background: #0000ff;
-    border: 1px solid #000;
-}
+/* Scrollbar */
+.card::-webkit-scrollbar { width: 8px; }
+.card::-webkit-scrollbar-track { background: #ffcc00; }
+.card::-webkit-scrollbar-thumb { background: #0000ff; border:1px solid #000; }
 
 .invisible-link {
     color: inherit;
     text-decoration: none;
 }
+.invisible-link:hover { text-decoration: underline; }
 
-.invisible-link:hover {
-    text-decoration: underline;
-}
-.portrait{
-    position:absolute;
-    top:20px;
-    right:20px;
-    width:70px;
-    height:90px;
-    border:3px solid #0000ff;
-    background:#ffffff;
-    padding:3px;
-    box-shadow:2px 2px 0 #ff00ff;
+/* Bilder in voller Breite innerhalb der Karte */
+.card img {
+    width: 95%;
+    margin: 10px 0;
+    border: 3px solid #0000ff;
+    box-shadow: 2px 2px 0 #ff00ff;
+    cursor: pointer;
+    object-fit: cover;
 }
 
-.portrait img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+/* Overlay für vergrößertes Bild */
+#overlay {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    background: rgba(0,0,0,0.8);
+    display:none;
+    justify-content: center;
+    align-items: center;
+    z-index:1000;
+}
+#overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: 0 0 20px #fff;
+    border: 5px solid #fff;
+    border-radius: 5px;
 }
 </style>
 </head>
-
 <body>
 
-
-
-
 <div class="card">
+    <h1>Marcus Wagner</h1>
+    <h2>Art</h2>
 
-<div class="portrait">
-<img src="src/portrait.jpg" alt="Portrait">
+    <!-- Bilder in voller Breite -->
+    <img src="src/portrait.jpg" alt="Portrait">
+    <img src="src/Scan 5.jpg" alt="Artwork 1">
+    <img src="src/Scan 10.jpg" alt="Artwork 2">
+
+    <p>*1996 Wien, lebt in Wien und Klosterneuburg</p>
+    <p>Seit 2017 – Malerei und Animationsfilm, Judith Eisler, Universität für Angewandte Kunst Wien</p>
+    <p>2024 – University of Newcastle, UK</p>
+    <p>2024/2025 – Klasse Maximiliane Baumgartner, Kunstakademie Düsseldorf</p>
+    <p>2025 – Klasse Skulptur und Raum, Hans Schabus, Universität für Angewandte Kunst Wien</p>
+
+    <p><a href="index.html" class="invisible-link">← Back</a></p>
 </div>
 
-<h1>Marcus Wagner</h1>
-<h2>Bio</h2>
-
-<p>*1996 Wien, lebt in Wien und Klosterneuburg</p>
-<p>Seit 2017 – Malerei und Animationsfilm, Judith Eisler, Universität für Angewandte Kunst Wien</p>
-<p>2024 – University of Newcastle, UK</p>
-<p>2024/2025 – Klasse Maximiliane Baumgartner, Kunstakademie Düsseldorf</p>
-<p>2025 – Klasse Skulptur und Raum, Hans Schabus, Universität für Angewandte Kunst Wien</p>
-
-<p><a href="index.html" class="invisible-link">← Back</a></p>
-
+<!-- Overlay für vergrößertes Bild -->
+<div id="overlay">
+    <img src="" alt="Vergrößertes Bild">
 </div>
+
+<script>
+// Klick auf Bilder zeigt Overlay
+const overlay = document.getElementById("overlay");
+const overlayImg = overlay.querySelector("img");
+
+document.querySelectorAll(".card img").forEach(img => {
+    img.addEventListener("click", () => {
+        overlayImg.src = img.src;
+        overlay.style.display = "flex";
+    });
+});
+
+// Klick auf Overlay schließt es
+overlay.addEventListener("click", () => {
+    overlay.style.display = "none";
+});
+</script>
 
 </body>
 </html>
