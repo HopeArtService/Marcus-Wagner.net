@@ -94,12 +94,13 @@ body {
 /* ================= MOBILE ================= */
 @media (max-width: 600px) {
     body {
-        align-items: center; /* Karte fast mittig */
-        padding: 20px;       /* kleine Ränder */
+        align-items: flex-start;   /* Karte etwas höher als Mitte */
+        padding: 40px 15px 20px 15px; /* Oben größer, Seiten kleiner */
     }
 
     .card {
         width: 100%;
-        max-width: 320px;
+        max-width: 320px;  /* Karte passt sich kleinerem Display an */
+        margin-top: 20px;  /* zusätzlicher Abstand vom oberen Rand */
     }
 }
