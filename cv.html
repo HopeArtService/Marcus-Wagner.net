@@ -11,6 +11,7 @@
 
 <div class="card">
 
+    <!-- Portrait mit dekorativem Rahmen -->
     <div class="portrait">
         <img src="src/marcuswagner.JPG" alt="Portrait">
     </div>
@@ -27,6 +28,75 @@
     <p><a href="index.html" class="invisible-link">← Back</a></p>
 
 </div>
+
+<!-- Blinkendes Hintergrundbild -->
+<img id="blinkImage" class="blink-img">
+
+<script>
+// Blinkende Bilder
+const images = [
+    "src/Scan 5.jpg",
+    "src/Scan 10.jpg",
+    "src/maske.jpg",
+    "src/scan_6.jpg",
+    "src/Scan 3.jpg",
+    "src/20251006MarcusWagner4709.jpg",
+    "src/20251006MarcusWagner4717.jpg"
+];
+
+const img = document.getElementById("blinkImage");
+const card = document.querySelector(".card");
+const margin = 40;
+const displayTime = 1400;
+const intervalTime = 2000;
+
+// Shuffle
+function shuffleArray(arr){
+    for(let i = arr.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random()*(i+1));
+        [arr[i],arr[j]] = [arr[j],arr[i]];
+    }
+}
+
+// Vermeide Überlappung mit Karte
+function getRandomPosition(size){
+    const rect = card.getBoundingClientRect();
+    let x,y;
+    do {
+        x = Math.random()*(window.innerWidth - size);
+        y = Math.random()*(window.innerHeight - size);
+    } while(
+        x + size > rect.left - margin &&
+        x < rect.right + margin &&
+        y + size > rect.top - margin &&
+        y < rect.bottom + margin
+    );
+    return {x,y};
+}
+
+let queue = [...images];
+shuffleArray(queue);
+
+function showNext(){
+    if(queue.length === 0){
+        queue = [...images];
+        shuffleArray(queue);
+    }
+    const next = queue.shift();
+    const maxSize = Math.min(window.innerWidth*0.35,220);
+    const size = Math.random()*(maxSize-100)+100;
+    const pos = getRandomPosition(size);
+    img.src = next;
+    img.style.width = size+"px";
+    img.style.left = pos.x+"px";
+    img.style.top = pos.y+"px";
+    img.style.opacity = 1;
+    setTimeout(()=>{ img.style.opacity = 0; }, displayTime);
+}
+
+showNext();
+setInterval(showNext, intervalTime);
+</script>
 
 </body>
 </html>
