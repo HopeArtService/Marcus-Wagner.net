@@ -1,87 +1,105 @@
-
-
-body{
-background:#00ffff;
-display:flex;
-justify-content:center;
-align-items:flex-start;
-min-height:100vh;
-padding-top:120px;
-font-family:"Courier New",monospace;
-margin:0;
+body {
+    background: #00ffff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Karte oben auf Desktop */
+    min-height: 100vh;
+    padding-top: 120px; /* gleiche Position wie auf Index */
+    font-family: "Courier New", monospace;
+    margin: 0;
+    overflow-x: hidden; /* verhindert horizontale Scrollbar */
 }
 
-.card{
-width:350px;
-height:200px;
-background:linear-gradient(135deg,#ffcc00,#ff6600);
-border:3px solid #0000ff;
-box-shadow:5px 5px 0 #ff00ff;
-padding:20px;
-color:#000;
-position:relative;
-z-index:2;
+/* ================= CARD ================= */
+.card {
+    width: 350px;
+    height: 200px;
+    background: linear-gradient(135deg, #ffcc00, #ff6600);
+    border: 3px solid #0000ff;
+    box-shadow: 5px 5px 0 #ff00ff;
+    padding: 20px;
+    color: #000;
+    position: relative;
+    z-index: 2;
+    overflow-y: auto; /* Scrollbar nur innerhalb der Karte */
 }
 
-.card h1{
-font-size:24px;
-margin:0;
-color:#000080;
-text-shadow:1px 1px #fff;
+/* ================= TEXT ================= */
+.card h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #000080;
+    text-shadow: 1px 1px #fff;
 }
 
-.card h2{
-font-size:16px;
-margin:5px 0 15px;
-color:#ff0000;
+.card h2 {
+    font-size: 16px;
+    margin: 5px 0 15px;
+    color: #ff0000;
 }
 
-.info-row{
-display:flex;
-justify-content:space-between;
-font-size:14px;
-margin:3px 0;
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin: 3px 0;
 }
 
-.invisible-link{
-color:inherit;
-text-decoration:none;
+.invisible-link {
+    color: inherit;
+    text-decoration: none;
 }
 
-.invisible-link:hover{
-text-decoration:underline;
+.invisible-link:hover {
+    text-decoration: underline;
 }
 
-.card::after{
-content:"";
-position:absolute;
-bottom:10px;
-right:10px;
-width:50px;
-height:50px;
-border:3px dashed #00ff00;
-transform:rotate(15deg);
+/* ================= CARD DECOR ================= */
+.card::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border: 3px dashed #00ff00;
+    transform: rotate(15deg);
 }
 
-.blink-img{
-position:absolute;
-pointer-events:none;
-z-index:1;
-opacity:0;
-transition:opacity .3s;
-max-width:90vw;
-height:auto;
+/* ================= SCROLLBAR INNER CARD ================= */
+.card::-webkit-scrollbar {
+    width: 8px;
 }
-    
+
+.card::-webkit-scrollbar-track {
+    background: #ffcc00;
+}
+
+.card::-webkit-scrollbar-thumb {
+    background: #0000ff;
+    border: 1px solid #000;
+}
+
+/* ================= BLINK IMAGES ================= */
+.blink-img {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity .3s;
+    max-width: 90vw;
+    height: auto;
+}
+
+/* ================= MOBILE ================= */
 @media (max-width: 600px) {
+    body {
+        align-items: center; /* Karte fast mittig */
+        padding: 20px;       /* kleine Ränder */
+    }
 
-body{
-    align-items:center;
-    padding:20px;
+    .card {
+        width: 100%;
+        max-width: 320px;
+    }
 }
-
-.card{
-    width:100%;
-    max-width:320px;
-}
-
