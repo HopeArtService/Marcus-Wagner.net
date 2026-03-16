@@ -240,6 +240,13 @@ function handleSwipe(){
     }
 
 }
+
+// Klick auf Bild = nächstes Bild
+overlayImg.addEventListener("click",(e)=>{
+    e.stopPropagation(); // verhindert Overlay-Klick
+    nextImage();
+});
+    
 </script>
 
 </body>
