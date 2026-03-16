@@ -178,55 +178,38 @@ body {
 <script>
 const overlay = document.getElementById("overlay");
 const overlayImg = overlay.querySelector("img");
-const counter = document.getElementById("counter");
 
 const images = Array.from(document.querySelectorAll(".card img"));
 
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
-
 let currentIndex = 0;
 
-function updateImage(){
-    overlayImg.src = images[currentIndex].src;
-    counter.textContent = (currentIndex+1) + " / " + images.length;
-}
-
+// Bild anzeigen
 function showImage(index){
     currentIndex = index;
-    updateImage();
+    overlayImg.src = images[currentIndex].src;
     overlay.style.display = "flex";
 }
 
-// Bilder öffnen
+// Klick auf Galerie-Bilder
 images.forEach((img,index)=>{
     img.addEventListener("click",()=>{
         showImage(index);
     });
 });
 
+// nächstes Bild
 function nextImage(){
     currentIndex = (currentIndex+1) % images.length;
-    updateImage();
+    overlayImg.src = images[currentIndex].src;
 }
 
+// vorheriges Bild
 function prevImage(){
-    currentIndex = (currentIndex-1+images.length)%images.length;
-    updateImage();
+    currentIndex = (currentIndex-1+images.length) % images.length;
+    overlayImg.src = images[currentIndex].src;
 }
 
-// Pfeile
-nextBtn.onclick = (e)=>{
-    e.stopPropagation();
-    nextImage();
-};
-
-prevBtn.onclick = (e)=>{
-    e.stopPropagation();
-    prevImage();
-};
-
-// Tastatur
+// Tastatursteuerung
 document.addEventListener("keydown",(e)=>{
     if(overlay.style.display !== "flex") return;
 
@@ -235,13 +218,14 @@ document.addEventListener("keydown",(e)=>{
     if(e.key==="Escape") overlay.style.display="none";
 });
 
-// Klick zum schließen
+// Klick außerhalb schließt
 overlay.addEventListener("click",(e)=>{
-    if(e.target===overlay) overlay.style.display="none";
+    if(e.target===overlay){
+        overlay.style.display="none";
+    }
 });
 
-
-// Swipe Support (Mobile)
+// Swipe (Handy)
 let touchStartX = 0;
 let touchEndX = 0;
 
