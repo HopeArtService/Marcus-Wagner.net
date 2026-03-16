@@ -5,6 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marcus Wagner - Businesscard</title>
 <link rel="stylesheet" href="style.css">
+
+<style>
+.nav {
+    margin-top: 25px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.nav a:hover {
+    text-decoration: none;
+}
+</style>
+
 </head>
     
 <body>
@@ -15,7 +32,7 @@
 
     <div class="info-row">
         <span>Email</span>
-        <a href="mailto:marcuswagnerinfo@gmail.com">marcuswagnerinfo@gmail.com</a>
+        <span>marcuswagnerinfo@gmail.com</span>
     </div>
 
     <div class="info-row">
@@ -25,14 +42,14 @@
 
     <div class="info-row">
         <span>Website</span>
-         <span>www.marcus-wagner.net<span>
+        <span>www.marcus-wagner.net</span>
     </div>
 
-    <div class="info-row">
+    <div class="info-row nav">
         <a href="cv.html">Bio</a>
     </div>
 
-    <div class="info-row">
+    <div class="info-row nav">
         <a href="art.html">Kunst</a>
     </div>
 </div>
@@ -40,6 +57,7 @@
 <img id="blinkImage" class="blink-img">
 
 <script>
+
 const images = [
 "src/bilder_weboptimiert_background/20251006MarcusWagner4709.jpg",
 "src/bilder_weboptimiert_background/20251006MarcusWagner4717.jpg",
@@ -55,7 +73,7 @@ const margin = 40;
 const displayTime = 1400;
 const intervalTime = 2000;
 
-/* PRELOAD IMAGES */
+/* PRELOAD */
 const preloaded = [];
 images.forEach(src=>{
     const i = new Image();
@@ -75,6 +93,7 @@ function shuffleArray(arr){
 function getRandomPosition(size){
     const rect = card.getBoundingClientRect();
     let x,y;
+
     do{
         x = Math.random()*(window.innerWidth - size);
         y = Math.random()*(window.innerHeight - size);
@@ -84,6 +103,7 @@ function getRandomPosition(size){
         y + size > rect.top - margin &&
         y < rect.bottom + margin
     );
+
     return {x,y};
 }
 
@@ -92,24 +112,32 @@ shuffleArray(queue);
 
 /* SHOW IMAGE */
 function showNext(){
+
     if(queue.length === 0){
         queue = [...images];
         shuffleArray(queue);
     }
+
     const next = queue.shift();
+
     const maxSize = Math.min(window.innerWidth*0.35,220);
     const size = Math.random()*(maxSize-100)+100;
+
     const pos = getRandomPosition(size);
+
     img.style.opacity = 0;
+
     setTimeout(()=>{
         img.src = next;
         img.style.width = size+"px";
         img.style.left = pos.x+"px";
         img.style.top = pos.y+"px";
         img.style.opacity = 1;
+
         setTimeout(()=>{
             img.style.opacity = 0;
         },displayTime);
+
     },80);
 }
 
