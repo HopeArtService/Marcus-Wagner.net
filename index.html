@@ -14,8 +14,6 @@ body{
     overflow:hidden;
 }
 
-/* Business Card */
-
 .card{
     position:relative;
     z-index:2;
@@ -43,12 +41,11 @@ h2{
     color:black;
 }
 
-/* Floating Images */
+/* Bild */
 
 .blink-img{
     position:fixed;
     opacity:0;
-    transition:opacity 0.35s ease;
     pointer-events:none;
     z-index:1;
 }
@@ -109,20 +106,20 @@ const margin = 40;
 const displayTime = 1400;
 const intervalTime = 2000;
 
-/* PRELOAD IMAGES */
+/* PRELOAD */
 
-const preloaded = [];
+const loadedImages = [];
 
 images.forEach(src=>{
     const i = new Image();
     i.src = src;
-    preloaded.push(i);
+    loadedImages.push(i);
 });
 
 /* SHUFFLE */
 
 function shuffleArray(arr){
-    for(let i = arr.length-1;i>0;i--){
+    for(let i = arr.length-1; i>0; i--){
         const j = Math.floor(Math.random()*(i+1));
         [arr[i],arr[j]]=[arr[j],arr[i]];
     }
@@ -144,12 +141,10 @@ function getRandomPosition(size){
     }
 
     while(
-
         x + size > rect.left - margin &&
         x < rect.right + margin &&
         y + size > rect.top - margin &&
         y < rect.bottom + margin
-
     );
 
     return {x,y};
@@ -157,8 +152,6 @@ function getRandomPosition(size){
 
 let queue=[...images];
 shuffleArray(queue);
-
-/* SHOW IMAGE */
 
 function showNext(){
 
@@ -174,8 +167,10 @@ function showNext(){
 
     const pos=getRandomPosition(size);
 
+    /* komplett verstecken */
     img.style.opacity=0;
 
+    /* kurz warten damit Browser fertig rendert */
     setTimeout(()=>{
 
         img.src=next;
@@ -190,10 +185,8 @@ function showNext(){
             img.style.opacity=0;
         },displayTime);
 
-    },200);
+    },60);
 }
-
-/* START */
 
 showNext();
 setInterval(showNext,intervalTime);
