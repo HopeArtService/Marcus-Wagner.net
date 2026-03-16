@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marcus Wagner – Kunst</title>
+
+<style>
+body {
+    background-color: #00ffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Courier New", monospace;
+    margin:0;
+}
+
+.card {
+    width: 350px;
+    max-height: 600px;
+    background: linear-gradient(135deg, #ffcc00, #ff6600);
+    border: 3px solid #0000ff;
+    box-shadow: 5px 5px 0 #ff00ff;
+    padding: 20px;
+    color: #000;
+    position: relative;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.card h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #000080;
+    text-shadow: 1px 1px #fff;
+}
+
+.card h2 {
+    font-size: 16px;
+    margin: 5px 0 15px;
+    color: #ff0000;
+}
+
+.card p {
+    font-size:14px;
+    margin:5px 0;
+}
+
+/* Scrollbar */
+.card::-webkit-scrollbar { width: 8px; }
+.card::-webkit-scrollbar-track { background: #ffcc00; }
+.card::-webkit-scrollbar-thumb { background: #0000ff; border:1px solid #000; }
+
+.invisible-link {
+    color: inherit;
+    text-decoration: none;
+}
+.invisible-link:hover { text-decoration: underline; }
+
+/* Bilder in voller Breite innerhalb der Karte */
+.card img {
+    width: 95%;
+    margin: 10px 0;
+    border: 3px solid #0000ff;
+    box-shadow: 2px 2px 0 #ff00ff;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+/* Overlay für vergrößertes Bild */
+#overlay {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    background: rgba(0,0,0,0.8);
+    display:none;
+    justify-content: center;
+    align-items: center;
+    z-index:1000;
+}
+#overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: 0 0 20px #fff;
+    border: 5px solid #fff;
+    border-radius: 5px;
+}
+.work {
+    text-align: left;      /* Link linksbündig unter dem Bild */
+    margin-bottom: 15px;   /* Abstand zu nächstem Bild */
+}
+
+.work img {
+    display: block;        /* verhindert, dass der Link neben dem Bild erscheint */
+    width: 95%;
+    margin-bottom: 5px;    /* kleiner Abstand zwischen Bild und Link */
+}
+
+.work a {
+    text-decoration: none;
+    color: #0000ff;        /* Linkfarbe anpassen */
+    font-size: 14px;
+}
+
+.work a:hover {
+    text-decoration: underline;
+}
+    
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Painting Compilation</h1>
+    <h2>2026, University of Applied Arts Vienna</h2>
+
+    <!-- Bilder in voller Breite -->
+    <img src="src/painting_compilation/fleck.jpg" alt="Artwork 1">
+    <img src="src/painting_compilation/spagetti.jpg">
+    <img src="src/painting_compilation/install1.jpg">
+     <img src="src/painting_compilation/install2.jpg">
+    <p></p>
+
+    <p><a href="index.html" class="invisible-link">← Back</a></p>
+</div>
+
+<!-- Overlay für vergrößertes Bild -->
+<div id="overlay">
+    <img src="" alt="Vergrößertes Bild">
+</div>
+
+<script>
+// Klick auf Bilder zeigt Overlay
+const overlay = document.getElementById("overlay");
+const overlayImg = overlay.querySelector("img");
+
+document.querySelectorAll(".card img").forEach(img => {
+    img.addEventListener("click", () => {
+        overlayImg.src = img.src;
+        overlay.style.display = "flex";
+    });
+});
+
+// Klick auf Overlay schließt es
+overlay.addEventListener("click", () => {
+    overlay.style.display = "none";
+});
+</script>
+
+</body>
+</html>
