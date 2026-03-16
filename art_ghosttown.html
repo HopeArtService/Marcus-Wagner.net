@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marcus Wagner – Kunst</title>
+<title>HopeTown</title>
 
 <style>
 body {
@@ -16,6 +16,8 @@ body {
     margin:0;
 }
 
+  
+    
 .card {
     width: 350px;
     max-height: 600px;
@@ -75,19 +77,34 @@ body {
     left:0;
     width:100vw;
     height:100vh;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.9);
     display:none;
     justify-content: center;
     align-items: center;
     z-index:1000;
 }
+
 #overlay img {
     max-width: 90%;
     max-height: 90%;
     box-shadow: 0 0 20px #fff;
     border: 5px solid #fff;
-    border-radius: 5px;
 }
+
+.nav {
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:50px;
+    color:white;
+    cursor:pointer;
+    user-select:none;
+    padding:20px;
+}
+
+.prev { left:20px; }
+.next { right:20px; }
+
 .work {
     text-align: left;      /* Link linksbündig unter dem Bild */
     margin-bottom: 15px;   /* Abstand zu nächstem Bild */
@@ -114,40 +131,122 @@ body {
 <body>
 
 <div class="card">
-    <h1>Painting Compilation</h1>
-    <h2>2026, University of Applied Arts Vienna</h2>
+    <h1>Ghost City - Hope Town</h1>
+    <h2>Installation, University of Applied Arts Vienna, 2026</h2>
 
     <!-- Bilder in voller Breite -->
-    <img src="src/painting_compilation/fleck.jpg" alt="Artwork 1">
-    <img src="src/painting_compilation/spagetti.jpg">
-    <img src="src/painting_compilation/install1.jpg">
-     <img src="src/painting_compilation/install2.jpg">
+    <img src="src/leibesuebungen/painting.jpg" alt="Artwork 1">
+     <img src="src/leibesuebungen/install11.jpg" alt="Artwork 1">
+    <img src="src/leibesuebungen/install2.jpg">
+     <img src="src/leibesuebungen/install1.jpg" alt="Artwork 1">
+    <img src="src/leibesuebungen/install3.jpg">
+    <img src="src/leibesuebungen/install5.jpg" alt="Artwork 1">
+    <img src="src/leibesuebungen/install6.jpg">
+     <img src="src/leibesuebungen/pinnwand.jpg" alt="Artwork 1">
+    <img src="src/leibesuebungen/install9.jpg" alt="Artwork 1">
+    <img src="src/leibesuebungen/wallpainting.jpg" alt="Artwork 1">
+     <img src="src/leibesuebungen/install7.jpg" alt="Artwork 1">
+    <img src="src/leibesuebungen/deathmask.jpg" alt="Artwork 1">
+    <img src="src/leibesuebungen/install8.jpg" alt="Artwork 1">
+    <img src="src/leibesuebungen/mirror.jpg" alt="Artwork 1">
+    <img src="src/leibesuebungen/sketch.jpg" alt="Artwork 1">
+    <img src="src/leibesuebungen/sun_close.jpg" alt="Artwork 1">
+    <img src="src/leibesuebungen/video1.jpg" alt="Artwork 1">
+     <img src="src/leibesuebungen/screenshot2.jpg" alt="Artwork 1">
+    <img src="src/leibesuebungen/foto.jpg" alt="Artwork 1">
+  
     <p></p>
 
-    <p><a href="index.html" class="invisible-link">← Back</a></p>
+    <p><a href="art.html" class="invisible-link">← Back</a></p>
 </div>
 
 <!-- Overlay für vergrößertes Bild -->
 <div id="overlay">
     <img src="" alt="Vergrößertes Bild">
+
 </div>
 
 <script>
-// Klick auf Bilder zeigt Overlay
 const overlay = document.getElementById("overlay");
 const overlayImg = overlay.querySelector("img");
 
-document.querySelectorAll(".card img").forEach(img => {
-    img.addEventListener("click", () => {
-        overlayImg.src = img.src;
-        overlay.style.display = "flex";
+const images = Array.from(document.querySelectorAll(".card img"));
+
+let currentIndex = 0;
+
+// Bild anzeigen
+function showImage(index){
+    currentIndex = index;
+    overlayImg.src = images[currentIndex].src;
+    overlay.style.display = "flex";
+}
+
+// Klick auf Galerie-Bilder
+images.forEach((img,index)=>{
+    img.addEventListener("click",()=>{
+        showImage(index);
     });
 });
 
-// Klick auf Overlay schließt es
-overlay.addEventListener("click", () => {
-    overlay.style.display = "none";
+// nächstes Bild
+function nextImage(){
+    currentIndex = (currentIndex+1) % images.length;
+    overlayImg.src = images[currentIndex].src;
+}
+
+// vorheriges Bild
+function prevImage(){
+    currentIndex = (currentIndex-1+images.length) % images.length;
+    overlayImg.src = images[currentIndex].src;
+}
+
+// Tastatursteuerung
+document.addEventListener("keydown",(e)=>{
+    if(overlay.style.display !== "flex") return;
+
+    if(e.key==="ArrowRight") nextImage();
+    if(e.key==="ArrowLeft") prevImage();
+    if(e.key==="Escape") overlay.style.display="none";
 });
+
+// Klick außerhalb schließt
+overlay.addEventListener("click",(e)=>{
+    if(e.target===overlay){
+        overlay.style.display="none";
+    }
+});
+
+// Swipe (Handy)
+let touchStartX = 0;
+let touchEndX = 0;
+
+overlay.addEventListener("touchstart",(e)=>{
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+overlay.addEventListener("touchend",(e)=>{
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe(){
+
+    if(touchEndX < touchStartX - 50){
+        nextImage();
+    }
+
+    if(touchEndX > touchStartX + 50){
+        prevImage();
+    }
+
+}
+
+// Klick auf Bild = nächstes Bild
+overlayImg.addEventListener("click",(e)=>{
+    e.stopPropagation(); // verhindert Overlay-Klick
+    nextImage();
+});
+    
 </script>
 
 </body>
