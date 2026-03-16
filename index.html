@@ -10,16 +10,15 @@
 <body>
 
 <div class="card">
-    <h1>Marcus Wagner</h1>
-    <h2>Artist</h2>
 
-    <div class="info-row">
-        <span>marcuswagnerinfo@gmail.com</span>
-        <span>+43 ...</span>
-        <span>www.marcus-wagner.net</span>
-        <a href="cv.html">Bio</a>
-        <a href="art.html">Kunst</a>
-    </div>
+<h1>Marcus Wagner</h1>
+<h2>Artist</h2>
+
+<div class="info-row">
+<span>marcuswagnerinfo@gmail.com</span>
+<a href="cv.html">Bio</a>
+<a href="art.html">Kunst</a>
+</div>
 
 </div>
   
@@ -45,35 +44,41 @@ const intervalTime = 2000;
 /* PRELOAD */
 const preloaded = [];
 images.forEach(src=>{
-    const i = new Image();
-    i.src = src;
-    preloaded.push(i);
+const i = new Image();
+i.src = src;
+preloaded.push(i);
 });
 
 /* SHUFFLE */
 function shuffleArray(arr){
-    for(let i = arr.length - 1; i > 0; i--){
-        const j = Math.floor(Math.random()*(i+1));
-        [arr[i],arr[j]] = [arr[j],arr[i]];
-    }
+for(let i = arr.length - 1; i > 0; i--){
+const j = Math.floor(Math.random()*(i+1));
+[arr[i],arr[j]] = [arr[j],arr[i]];
+}
 }
 
 /* POSITION */
 function getRandomPosition(size){
-    const rect = card.getBoundingClientRect();
-    let x,y;
 
-    do{
-        x = Math.random()*(window.innerWidth - size);
-        y = Math.random()*(window.innerHeight - size);
-    } while(
-        x + size > rect.left - margin &&
-        x < rect.right + margin &&
-        y + size > rect.top - margin &&
-        y < rect.bottom + margin
-    );
+const rect = card.getBoundingClientRect();
+let x,y;
 
-    return {x,y};
+do{
+
+x = Math.random()*(window.innerWidth - size);
+y = Math.random()*(window.innerHeight - size);
+
+}while(
+
+x + size > rect.left - margin &&
+x < rect.right + margin &&
+y + size > rect.top - margin &&
+y < rect.bottom + margin
+
+);
+
+return {x,y};
+
 }
 
 let queue = [...images];
@@ -82,32 +87,34 @@ shuffleArray(queue);
 /* SHOW IMAGE */
 function showNext(){
 
-    if(queue.length === 0){
-        queue = [...images];
-        shuffleArray(queue);
-    }
+if(queue.length === 0){
+queue = [...images];
+shuffleArray(queue);
+}
 
-    const next = queue.shift();
+const next = queue.shift();
 
-    const maxSize = Math.min(window.innerWidth*0.35,220);
-    const size = Math.random()*(maxSize-100)+100;
+const maxSize = Math.min(window.innerWidth*0.35,220);
+const size = Math.random()*(maxSize-100)+100;
 
-    const pos = getRandomPosition(size);
+const pos = getRandomPosition(size);
 
-    img.style.opacity = 0;
+img.style.opacity = 0;
 
-    setTimeout(()=>{
-        img.src = next;
-        img.style.width = size+"px";
-        img.style.left = pos.x+"px";
-        img.style.top = pos.y+"px";
-        img.style.opacity = 1;
+setTimeout(()=>{
 
-        setTimeout(()=>{
-            img.style.opacity = 0;
-        },displayTime);
+img.src = next;
+img.style.width = size+"px";
+img.style.left = pos.x+"px";
+img.style.top = pos.y+"px";
+img.style.opacity = 1;
 
-    },80);
+setTimeout(()=>{
+img.style.opacity = 0;
+},displayTime);
+
+},80);
+
 }
 
 showNext();
