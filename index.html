@@ -5,86 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marcus Wagner - Businesscard</title>
 <link rel="stylesheet" href="style.css">
-<style>
-/* BODY unverändert */
-body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:white;
-    height:100vh;
-    overflow:hidden;
-}
-
-/* CARD unverändert */
-.card{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    background:white;
-    padding:28px 32px;
-    box-shadow:0 4px 25px rgba(0,0,0,0.08);
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    z-index:2;
-}
-
-/* NAME */
-h1{
-    margin:0;
-    font-size:24px;
-    font-weight:600;
-}
-h2{
-    margin:0 0 10px 0;
-    font-size:14px;
-    font-weight:400;
-    color:#666;
-}
-
-/* INFO ROWS */
-.info-row{
-    display:flex;
-    justify-content:space-between;
-    font-size:14px;
-    gap:30px;
-}
-.info-row span:first-child{
-    color:#888;
-}
-
-/* LINKS */
-a{
-    color:inherit;
-    text-decoration:none;
-}
-a:hover{
-    text-decoration:underline;
-}
-
-/* NAV LINKS für Bio/Kunst */
-.nav-links{
-    display:flex;
-    gap:20px;
-    font-weight:500;
-    margin-top:5px;
-}
-
-/* BLINK IMAGES */
-.blink-img{
-    position:absolute;
-    pointer-events:none;
-    opacity:0;
-    transition:opacity 0.2s ease;
-    z-index:1;
-}
-</style>
 </head>
+    
 <body>
 
 <div class="card">
-
     <h1>Marcus Wagner</h1>
     <h2>Artist</h2>
 
@@ -103,13 +28,15 @@ a:hover{
         <a href="https://www.marcus-wagner.net">www.marcus-wagner.net</a>
     </div>
 
-    <div class="nav-links">
+    <div class="info-row">
         <a href="cv.html">Bio</a>
-        <a href="art.html">Kunst</a>
     </div>
 
+    <div class="info-row">
+        <a href="art.html">Kunst</a>
+    </div>
 </div>
-
+  
 <img id="blinkImage" class="blink-img">
 
 <script>
@@ -128,7 +55,7 @@ const margin = 40;
 const displayTime = 1400;
 const intervalTime = 2000;
 
-/* PRELOAD */
+/* PRELOAD IMAGES */
 const preloaded = [];
 images.forEach(src=>{
     const i = new Image();
@@ -188,6 +115,7 @@ function showNext(){
 
 showNext();
 setInterval(showNext,intervalTime);
+
 </script>
 
 </body>
