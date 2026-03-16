@@ -58,10 +58,32 @@ body {
 }
 .invisible-link:hover { text-decoration: underline; }
 
+/* Work-Container für Link + Bild */
+.work {
+    text-align: center;       /* Link zentriert über Bild */
+    margin-bottom: 30px;      /* mehr Abstand zwischen Einheiten */
+}
+
+.work img {
+    display: block;           /* Link über Bild */
+    width: 95%;
+    margin-top: 5px;
+}
+
+.work a {
+    text-decoration: underline;  /* Links wieder unterstrichen */
+    color: #0000ff;
+    font-size: 14px;            /* gleiche Größe wie am Anfang */
+    display: block;
+    margin-bottom: 5px;
+}
+    
+.work a:hover {
+    text-decoration: underline;
+}
+
 /* Bilder in voller Breite innerhalb der Karte */
 .card img {
-    width: 95%;
-    margin: 10px 0;
     border: 3px solid #0000ff;
     box-shadow: 2px 2px 0 #ff00ff;
     cursor: pointer;
@@ -88,28 +110,6 @@ body {
     border: 5px solid #fff;
     border-radius: 5px;
 }
-
-/* Work-Container für Link + Bild */
-.work {
-    text-align: center;     /* Link über dem Bild zentriert */
-    margin-bottom: 30px;    /* mehr Abstand zur nächsten Einheit */
-}
-
-.work img {
-    display: block;
-    width: 95%;
-    margin-top: 5px;        /* kleiner Abstand zwischen Link und Bild */
-}
-
-.work a {
-    text-decoration: none;
-    color: #0000ff;
-    font-size: 14px;
-}
-
-.work a:hover {
-    text-decoration: underline;
-}
 </style>
 </head>
 <body>
@@ -118,6 +118,7 @@ body {
     <h1>Marcus Wagner</h1>
     <h2>Art</h2>
 
+    <!-- Link + Bild Einheiten -->
     <img src="src/Scan 5.jpg" alt="Artwork 1">
     <img src="src/Scan 10.jpg" alt="Artwork 1">
 
