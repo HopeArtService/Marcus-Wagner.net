@@ -3,116 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marcus Wagner - Businesscard</title>
-<link rel="stylesheet" href="style.css">
+<title>Marcus Wagner</title>
 </head>
-    
 <body>
 
-<div class="card">
-    <h1>Marcus Wagner</h1>
-    <h2>Artist</h2>
-
-    <div class="info-row">
-        <span>Email</span>
-        <a href="mailto:marcuswagnerinfo@gmail.com">marcuswagnerinfo@gmail.com</a>
-    </div>
-
-
-    <div class="info-row">
-        <span>Website</span>
-        <span>www.marcus-wagner.net</span>
-     </div>
-
-    <div class="info-row">
-        <a href="cv.html">Bio</a>
-    </div>
-
-    <div class="info-row">
-        <a href="art.html">Art</a>
-    </div>
+<div style="text-align: center; margin-top: 50vh; transform: translateY(-50%);">
+  <!-- Link to open PDF -->
+ <iframe src="your-document.pdf" width="100%" height="100%" style="border:none;"></iframe>
+  <br><br>
+  <!-- Email link -->
+  <a href="mailto:example@example.com">Send Email</a>
 </div>
-  
-<img id="blinkImage" class="blink-img">
-
-<script>
-const images = [
-"src/bilder_weboptimiert_background/20251006MarcusWagner4709.jpg",
-"src/bilder_weboptimiert_background/20251006MarcusWagner4717.jpg",
-"src/bilder_weboptimiert_background/Scan-10.jpg",
-"src/bilder_weboptimiert_background/Scan-3.jpg",
-"src/bilder_weboptimiert_background/maske.jpg"
-];
-
-const img = document.getElementById("blinkImage");
-const card = document.querySelector(".card");
-
-const margin = 40;
-const displayTime = 1400;
-const intervalTime = 2000;
-
-/* PRELOAD IMAGES */
-const preloaded = [];
-images.forEach(src=>{
-    const i = new Image();
-    i.src = src;
-    preloaded.push(i);
-});
-
-/* SHUFFLE */
-function shuffleArray(arr){
-    for(let i = arr.length - 1; i > 0; i--){
-        const j = Math.floor(Math.random()*(i+1));
-        [arr[i],arr[j]] = [arr[j],arr[i]];
-    }
-}
-
-/* POSITION */
-function getRandomPosition(size){
-    const rect = card.getBoundingClientRect();
-    let x,y;
-    do{
-        x = Math.random()*(window.innerWidth - size);
-        y = Math.random()*(window.innerHeight - size);
-    } while(
-        x + size > rect.left - margin &&
-        x < rect.right + margin &&
-        y + size > rect.top - margin &&
-        y < rect.bottom + margin
-    );
-    return {x,y};
-}
-
-let queue = [...images];
-shuffleArray(queue);
-
-/* SHOW IMAGE */
-function showNext(){
-    if(queue.length === 0){
-        queue = [...images];
-        shuffleArray(queue);
-    }
-    const next = queue.shift();
-    const maxSize = Math.min(window.innerWidth*0.35,220);
-    const size = Math.random()*(maxSize-100)+100;
-    const pos = getRandomPosition(size);
-    img.style.opacity = 0;
-    setTimeout(()=>{
-        img.src = next;
-        img.style.width = size+"px";
-        img.style.left = pos.x+"px";
-        img.style.top = pos.y+"px";
-        img.style.opacity = 1;
-        setTimeout(()=>{
-            img.style.opacity = 0;
-        },displayTime);
-    },80);
-}
-
-showNext();
-setInterval(showNext,intervalTime);
-
-</script>
 
 </body>
 </html>
