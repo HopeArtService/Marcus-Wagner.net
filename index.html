@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marcus Wagner - Businesscard</title>
-
+<link rel="stylesheet" href="style.css">
 <style>
-
+/* BODY unverändert */
 body{
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
@@ -16,34 +15,27 @@ body{
     overflow:hidden;
 }
 
-/* CARD */
-
+/* CARD unverändert */
 .card{
     position:absolute;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    
     background:white;
     padding:28px 32px;
-    
     box-shadow:0 4px 25px rgba(0,0,0,0.08);
-    
     display:flex;
     flex-direction:column;
     gap:10px;
-    
     z-index:2;
 }
 
 /* NAME */
-
 h1{
     margin:0;
     font-size:24px;
     font-weight:600;
 }
-
 h2{
     margin:0 0 10px 0;
     font-size:14px;
@@ -52,40 +44,34 @@ h2{
 }
 
 /* INFO ROWS */
-
 .info-row{
     display:flex;
     justify-content:space-between;
     font-size:14px;
     gap:30px;
 }
-
 .info-row span:first-child{
     color:#888;
 }
 
 /* LINKS */
-
 a{
     color:inherit;
     text-decoration:none;
 }
-
 a:hover{
     text-decoration:underline;
 }
 
-/* NAV LINKS (Bio / Kunst) */
-
+/* NAV LINKS für Bio/Kunst */
 .nav-links{
-    margin-top:8px;
     display:flex;
     gap:20px;
     font-weight:500;
+    margin-top:5px;
 }
 
 /* BLINK IMAGES */
-
 .blink-img{
     position:absolute;
     pointer-events:none;
@@ -93,11 +79,8 @@ a:hover{
     transition:opacity 0.2s ease;
     z-index:1;
 }
-
 </style>
-
 </head>
-
 <body>
 
 <div class="card">
@@ -127,12 +110,9 @@ a:hover{
 
 </div>
 
-
 <img id="blinkImage" class="blink-img">
 
-
 <script>
-
 const images = [
 "src/bilder_weboptimiert_background/20251006MarcusWagner4709.jpg",
 "src/bilder_weboptimiert_background/20251006MarcusWagner4717.jpg",
@@ -148,20 +128,15 @@ const margin = 40;
 const displayTime = 1400;
 const intervalTime = 2000;
 
-
 /* PRELOAD */
-
 const preloaded = [];
-
 images.forEach(src=>{
     const i = new Image();
     i.src = src;
     preloaded.push(i);
 });
 
-
 /* SHUFFLE */
-
 function shuffleArray(arr){
     for(let i = arr.length - 1; i > 0; i--){
         const j = Math.floor(Math.random()*(i+1));
@@ -169,75 +144,50 @@ function shuffleArray(arr){
     }
 }
 
-
 /* POSITION */
-
 function getRandomPosition(size){
-
     const rect = card.getBoundingClientRect();
-
     let x,y;
-
     do{
-
         x = Math.random()*(window.innerWidth - size);
         y = Math.random()*(window.innerHeight - size);
-
-    }
-
-    while(
+    } while(
         x + size > rect.left - margin &&
         x < rect.right + margin &&
         y + size > rect.top - margin &&
         y < rect.bottom + margin
     );
-
     return {x,y};
 }
-
 
 let queue = [...images];
 shuffleArray(queue);
 
-
 /* SHOW IMAGE */
-
 function showNext(){
-
     if(queue.length === 0){
         queue = [...images];
         shuffleArray(queue);
     }
-
     const next = queue.shift();
-
     const maxSize = Math.min(window.innerWidth*0.35,220);
     const size = Math.random()*(maxSize-100)+100;
-
     const pos = getRandomPosition(size);
-
     img.style.opacity = 0;
-
     setTimeout(()=>{
-
         img.src = next;
-
         img.style.width = size+"px";
         img.style.left = pos.x+"px";
         img.style.top = pos.y+"px";
-
         img.style.opacity = 1;
-
         setTimeout(()=>{
             img.style.opacity = 0;
         },displayTime);
-
     },80);
 }
 
 showNext();
 setInterval(showNext,intervalTime);
-
 </script>
 
 </body>
