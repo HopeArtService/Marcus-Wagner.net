@@ -106,17 +106,19 @@ text-decoration:underline;
 
 /* Info rows (Email, Phone, Website, Bio, Kunst) */
 .info-row{
-display:flex;
-flex-direction:column;
-gap:4px;
+display:grid;
+grid-template-columns: 90px 1fr;
+gap:10px;
+margin:4px 0;
 }
 
-.info-row span,
+.info-row span:first-child{
+font-weight:bold;
+}
+
 .info-row a{
-font-size:14px;
-font-family:"Courier New", monospace;
-color:inherit;
 text-decoration:none;
+color:inherit;
 }
 
 .info-row a:hover{
