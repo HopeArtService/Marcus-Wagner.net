@@ -88,27 +88,28 @@ body {
     border: 5px solid #fff;
     border-radius: 5px;
 }
+
+/* Work-Container für Link + Bild */
 .work {
-    text-align: left;      /* Link linksbündig unter dem Bild */
-    margin-bottom: 15px;   /* Abstand zu nächstem Bild */
+    text-align: left;
+    margin-bottom: 20px;   /* Abstand zur nächsten Einheit */
 }
 
 .work img {
-    display: block;        /* verhindert, dass der Link neben dem Bild erscheint */
+    display: block;        /* verhindert, dass Link neben Bild erscheint */
     width: 95%;
-    margin-bottom: 5px;    /* kleiner Abstand zwischen Bild und Link */
+    margin-top: 5px;       /* kleiner Abstand zwischen Link und Bild */
 }
 
 .work a {
     text-decoration: none;
-    color: #0000ff;        /* Linkfarbe anpassen */
+    color: #0000ff;
     font-size: 14px;
 }
 
 .work a:hover {
     text-decoration: underline;
 }
-    
 </style>
 </head>
 <body>
@@ -117,37 +118,51 @@ body {
     <h1>Marcus Wagner</h1>
     <h2>Art</h2>
 
-    <!-- Bilder in voller Breite -->
-    <img src="src/Scan 5.jpg" alt="Artwork 1">
-    <img src="src/Scan 10.jpg" alt="Artwork 2">
-    <p></p>
-    <h3>2026</h3>
-    <a href="https://popgunart.com/Exhibitions/Truth%20Detective/Truth%20Detective.html">Truth Detective/PopGun/D</a>
-    <p></p>
-    <a href="art_underpage.html">Painting Compilation</a>
-    <img src="src/works_cover/painting_compilation_1.jpg" alt="Painting Compilation; 2025">
-    <p></p>
-    <a href="art_underpage.html">Painting Compilation</a>
-    <img src="src/works_cover/ghost_1.jpg" alt="Ghost City Hope Town; 2026">
-    <h3>2025</h3>
-    <a href="https://popgunart.com/Exhibitions/Miniotics/Miniotics.html">Miniotics/PopGun/Weatherproof/US</a>
-    <img src="src/works_cover/maler_1.jpg" alt="Maler und Hunde; 2025">
-     <p></p>
-    <a href="https://www.hopeartservice.vip/hmarriage.html">H Marriage/H0pe Art Service</a>
-    <img src="src/works_cover/marriage.jpeg" alt="H Marriage; 2025">
-     <p></p>
-    <a href="art_underpage.html">Painting Compilation</a>
-    <img src="src/magical_times/folder.jpg" alt="Magical Times, Styled; 2025">
-    <a href="https://www.hopeartservice.vip/nothingshow.html">The Nothing Show/H0pe Art Service</a>
-    <img src="src/works_cover/nothingshow.jpg" alt="The Nothing Show; 2025">
-   
-  <div class="work">
-    <img src="src/scream.JPG" alt="The Shoe Show">
-    <a href="https://www.hopeartservice.vip/shoeshow%202.html">The Shoe Show/H0pe Art Servicee</a>
-</div>
-    <h3>2023</h3>
-    <img src="src/works_cover/leibes3.jpg" alt="Die besten Leibesübungen; 2023">
-    
+    <!-- Einzelne Arbeiten mit Link + Bild -->
+    <div class="work">
+        <a href="https://popgunart.com/Exhibitions/Truth%20Detective/Truth%20Detective.html">Truth Detective/PopGun/D</a>
+        <img src="src/Scan 5.jpg" alt="Artwork 1">
+    </div>
+
+    <div class="work">
+        <a href="art_underpage.html">Painting Compilation</a>
+        <img src="src/works_cover/painting_compilation_1.jpg" alt="Painting Compilation; 2025">
+    </div>
+
+    <div class="work">
+        <a href="art_underpage.html">Painting Compilation</a>
+        <img src="src/works_cover/ghost_1.jpg" alt="Ghost City Hope Town; 2026">
+    </div>
+
+    <div class="work">
+        <a href="https://popgunart.com/Exhibitions/Miniotics/Miniotics.html">Miniotics/PopGun/Weatherproof/US</a>
+        <img src="src/works_cover/maler_1.jpg" alt="Maler und Hunde; 2025">
+    </div>
+
+    <div class="work">
+        <a href="https://www.hopeartservice.vip/hmarriage.html">H Marriage/H0pe Art Service</a>
+        <img src="src/works_cover/marriage.jpeg" alt="H Marriage; 2025">
+    </div>
+
+    <div class="work">
+        <a href="art_underpage.html">Painting Compilation</a>
+        <img src="src/magical_times/folder.jpg" alt="Magical Times, Styled; 2025">
+    </div>
+
+    <div class="work">
+        <a href="https://www.hopeartservice.vip/nothingshow.html">The Nothing Show/H0pe Art Service</a>
+        <img src="src/works_cover/nothingshow.jpg" alt="The Nothing Show; 2025">
+    </div>
+
+    <div class="work">
+        <a href="https://www.hopeartservice.vip/shoeshow%202.html">The Shoe Show/H0pe Art Service</a>
+        <img src="src/scream.JPG" alt="The Shoe Show">
+    </div>
+
+    <div class="work">
+        <img src="src/works_cover/leibes3.jpg" alt="Die besten Leibesübungen; 2023">
+    </div>
+
     <p>*1996 Wien, lebt in Wien und Klosterneuburg</p>
     <p>Seit 2017 – Malerei und Animationsfilm, Judith Eisler, Universität für Angewandte Kunst Wien</p>
     <p>2024 – University of Newcastle, UK</p>
