@@ -58,126 +58,37 @@ body {
 }
 .invisible-link:hover { text-decoration: underline; }
 
-/* Work-Container für Bild + Link unterhalb */
+/* Work-Container */
 .work {
-    text-align: center;       /* zentriert */
-    margin-bottom: 30px;      /* Abstand zur nächsten Einheit */
-}
-
-.work img {
-    display: block;           /* verhindert Link neben Bild */
-    width: 95%;
-    margin-bottom: 5px;       /* kleiner Abstand zwischen Bild und Link */
-}
-
-.work a {
-    text-decoration: underline;  /* unterstrichen */
-    color: #0000ff;
-    font-size: 16px;            /* gleiche Größe wie am Anfang */
-    display: block;
-}
-    
-.work a:hover {
-    text-decoration: underline;
-}
-
-<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marcus Wagner – Bio</title>
-
-<style>
-body {
-    background-color: #00ffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: "Courier New", monospace;
-    margin:0;
-}
-
-.card {
-    width: 350px;
-    max-height: 600px;
-    background: linear-gradient(135deg, #ffcc00, #ff6600);
-    border: 3px solid #0000ff;
-    box-shadow: 5px 5px 0 #ff00ff;
-    padding: 20px;
-    color: #000;
-    position: relative;
-    overflow-y: auto;
     text-align: center;
-}
-
-.card h1 {
-    font-size: 24px;
-    margin: 0;
-    color: #000080;
-    text-shadow: 1px 1px #fff;
-}
-
-.card h2 {
-    font-size: 16px;
-    margin: 5px 0 15px;
-    color: #ff0000;
-}
-
-.card p {
-    font-size:14px;
-    margin:5px 0;
-}
-
-/* Scrollbar */
-.card::-webkit-scrollbar { width: 8px; }
-.card::-webkit-scrollbar-track { background: #ffcc00; }
-.card::-webkit-scrollbar-thumb { background: #0000ff; border:1px solid #000; }
-
-.invisible-link {
-    color: inherit;
-    text-decoration: none;
-}
-.invisible-link:hover { text-decoration: underline; }
-
-/* Work-Container für Bild + Link unterhalb */
-.work {
-    text-align: center;       /* zentriert */
-    margin-bottom: 30px;      /* Abstand zur nächsten Einheit */
+    margin-bottom: 30px;
 }
 
 .work img {
-    display: block;           /* verhindert Link neben Bild */
+    display: block;
     width: 95%;
-    margin-bottom: 5px;       /* kleiner Abstand zwischen Bild und Link */
+    margin-bottom: 5px;
 }
 
 .work a {
-    text-decoration: underline;  /* unterstrichen */
-    color: #0000ff;
-    font-size: 14px;            /* gleiche Größe wie am Anfang */
-    display: block;
-}
-    
-.work a:hover {
     text-decoration: underline;
+    color: #0000ff;
+    font-size: 14px;
+    display: block;
 }
 
 .link-only {
     text-align: center;
-    margin-bottom: 30px;     /* Abstand zwischen den Links */
+    margin-bottom: 30px;
 }
 
 .link-only a {
     text-decoration: underline;
     color: #0000ff;
     font-size: 16px;
-    display: block;
-    margin-bottom: 10px;     /* Abstand zwischen einzelnen Links */
-}    
+}
 
-/* Bilder in voller Breite innerhalb der Karte */
+/* Bilder */
 .card img {
     border: 3px solid #0000ff;
     box-shadow: 2px 2px 0 #ff00ff;
@@ -185,7 +96,7 @@ body {
     object-fit: cover;
 }
 
-/* Overlay für vergrößertes Bild */
+/* Overlay */
 #overlay {
     position: fixed;
     top:0;
@@ -198,6 +109,7 @@ body {
     align-items: center;
     z-index:1000;
 }
+
 #overlay img {
     max-width: 90%;
     max-height: 90%;
@@ -207,18 +119,19 @@ body {
 }
 </style>
 </head>
+
 <body>
 
 <div class="card">
     <h1>Marcus Wagner</h1>
     <h2>Art</h2>
 
-    <!-- Bild + Link unterhalb -->
-      <div class="link-only">
-            <a href="https://popgunart.com/Exhibitions/Truth%20Detective/Truth%20Detective.html">Truth Detective/PopGun/D</a>
+    <div class="link-only">
+        <a href="https://popgunart.com/Exhibitions/Truth%20Detective/Truth%20Detective.html">
+        Truth Detective/PopGun/D
+        </a>
+    </div>
 
-       </div>
- 
     <div class="work">
         <img src="src/works_cover/painting_compilation_1.jpg" alt="Painting Compilation; 2025">
         <a href="art_underpage.html">Painting Compilation</a>
@@ -231,12 +144,16 @@ body {
 
     <div class="work">
         <img src="src/works_cover/maler_1.jpg" alt="Maler und Hunde; 2025">
-        <a href="https://popgunart.com/Exhibitions/Miniotics/Miniotics.html">Miniotics/PopGun/Weatherproof/US</a>
+        <a href="https://popgunart.com/Exhibitions/Miniotics/Miniotics.html">
+        Miniotics/PopGun/Weatherproof/US
+        </a>
     </div>
 
     <div class="work">
         <img src="src/works_cover/marriage.jpeg" alt="H Marriage; 2025">
-        <a href="https://www.hopeartservice.vip/hmarriage.html">H Marriage/H0pe Art Service</a>
+        <a href="https://www.hopeartservice.vip/hmarriage.html">
+        H Marriage/H0pe Art Service
+        </a>
     </div>
 
     <div class="work">
@@ -246,12 +163,16 @@ body {
 
     <div class="work">
         <img src="src/works_cover/nothingshow.jpg" alt="The Nothing Show; 2025">
-        <a href="https://www.hopeartservice.vip/nothingshow.html">The Nothing Show/H0pe Art Service</a>
+        <a href="https://www.hopeartservice.vip/nothingshow.html">
+        The Nothing Show/H0pe Art Service
+        </a>
     </div>
 
     <div class="work">
         <img src="src/scream.JPG" alt="The Shoe Show">
-        <a href="https://www.hopeartservice.vip/shoeshow%202.html">The Shoe Show/H0pe Art Service</a>
+        <a href="https://www.hopeartservice.vip/shoeshow%202.html">
+        The Shoe Show/H0pe Art Service
+        </a>
     </div>
 
     <div class="work">
@@ -267,13 +188,11 @@ body {
     <p><a href="index.html" class="invisible-link">← Back</a></p>
 </div>
 
-<!-- Overlay für vergrößertes Bild -->
 <div id="overlay">
     <img src="" alt="Vergrößertes Bild">
 </div>
 
 <script>
-// Klick auf Bilder zeigt Overlay
 const overlay = document.getElementById("overlay");
 const overlayImg = overlay.querySelector("img");
 
@@ -284,121 +203,6 @@ document.querySelectorAll(".card img").forEach(img => {
     });
 });
 
-// Klick auf Overlay schließt es
-overlay.addEventListener("click", () => {
-    overlay.style.display = "none";
-});
-</script>
-
-</body>
-</html>    
-/* Bilder in voller Breite innerhalb der Karte */
-.card img {
-    border: 3px solid #0000ff;
-    box-shadow: 2px 2px 0 #ff00ff;
-    cursor: pointer;
-    object-fit: cover;
-}
-
-/* Overlay für vergrößertes Bild */
-#overlay {
-    position: fixed;
-    top:0;
-    left:0;
-    width:100vw;
-    height:100vh;
-    background: rgba(0,0,0,0.8);
-    display:none;
-    justify-content: center;
-    align-items: center;
-    z-index:1000;
-}
-#overlay img {
-    max-width: 90%;
-    max-height: 90%;
-    box-shadow: 0 0 20px #fff;
-    border: 5px solid #fff;
-    border-radius: 5px;
-}
-</style>
-</head>
-<body>
-
-<div class="card">
-    <h1>Marcus Wagner</h1>
-    <h2>Art</h2>
-
-    <!-- Bild + Link unterhalb -->
- 
-        <a href="https://popgunart.com/Exhibitions/Truth%20Detective/Truth%20Detective.html">Truth Detective/PopGun/D</a>
-   
-
-    <div class="work">
-        <img src="src/works_cover/painting_compilation_1.jpg" alt="Painting Compilation; 2025">
-        <a href="art_underpage.html">Painting Compilation</a>
-    </div>
-
-    <div class="work">
-        <img src="src/works_cover/ghost_1.jpg" alt="Ghost City Hope Town; 2026">
-        <a href="art_underpage.html">Painting Compilation</a>
-    </div>
-
-    <div class="work">
-        <img src="src/works_cover/maler_1.jpg" alt="Maler und Hunde; 2025">
-        <a href="https://popgunart.com/Exhibitions/Miniotics/Miniotics.html">Miniotics/PopGun/Weatherproof/US</a>
-    </div>
-
-    <div class="work">
-        <img src="src/works_cover/marriage.jpeg" alt="H Marriage; 2025">
-        <a href="https://www.hopeartservice.vip/hmarriage.html">H Marriage/H0pe Art Service</a>
-    </div>
-
-    <div class="work">
-        <img src="src/magical_times/folder.jpg" alt="Magical Times, Styled; 2025">
-        <a href="art_underpage.html">Painting Compilation</a>
-    </div>
-
-    <div class="work">
-        <img src="src/works_cover/nothingshow.jpg" alt="The Nothing Show; 2025">
-        <a href="https://www.hopeartservice.vip/nothingshow.html">The Nothing Show/H0pe Art Service</a>
-    </div>
-
-    <div class="work">
-        <img src="src/scream.JPG" alt="The Shoe Show">
-        <a href="https://www.hopeartservice.vip/shoeshow%202.html">The Shoe Show/H0pe Art Service</a>
-    </div>
-
-    <div class="work">
-        <img src="src/works_cover/leibes3.jpg" alt="Die besten Leibesübungen; 2023">
-    </div>
-
-    <p>*1996 Wien, lebt in Wien und Klosterneuburg</p>
-    <p>Seit 2017 – Malerei und Animationsfilm, Judith Eisler, Universität für Angewandte Kunst Wien</p>
-    <p>2024 – University of Newcastle, UK</p>
-    <p>2024/2025 – Klasse Maximiliane Baumgartner, Kunstakademie Düsseldorf</p>
-    <p>2025 – Klasse Skulptur und Raum, Hans Schabus, Universität für Angewandte Kunst Wien</p>
-
-    <p><a href="index.html" class="invisible-link">← Back</a></p>
-</div>
-
-<!-- Overlay für vergrößertes Bild -->
-<div id="overlay">
-    <img src="" alt="Vergrößertes Bild">
-</div>
-
-<script>
-// Klick auf Bilder zeigt Overlay
-const overlay = document.getElementById("overlay");
-const overlayImg = overlay.querySelector("img");
-
-document.querySelectorAll(".card img").forEach(img => {
-    img.addEventListener("click", () => {
-        overlayImg.src = img.src;
-        overlay.style.display = "flex";
-    });
-});
-
-// Klick auf Overlay schließt es
 overlay.addEventListener("click", () => {
     overlay.style.display = "none";
 });
