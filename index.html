@@ -4,93 +4,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marcus Wagner - Businesscard</title>
-
-<style>
-
-body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:white;
-    overflow:hidden;
-}
-
-.card{
-    position:relative;
-    z-index:2;
-    max-width:420px;
-    margin:120px auto;
-}
-
-h1{
-    margin-bottom:5px;
-}
-
-h2{
-    margin-top:0;
-    font-weight:normal;
-}
-
-.info-row{
-    display:flex;
-    justify-content:space-between;
-    margin:10px 0;
-}
-
-.invisible-link{
-    text-decoration:none;
-    color:black;
-}
-
-/* Bild */
-
-.blink-img{
-    position:fixed;
-    opacity:0;
-    pointer-events:none;
-    z-index:1;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
-
+    
 <body>
 
 <div class="card">
+    <h1>Marcus Wagner</h1>
+    <h2>Artist</h2>
 
-<h1>Marcus Wagner</h1>
-<h2>Artist</h2>
+    <div class="info-row">
+        <span>Email</span>
+        <span>marcuswagnerinfo@gmail.com</span>
+    </div>
 
-<div class="info-row">
-<span>Email</span>
-<span>marcuswagnerinfo@gmail.com</span>
+    <div class="info-row">
+        <span>Phone</span>
+        <span>+43 ...</span>
+    </div>
+
+    <div class="info-row">
+        <span>Website</span>
+        <span>www.marcus-wagner.net</span>
+    </div>
+
+    <div class="info-row">
+        <span>Bio</span>
+        <a href="cv.html" class="invisible-link">open</a>
+    </div>
+
+    <div class="info-row">
+        <span>Kunst</span>
+        <a href="art.html" class="invisible-link">open</a>
+    </div>
 </div>
-
-<div class="info-row">
-<span>Phone</span>
-<span>+43 ...</span>
-</div>
-
-<div class="info-row">
-<span>Website</span>
-<span>www.marcus-wagner.net</span>
-</div>
-
-<div class="info-row">
-<span>Bio</span>
-<a href="cv.html" class="invisible-link">open</a>
-</div>
-
-<div class="info-row">
-<span>Kunst</span>
-<a href="art.html" class="invisible-link">open</a>
-</div>
-
-</div>
-
+  
 <img id="blinkImage" class="blink-img">
 
+
 <script>
-    
 const images = [
 "src/bilder_weboptimiert_background/20251006MarcusWagner4709.jpg",
 "src/bilder_weboptimiert_background/20251006MarcusWagner4717.jpg",
