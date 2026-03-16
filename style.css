@@ -105,11 +105,22 @@ text-decoration:underline;
 }
 
 /* Info rows (Email, Phone, Website, Bio, Kunst) */
-.info-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    margin: 3px 0;
+.info-row{
+display:flex;
+flex-direction:column;
+gap:4px;
+}
+
+.info-row span,
+.info-row a{
+font-size:16px;
+font-family:"Courier New", monospace;
+color:inherit;
+text-decoration:none;
+}
+
+.info-row a:hover{
+text-decoration:underline;
 }
 
 /* ================= PORTRAIT ================= */
