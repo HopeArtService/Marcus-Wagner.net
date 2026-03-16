@@ -90,7 +90,7 @@ h2{
 <img id="blinkImage" class="blink-img">
 
 <script>
-
+    
 const images = [
 "src/bilder_weboptimiert_background/20251006MarcusWagner4709.jpg",
 "src/bilder_weboptimiert_background/20251006MarcusWagner4717.jpg",
@@ -106,24 +106,27 @@ const margin = 40;
 const displayTime = 1400;
 const intervalTime = 2000;
 
-/* PRELOAD */
 
-const loadedImages = [];
+/* PRELOAD IMAGES (verhindert Lade-Glitches) */
+
+const preloaded = [];
 
 images.forEach(src=>{
     const i = new Image();
     i.src = src;
-    loadedImages.push(i);
+    preloaded.push(i);
 });
+
 
 /* SHUFFLE */
 
 function shuffleArray(arr){
-    for(let i = arr.length-1; i>0; i--){
+    for(let i = arr.length - 1; i > 0; i--){
         const j = Math.floor(Math.random()*(i+1));
-        [arr[i],arr[j]]=[arr[j],arr[i]];
+        [arr[i],arr[j]] = [arr[j],arr[i]];
     }
 }
+
 
 /* POSITION */
 
@@ -135,8 +138,8 @@ function getRandomPosition(size){
 
     do{
 
-        x = Math.random()*(window.innerWidth-size);
-        y = Math.random()*(window.innerHeight-size);
+        x = Math.random()*(window.innerWidth - size);
+        y = Math.random()*(window.innerHeight - size);
 
     }
 
@@ -150,42 +153,45 @@ function getRandomPosition(size){
     return {x,y};
 }
 
-let queue=[...images];
+
+let queue = [...images];
 shuffleArray(queue);
+
+
+/* SHOW IMAGE */
 
 function showNext(){
 
-    if(queue.length===0){
-        queue=[...images];
+    if(queue.length === 0){
+        queue = [...images];
         shuffleArray(queue);
     }
 
-    const next=queue.shift();
+    const next = queue.shift();
 
-    const maxSize=Math.min(window.innerWidth*0.35,220);
-    const size=Math.random()*(maxSize-100)+100;
+    const maxSize = Math.min(window.innerWidth*0.35,220);
+    const size = Math.random()*(maxSize-100)+100;
 
-    const pos=getRandomPosition(size);
+    const pos = getRandomPosition(size);
 
-    /* komplett verstecken */
-    img.style.opacity=0;
+    /* Bild zuerst komplett verstecken */
+    img.style.opacity = 0;
 
-    /* kurz warten damit Browser fertig rendert */
     setTimeout(()=>{
 
-        img.src=next;
+        img.src = next;
 
-        img.style.width=size+"px";
-        img.style.left=pos.x+"px";
-        img.style.top=pos.y+"px";
+        img.style.width = size+"px";
+        img.style.left = pos.x+"px";
+        img.style.top = pos.y+"px";
 
-        img.style.opacity=1;
+        img.style.opacity = 1;
 
         setTimeout(()=>{
-            img.style.opacity=0;
+            img.style.opacity = 0;
         },displayTime);
 
-    },60);
+    },80);
 }
 
 showNext();
