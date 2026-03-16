@@ -16,6 +16,8 @@ body {
     margin:0;
 }
 
+  
+    
 .card {
     width: 350px;
     max-height: 600px;
@@ -75,18 +77,40 @@ body {
     left:0;
     width:100vw;
     height:100vh;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.9);
     display:none;
     justify-content: center;
     align-items: center;
     z-index:1000;
 }
+
 #overlay img {
     max-width: 90%;
     max-height: 90%;
     box-shadow: 0 0 20px #fff;
     border: 5px solid #fff;
-    border-radius: 5px;
+}
+
+.nav {
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:50px;
+    color:white;
+    cursor:pointer;
+    user-select:none;
+    padding:20px;
+}
+
+.prev { left:20px; }
+.next { right:20px; }
+
+#counter {
+    position:absolute;
+    bottom:30px;
+    color:white;
+    font-size:18px;
+    font-family: "Courier New", monospace;
 }
 .work {
     text-align: left;      /* Link linksbündig unter dem Bild */
@@ -133,64 +157,102 @@ body {
 
 <!-- Overlay für vergrößertes Bild -->
 <div id="overlay">
+    <div class="nav prev">❮</div>
     <img src="" alt="Vergrößertes Bild">
+    <div class="nav next">❯</div>
+    <div id="counter"></div>
 </div>
 
 <script>
 const overlay = document.getElementById("overlay");
 const overlayImg = overlay.querySelector("img");
+const counter = document.getElementById("counter");
 
 const images = Array.from(document.querySelectorAll(".card img"));
+
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
 let currentIndex = 0;
+
+function updateImage(){
+    overlayImg.src = images[currentIndex].src;
+    counter.textContent = (currentIndex+1) + " / " + images.length;
+}
 
 function showImage(index){
     currentIndex = index;
-    overlayImg.src = images[currentIndex].src;
+    updateImage();
     overlay.style.display = "flex";
 }
 
-// Bild anklicken → öffnen
-images.forEach((img, index) => {
-    img.addEventListener("click", () => {
+// Bilder öffnen
+images.forEach((img,index)=>{
+    img.addEventListener("click",()=>{
         showImage(index);
     });
 });
 
-// nächstes Bild
 function nextImage(){
-    currentIndex = (currentIndex + 1) % images.length;
-    overlayImg.src = images[currentIndex].src;
+    currentIndex = (currentIndex+1) % images.length;
+    updateImage();
 }
 
-// vorheriges Bild
 function prevImage(){
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    overlayImg.src = images[currentIndex].src;
+    currentIndex = (currentIndex-1+images.length)%images.length;
+    updateImage();
 }
 
-// Klick links / rechts
-overlay.addEventListener("click", (e) => {
+// Pfeile
+nextBtn.onclick = (e)=>{
+    e.stopPropagation();
+    nextImage();
+};
 
-    const x = e.clientX;
+prevBtn.onclick = (e)=>{
+    e.stopPropagation();
+    prevImage();
+};
 
-    if(x < window.innerWidth / 2){
-        prevImage();
-    } else {
+// Tastatur
+document.addEventListener("keydown",(e)=>{
+    if(overlay.style.display !== "flex") return;
+
+    if(e.key==="ArrowRight") nextImage();
+    if(e.key==="ArrowLeft") prevImage();
+    if(e.key==="Escape") overlay.style.display="none";
+});
+
+// Klick zum schließen
+overlay.addEventListener("click",(e)=>{
+    if(e.target===overlay) overlay.style.display="none";
+});
+
+
+// Swipe Support (Mobile)
+let touchStartX = 0;
+let touchEndX = 0;
+
+overlay.addEventListener("touchstart",(e)=>{
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+overlay.addEventListener("touchend",(e)=>{
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe(){
+
+    if(touchEndX < touchStartX - 50){
         nextImage();
     }
 
-});
+    if(touchEndX > touchStartX + 50){
+        prevImage();
+    }
 
-// Tastatursteuerung
-document.addEventListener("keydown", (e) => {
-
-    if(overlay.style.display !== "flex") return;
-
-    if(e.key === "ArrowRight") nextImage();
-    if(e.key === "ArrowLeft") prevImage();
-    if(e.key === "Escape") overlay.style.display = "none";
-
-});
+}
 </script>
 
 </body>
