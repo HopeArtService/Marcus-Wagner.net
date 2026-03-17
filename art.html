@@ -6,15 +6,21 @@
 <title>Marcus Wagner – Archive</title>
 
 <style>
+/* Alles inkludiert in box-sizing, verhindert horizontales Überlaufen */
+* {
+    box-sizing: border-box;
+}
+
 body {
+    font-family: "Courier New", monospace;
     margin: 0;
-    padding: 20px;
+    padding: 10px; /* kleine Seitenabstände */
 }
 
 .card {
     width: 100%;
     max-width: 100%;
-    padding: 20px;
+    padding: 0 10px; /* innen Padding für Abstand zum Bildschirmrand */
     position: relative;
     overflow-y: auto;
     text-align: center;
@@ -37,7 +43,7 @@ body {
 
 .work, .link-only {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .work img {
@@ -81,6 +87,7 @@ body {
     <h1>Marcus Wagner</h1>
     <h2>Archive</h2>
 
+    <h3>Selected Works</h3>
     <h3>2026</h3>
     
     <div class="link-only">
