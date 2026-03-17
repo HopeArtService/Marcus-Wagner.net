@@ -10,6 +10,7 @@
     padding: 0;
     height: 100%;
     overflow: hidden;
+    background: #333;
     font-family: sans-serif;
   }
   #pdf-container {
@@ -18,7 +19,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #333;
     position: relative;
   }
   canvas {
@@ -26,7 +26,6 @@
     max-height: 100%;
     display: block;
   }
-  /* Email link overlay */
   .email-link {
     position: fixed;
     top: 20px;
@@ -43,30 +42,30 @@
 <body>
 
 <div id="pdf-container"></div>
-<a class="email-link" href="mailto:marcuswagnerinfo@.com">Send Email</a>
+<a class="email-link" href="mailto:marcuswagnerinfo@gmail.com">Send Email</a>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.101/pdf.min.js"></script>
 <script>
-const url = 'src/marcus_wagner_portfolio_2026_deutsch.pdf'; // Path to your PDF
+const url = 'src/marcus_wagner_portfolio_2026_deutsch.pdf'; // Pfad zu deinem PDF
 let pdfDoc = null;
 let currentPage = 1;
+
 const container = document.getElementById('pdf-container');
 const canvas = document.createElement('canvas');
 const ctx = canvas.getContext('2d');
 container.appendChild(canvas);
 
-// Load PDF
+// PDF laden
 pdfjsLib.getDocument(url).promise.then(doc => {
     pdfDoc = doc;
     renderPage(currentPage);
 });
 
-// Render a page scaled to fit the container
+// Seite rendern, skaliert auf Bildschirm
 function renderPage(pageNum) {
     pdfDoc.getPage(pageNum).then(page => {
         const viewport = page.getViewport({ scale: 1 });
-        // Scale page to fit container
-        const scale = Math.min(container.clientWidth/viewport.width, container.clientHeight/viewport.height);
+        const scale = Math.min(container.clientWidth / viewport.width, container.clientHeight / viewport.height);
         const scaledViewport = page.getViewport({ scale });
         canvas.width = scaledViewport.width;
         canvas.height = scaledViewport.height;
@@ -74,7 +73,7 @@ function renderPage(pageNum) {
     });
 }
 
-// Next / Prev page
+// Nächste / vorherige Seite
 function nextPage() {
     if(currentPage < pdfDoc.numPages) {
         currentPage++;
@@ -88,24 +87,34 @@ function prevPage() {
     }
 }
 
-// Keyboard navigation
+// Tastatursteuerung
 document.addEventListener('keydown', e => {
     if(e.key === 'ArrowRight') nextPage();
     if(e.key === 'ArrowLeft') prevPage();
 });
 
-// Swipe support for mobile
+// Swipe für Handy
 let touchStartX = 0;
 let touchEndX = 0;
 
 container.addEventListener('touchstart', e => {
     touchStartX = e.changedTouches[0].screenX;
 });
-
 container.addEventListener('touchend', e => {
     touchEndX = e.changedTouches[0].screenX;
     if(touchEndX < touchStartX - 50) nextPage();
     if(touchEndX > touchStartX + 50) prevPage();
+});
+
+// Klick auf linke/rechte Hälfte des Screens zum navigieren
+container.addEventListener('click', e => {
+    const rect = container.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    if(clickX < rect.width / 2) {
+        prevPage();
+    } else {
+        nextPage();
+    }
 });
 </script>
 
