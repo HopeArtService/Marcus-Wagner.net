@@ -7,65 +7,39 @@
 
 <style>
 body {
-    background-color: #00ffff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     font-family: "Courier New", monospace;
-    margin:0;
+    margin: 0;
 }
 
 .card {
     width: 350px;
     max-height: 600px;
-    background: linear-gradient(135deg, #ffcc00, #ff6600);
-    border: 3px solid #0000ff;
-    box-shadow: 5px 5px 0 #ff00ff;
     padding: 20px;
-    color: #000;
     position: relative;
     overflow-y: auto;
     text-align: center;
 }
 
-.card h1 {
-    font-size: 24px;
-    margin: 0;
-    color: #000080;
-    text-shadow: 1px 1px #fff;
+.card h1, .card h2, .card h3 {
+    margin: 0 0 10px 0;
+    font-weight: normal;
 }
-
-.card h2 {
-    font-size: 16px;
-    margin: 5px 0 15px;
-    color: #ff0000;
-}
-
-.card h3 {
-    font-size: 15px;
-    margin: 5px 0 15px;
-    color: #ff0000;
-}    
 
 .card p {
-    font-size:14px;
-    margin:5px 0;
+    font-size: 14px;
+    margin: 5px 0;
 }
 
-/* Scrollbar */
-.card::-webkit-scrollbar { width: 8px; }
-.card::-webkit-scrollbar-track { background: #ffcc00; }
-.card::-webkit-scrollbar-thumb { background: #0000ff; border:1px solid #000; }
-
 .invisible-link {
-    color: inherit;
     text-decoration: none;
 }
 .invisible-link:hover { text-decoration: underline; }
 
-/* Work-Container */
-.work {
+.work, .link-only {
     text-align: center;
     margin-bottom: 30px;
 }
@@ -74,54 +48,32 @@ body {
     display: block;
     width: 95%;
     margin-bottom: 5px;
+    object-fit: cover;
+    cursor: pointer;
 }
 
-.work a {
+.work a, .link-only a {
     text-decoration: underline;
-    color: #0000ff;
     font-size: 14px;
     display: block;
 }
 
-.link-only {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.link-only a {
-    text-decoration: underline;
-    color: #0000ff;
-    font-size: 16px;
-}
-
-/* Bilder */
-.card img {
-    border: 3px solid #0000ff;
-    box-shadow: 2px 2px 0 #ff00ff;
-    cursor: pointer;
-    object-fit: cover;
-}
-
-/* Overlay */
 #overlay {
     position: fixed;
-    top:0;
-    left:0;
-    width:100vw;
-    height:100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     background: rgba(0,0,0,0.8);
-    display:none;
+    display: none;
     justify-content: center;
     align-items: center;
-    z-index:1000;
+    z-index: 1000;
 }
 
 #overlay img {
     max-width: 90%;
     max-height: 90%;
-    box-shadow: 0 0 20px #fff;
-    border: 5px solid #fff;
-    border-radius: 5px;
 }
 </style>
 </head>
@@ -132,18 +84,14 @@ body {
     <h1>Marcus Wagner</h1>
     <h2>Archive</h2>
 
-      
-
-<h3>Selected Works</h3>
-  <h3>2026</h3>
+    <h3>2026</h3>
     
-      <div class="link-only">
+    <div class="link-only">
         <a href="https://popgunart.com/Exhibitions/Truth%20Detective/Truth%20Detective.html">
         Truth Detective/PopGun/D
         </a>
     </div>
     
-  
     <div class="work">
         <img src="src/works_cover/painting_compilation_1.jpg" alt="Painting Compilation; 2025">
         <a href="art_underpage.html">Painting Compilation</a>
@@ -154,45 +102,43 @@ body {
         <a href="art_ghosttown.html">Ghost City - Hope Town</a>
     </div>
 
-       <div class="work">
+    <div class="work">
         <img src="src/works_cover/marriage.jpeg" alt="H Marriage; 2025">
         <a href="https://www.hopeartservice.vip/hmarriage.html">
         H Marriage/H0pe Art Service
         </a>
     </div>
     
-<h3>2025</h3>
+    <h3>2025</h3>
     
- <div class="work">
+    <div class="work">
         <img src="src/works_cover/nothingshow.jpg" alt="The Nothing Show; 2025">
         <a href="https://www.hopeartservice.vip/nothingshow.html">
         The Nothing Show/H0pe Art Service
         </a>
     </div>
     
-       <div class="link-only">
+    <div class="link-only">
         <a href="https://popgunart.com/Exhibitions/Miniotics/Miniotics.html">
         Miniotics/PopGun/Weatherproof/US
         </a>
     </div>  
 
-   
     <div class="work">
         <img src="src/scream.JPG" alt="The Shoe Show">
         <a href="https://www.hopeartservice.vip/shoeshow%202.html">
         The Shoe Show/H0pe Art Service
         </a>
     </div>
-<h3>2023</h3>
-     <div class="work">
+
+    <h3>2023</h3>
+    <div class="work">
         <img src="src/leibesuebungen/install1.jpg" alt="The Shoe Show">
         <a href="art_leibesuebungen">
         Die besten Leibesübungen, University of Applied Arts, Vienna
         </a>
     </div>
    
-
-    
     <p>*1996 Wien, lebt in Wien und Klosterneuburg</p>
     <p>Seit 2017 – Malerei und Animationsfilm, Judith Eisler, Universität für Angewandte Kunst Wien</p>
     <p>2024 – University of Newcastle, UK</p>
