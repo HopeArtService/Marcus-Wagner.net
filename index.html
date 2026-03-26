@@ -3,17 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PDF Fullscreen</title>
+<title>Portfolio</title>
+
+<style>
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+/* container */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* portrait */
+
+.wrapper img {
+  width: 220px; /* mittlere Größe */
+  height: auto;
+  object-fit: cover;
+}
+
+/* text block */
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid black;
+  width: fit-content;
+}
+
+</style>
+
 </head>
-<body style="display:flex; justify-content:center; align-items:center; height:100vh; flex-direction:column;">
 
-<a href="src/marcus_wagner_portfolio_2026_deutsch.pdf" target="_blank">Open PDF Fullscreen</a>
-<img src="src/portrait_1.jpg" alt="foto">
+<body>
 
-  
-<br>
- 
-<a href="mailto:marcuswagnerinfo@gmail.com">Send Email</a>
-    
+<div class="wrapper">
+
+  <!-- IMAGE LEFT -->
+  <img src="src/portrait_1.jpg" alt="portrait">
+
+  <!-- TEXT RIGHT -->
+  <div class="text">
+    <a href="src/marcus_wagner_portfolio_2026_deutsch.pdf" target="_blank">
+      Open PDF Fullscreen
+    </a>
+
+    <a href="mailto:marcuswagnerinfo@gmail.com">
+      Send Email
+    </a>
+  </div>
+
+</div>
+
 </body>
 </html>
