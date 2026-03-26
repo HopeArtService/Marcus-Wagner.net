@@ -1,14 +1,63 @@
 <!DOCTYPE html> 
 <html lang="en"> 
-  <head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>PDF Fullscreen</title> </head> 
-  <body style="display:flex; justify-content:center; align-items:center; height:100vh; flex-direction:column;"> 
-    <p style="background-image: url('src/portrait_1.jpg');">
-    <a href="src/marcus_wagner_portfolio_2026_deutsch.pdf" target="_blank">Open PDF Fullscreen</a> 
- 
-    <br> 
-    <a href="mailto:marcuswagnerinfo@gmail.com">Send Email</a> 
-  </body> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Portfolio</title> 
+
+<style>
+
+body {
+  margin: 0;
+  height: 100vh;
+
+  /* BACKGROUND IMAGE */
+  background-image: url('src/portrait_1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* CENTER CONTENT */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* content box */
+
+.content {
+  background: rgba(255, 255, 255, 0.8); /* slight overlay for readability */
+  padding: 20px 30px;
+  text-align: center;
+}
+
+/* links */
+
+a {
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid black;
+}
+
+</style>
+
+</head> 
+
+<body> 
+
+<div class="content">
+
+  <a href="src/marcus_wagner_portfolio_2026_deutsch.pdf" target="_blank">
+    Open PDF Fullscreen
+  </a> 
+
+  <a href="mailto:marcuswagnerinfo@gmail.com">
+    Send Email
+  </a> 
+
+</div>
+
+</body> 
 </html>
