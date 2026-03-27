@@ -6,60 +6,58 @@
 <title>PDF Fullscreen</title>
 
 <style>
+/* Remove default margin/padding */
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
   margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
 
-/* CORNER IMAGES */
-.corner-img {
-  position: fixed;
-  width: 220px; /* adjust size */
-  height: auto;
-}
-
-/* each corner */
-.top-left {
+/* Top center full-width image */
+.top-center-img {
+  position: fixed;  /* stays at the top */
   top: 0;
   left: 0;
+  width: 100%;      /* full width */
+  height: auto;     /* maintain aspect ratio */
+  display: block;
+  z-index: 1;       /* stays on top */
 }
 
-.top-right {
-  top: 0;
-  right: 0;
+/* Links styling */
+.links {
+  margin-top: 250px; /* space below the image, adjust if needed */
 }
 
-.bottom-left {
-  bottom: 0;
-  left: 0;
+.links a {
+  display: block;
+  margin: 10px 0;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s;
 }
 
-.bottom-right {
-  bottom: 0;
-  right: 0;
+.links a:hover {
+  color: #007BFF; /* hover color */
 }
 </style>
 </head>
 
 <body>
 
-<a href="src/marcus_wagner_portfolio_2026_deutsch.pdf" target="_blank">
-  Open PDF Fullscreen
-</a>
+<!-- Top center full-width image -->
+<img src="src/ternitzportrait2.jpg" class="top-center-img" alt="Portrait">
 
-<br>
-
-<a href="mailto:marcuswagnerinfo@gmail.com">
-  Send Email
-</a>
-
-<!-- CORNER IMAGES -->
-<img src="src/ternitzportrait2.jpg" class="corner-img top-left">
-
+<!-- Links -->
+<div class="links">
+  <a href="src/marcus_wagner_portfolio_2026_deutsch.pdf" target="_blank">
+    Open PDF Fullscreen
+  </a>
+  <a href="mailto:marcuswagnerinfo@gmail.com">
+    Send Email
+  </a>
+</div>
 
 </body>
 </html>
