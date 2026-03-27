@@ -6,50 +6,53 @@
 <title>PDF Fullscreen</title>
 
 <style>
-/* Remove default margin/padding */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   text-align: center;
+  position: relative;
 }
 
-/* Top center full-width image */
+/* Full-width top image behind content */
 .top-center-img {
-  position: fixed;  /* stays at the top */
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;      /* full width */
-  height: auto;     /* maintain aspect ratio */
-  display: block;
-  z-index: 1;       /* stays on top */
+  width: 100%;
+  height: auto;
+  z-index: 0; /* image behind */
 }
 
-/* Links styling */
+/* Links container on top of image */
 .links {
-  margin-top: 250px; /* space below the image, adjust if needed */
+  position: relative;
+  z-index: 1; /* in front of image */
+  margin-top: 20px; /* adjust spacing from top */
 }
 
+/* Individual links styling */
 .links a {
-  display: block;
-  margin: 10px 0;
+  display: inline-block;
+  margin: 5px 15px;
+  padding: 8px 15px;
   font-size: 1.2rem;
   text-decoration: none;
-  color: black;
-  transition: color 0.3s;
+  color: white; /* better contrast over image */
+  background: rgba(0,0,0,0.5); /* semi-transparent background */
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
 }
 
 .links a:hover {
-  color: #007BFF; /* hover color */
+  background: rgba(255,255,255,0.7);
+  color: black;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Top center full-width image -->
-<img src="src/ternitzportrait2.jpg" class="top-center-img" alt="Portrait">
-
-<!-- Links -->
+<!-- Links over the image -->
 <div class="links">
   <a href="src/marcus_wagner_portfolio_2026_deutsch.pdf" target="_blank">
     Open PDF Fullscreen
@@ -58,6 +61,9 @@ body {
     Send Email
   </a>
 </div>
+
+<!-- Top center full-width image -->
+<img src="src/ternitzportrait2.jpg" class="top-center-img" alt="Portrait">
 
 </body>
 </html>
