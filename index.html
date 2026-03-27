@@ -47,6 +47,15 @@ body {
   background: rgba(255,255,255,0.7);
   color: black;
 }
+
+/* ===== MOBILE: stack links vertically ===== */
+@media (max-width: 768px) {
+  .links a {
+    display: block; /* make each link take full width */
+    margin: 10px auto; /* vertical spacing + center */
+    width: 80%; /* optional: links narrower than screen */
+  }
+}
 </style>
 </head>
 
@@ -55,7 +64,7 @@ body {
 <!-- Links over the image -->
 <div class="links">
   <a href="src/marcus_wagner_portfolio_2026_kurz.pdf" target="_blank">
-    Open PDF Fullscreen
+    Open PDF
   </a>
   <a href="https://www.hopeartservice.vip" target="_blank">
     H0PE
