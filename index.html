@@ -4,14 +4,64 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PDF Fullscreen</title>
-</head>
-<body style="display:flex; justify-content:center; align-items:center; height:100vh; flex-direction:column;">
 
-<a href="src/marcus_wagner_portfolio_2026_deutsch.pdf" target="_blank">Open PDF Fullscreen</a>
-  
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  margin: 0;
+}
+
+/* CORNER IMAGES */
+.corner-img {
+  position: fixed;
+  width: 120px; /* adjust size */
+  height: auto;
+}
+
+/* each corner */
+.top-left {
+  top: 0;
+  left: 0;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+}
+</style>
+</head>
+
+<body>
+
+<a href="src/marcus_wagner_portfolio_2026_deutsch.pdf" target="_blank">
+  Open PDF Fullscreen
+</a>
+
 <br>
- 
-<a href="mailto:marcuswagnerinfo@gmail.com">Send Email</a>
-    
+
+<a href="mailto:marcuswagnerinfo@gmail.com">
+  Send Email
+</a>
+
+<!-- CORNER IMAGES -->
+<img src="liebe_white.jpg" class="corner-img top-left">
+<img src="Scan 5.jpg" class="corner-img top-right">
+<img src="20251006MarcusWagner4717.jpg" class="corner-img bottom-left">
+<img src="src/ghosttown_neu/hopetown_close1.jpg" class="corner-img bottom-right">
+
 </body>
 </html>
