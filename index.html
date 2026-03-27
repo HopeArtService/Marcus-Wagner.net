@@ -3,151 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery Lightbox</title>
+<title>PDF Fullscreen</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  margin: 0;
 }
 
-/* ===== CENTER CONTENT ===== */
-.center {
-  text-align: center;
-  z-index: 1;
-}
-
-/* ===== IMAGE STRIP (BOTTOM) ===== */
-.gallery {
+/* CORNER IMAGES */
+.corner-img {
   position: fixed;
+  width: 220px; /* adjust size */
+  height: auto;
+}
+
+/* each corner */
+.top-left {
+  top: 0;
+  left: 0;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+}
+
+.bottom-left {
   bottom: 0;
   left: 0;
-  width: 100%;
-
-  display: grid;
-  grid-template-columns: repeat(10, 1fr); /* 10 per row */
-  grid-auto-rows: 90px;
-
-  /* limits height → creates 2–3 rows */
-  max-height: 270px;
-  overflow: hidden;
 }
 
-/* images */
-.gallery img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  cursor: pointer;
-  display: block;
-}
-
-/* ===== LIGHTBOX ===== */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.92);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.25s ease;
-}
-
-/* active state */
-.lightbox.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* image inside */
-.lightbox img {
-  max-width: 92%;
-  max-height: 92%;
-  transform: scale(0.9);
-  transition: 0.25s ease;
-}
-
-.lightbox.show img {
-  transform: scale(1);
+.bottom-right {
+  bottom: 0;
+  right: 0;
 }
 </style>
 </head>
 
 <body>
 
-<div class="center">
-  <a href="#">Open PDF</a><br><br>
-  <a href="mailto:test@email.com">Send Email</a>
-</div>
+<a href="src/marcus_wagner_portfolio_2026_deutsch.pdf" target="_blank">
+  Open PDF Fullscreen
+</a>
 
-<!-- ===== GALLERY ===== -->
-<div class="gallery">
-  <img src="https://picsum.photos/id/1/500/500">
-  <img src="https://picsum.photos/id/2/500/500">
-  <img src="https://picsum.photos/id/3/500/500">
-  <img src="https://picsum.photos/id/4/500/500">
-  <img src="https://picsum.photos/id/5/500/500">
-  <img src="https://picsum.photos/id/6/500/500">
-  <img src="https://picsum.photos/id/7/500/500">
-  <img src="https://picsum.photos/id/8/500/500">
-  <img src="https://picsum.photos/id/9/500/500">
-  <img src="https://picsum.photos/id/10/500/500">
+<br>
 
-  <img src="https://picsum.photos/id/11/500/500">
-  <img src="https://picsum.photos/id/12/500/500">
-  <img src="https://picsum.photos/id/13/500/500">
-  <img src="https://picsum.photos/id/14/500/500">
-  <img src="https://picsum.photos/id/15/500/500">
-  <img src="https://picsum.photos/id/16/500/500">
-  <img src="https://picsum.photos/id/17/500/500">
-  <img src="https://picsum.photos/id/18/500/500">
-  <img src="https://picsum.photos/id/19/500/500">
-  <img src="https://picsum.photos/id/20/500/500">
-</div>
+<a href="mailto:marcuswagnerinfo@gmail.com">
+  Send Email
+</a>
 
-<!-- ===== LIGHTBOX ===== -->
-<div class="lightbox" id="lightbox">
-  <img id="lightbox-img" src="">
-</div>
+<!-- CORNER IMAGES -->
+<img src="src/ternitzportrait2.jpg" class="corner-img top-left">
 
-<script>
-const galleryImages = document.querySelectorAll('.gallery img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-
-// open lightbox
-galleryImages.forEach(img => {
-  img.addEventListener('click', () => {
-    lightbox.classList.add('show');
-    lightboxImg.src = img.src;
-  });
-});
-
-// close on click
-lightbox.addEventListener('click', () => {
-  lightbox.classList.remove('show');
-});
-
-// close with ESC
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    lightbox.classList.remove('show');
-  }
-});
-</script>
 
 </body>
 </html>
