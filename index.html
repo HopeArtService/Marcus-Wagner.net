@@ -22,6 +22,30 @@ body {
   z-index: 0;
 }
 
+/* ===== Contact Button ===== */
+.links {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.links a {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  border-radius: 0; /* scharfe Kanten */
+  transition: 0.3s;
+}
+
+.links a:hover {
+  background: rgba(255,255,255,0.7);
+  color: black;
+}
+
 /* ===== Galerie unten ===== */
 .gallery-bar {
   position: fixed;
@@ -58,32 +82,25 @@ body {
   max-width: 90%;
   max-height: 90%;
 }
-
-/* schließen beim hover Hinweis */
-.lightbox::after {
-  content: "Klicken zum Schließen";
-  position: absolute;
-  bottom: 20px;
-  color: white;
-  font-size: 14px;
-  opacity: 0.7;
-}
 </style>
 </head>
 
 <body>
+
+<!-- Contact Button -->
+<div class="links">
+  <a href="info.html">Contact</a>
+</div>
 
 <!-- Hintergrund -->
 <img src="src/ternitzportrait2.jpg" class="top-center-img">
 
 <!-- Galerie -->
 <div class="gallery-bar">
-  <img src="src/singing.JPG" onclick="openLightbox(this.src)">
-  <img src="src/METEORID.jpg" onclick="openLightbox(this.src)">
-  <img src="src/portrait2.jpg" onclick="openLightbox(this.src)">
-  <img src="src/20251006MarcusWagner4709.jpg" onclick="openLightbox(this.src)">
-    <img src="src/works_cover/leibes3.jpg" onclick="openLightbox(this.src)">
-
+  <img src="src/bild1.jpg" onclick="openLightbox(this.src)">
+  <img src="src/bild2.jpg" onclick="openLightbox(this.src)">
+  <img src="src/bild3.jpg" onclick="openLightbox(this.src)">
+  <img src="src/bild4.jpg" onclick="openLightbox(this.src)">
 </div>
 
 <!-- Lightbox -->
