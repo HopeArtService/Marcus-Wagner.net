@@ -11,7 +11,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Hintergrund */
+/* ===== Hintergrund ===== */
 .top-center-img {
   position: fixed;
   top: 0;
@@ -22,7 +22,7 @@ body {
   z-index: 0;
 }
 
-/* Contact Button */
+/* ===== Contact Button ===== */
 .links {
   position: fixed;
   top: 20px;
@@ -39,16 +39,16 @@ body {
   background: rgba(0,0,0,0.5);
 }
 
-/* ===== Galerie ===== */
+/* ===== Galerie Desktop ===== */
 .gallery {
   position: absolute;
-  bottom: 0;      /* startet unten */
+  bottom: 0;
   left: 0;
   width: 100%;
   z-index: 2;
 
   display: grid;
-  grid-template-columns: repeat(8, 1fr); /* 8 Bilder */
+  grid-template-columns: repeat(8, 1fr);
 }
 
 .gallery img {
@@ -62,6 +62,7 @@ body {
 @media (max-width: 768px) {
   .gallery {
     position: relative;
+    margin-top: 100vh; /* startet unten */
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 
@@ -93,14 +94,17 @@ body {
 
 <body>
 
+<!-- Contact -->
 <div class="links">
   <a href="info.html">Contact</a>
 </div>
 
+<!-- Hintergrund -->
 <img src="src/ternitzportrait2.jpg" class="top-center-img">
 
 <!-- Galerie -->
 <div class="gallery">
+  <!-- Reihe 1 -->
   <img src="src/singing.JPG" onclick="openLightbox(this.src)">
   <img src="src/METEORID.jpg" onclick="openLightbox(this.src)">
   <img src="src/portrait2.jpg" onclick="openLightbox(this.src)">
@@ -110,11 +114,15 @@ body {
   <img src="src/bild2.jpg" onclick="openLightbox(this.src)">
   <img src="src/bild3.jpg" onclick="openLightbox(this.src)">
 
-  <!-- zweite Reihe -->
+  <!-- Reihe 2 -->
   <img src="src/bild4.jpg" onclick="openLightbox(this.src)">
   <img src="src/bild5.jpg" onclick="openLightbox(this.src)">
   <img src="src/bild6.jpg" onclick="openLightbox(this.src)">
   <img src="src/bild7.jpg" onclick="openLightbox(this.src)">
+  <img src="src/bild8.jpg" onclick="openLightbox(this.src)">
+  <img src="src/bild9.jpg" onclick="openLightbox(this.src)">
+  <img src="src/bild10.jpg" onclick="openLightbox(this.src)">
+  <img src="src/bild11.jpg" onclick="openLightbox(this.src)">
 </div>
 
 <!-- Lightbox -->
