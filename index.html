@@ -11,7 +11,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* ===== Hintergrund ===== */
+/* ===== Background ===== */
 .top-center-img {
   position: fixed;
   top: 0;
@@ -22,31 +22,53 @@ body {
   z-index: 0;
 }
 
-/* ===== Contact Button ===== */
+/* ===== Contact ===== */
 .links {
   position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 3;
+  z-index: 5;
 }
 
 .links a {
   padding: 10px 20px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-decoration: none;
   color: white;
   background: rgba(0,0,0,0.5);
 }
 
-/* ===== Galerie Desktop ===== */
-.gallery {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2;
+/* ===== Featured (NEW WORK) ===== */
+.featured {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
 
+  display: flex;
+  gap: 20px;
+}
+
+.featured img {
+  width: 220px;
+  height: 300px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* ===== Scroll Section ===== */
+.scroll-section {
+  position: relative;
+  margin-top: 100vh; /* forces scroll */
+  background: white;
+  z-index: 2;
+  padding-top: 40px;
+}
+
+/* ===== Gallery ===== */
+.gallery {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
 }
@@ -58,11 +80,30 @@ body {
   cursor: pointer;
 }
 
+/* ===== Fade-in effect ===== */
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ===== Mobile ===== */
 @media (max-width: 768px) {
+  .featured {
+    gap: 10px;
+  }
+
+  .featured img {
+    width: 120px;
+    height: 180px;
+  }
+
   .gallery {
-    position: relative;
-    margin-top: 100vh; /* startet unten */
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 
@@ -82,33 +123,13 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 5;
+  z-index: 10;
 }
 
 .lightbox img {
   max-width: 90%;
   max-height: 90%;
 }
-.img-wrapper {
-  position: relative;
-}
-
-.img-wrapper img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  display: block;
-}
-
-.img-text {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  color: white;
-  font-size: 1rem;
-  background: rgba(0,0,0,0.5);
-  padding: 5px 10px;
-}  
 </style>
 </head>
 
@@ -119,36 +140,35 @@ body {
   <a href="info.html">Contact</a>
 </div>
 
-<!-- Hintergrund -->
+<!-- Background -->
 <img src="src/ternitzportrait2.jpg" class="top-center-img">
 
-<!-- Galerie -->
-<div class="gallery">
-  <!-- Reihe 1 -->
+<!-- ===== Featured Images (NEW WORK) ===== -->
+<div class="featured">
   <img src="src/singing.JPG" onclick="openLightbox(this.src)">
   <img src="src/METEORID.jpg" onclick="openLightbox(this.src)">
   <img src="src/portrait2.jpg" onclick="openLightbox(this.src)">
-  <img src="src/20251006MarcusWagner4709.jpg" onclick="openLightbox(this.src)">
-  <img src="src/works_cover/leibes3.jpg" onclick="openLightbox(this.src)">
-  <img src="src/bild1.jpg" onclick="openLightbox(this.src)">
-  <img src="src/bild2.jpg" onclick="openLightbox(this.src)">
-  <img src="src/bild3.jpg" onclick="openLightbox(this.src)">
+</div>
 
-  <a href="archive.html" class="img-link">
-  <div class="img-wrapper">
-    <img src="src/singing.JPG">
-    <span class="img-text">Project 1</span>
+<!-- ===== Scroll Section ===== -->
+<div class="scroll-section">
+
+  <div class="gallery fade" id="gallery">
+    <img src="src/20251006MarcusWagner4709.jpg" onclick="openLightbox(this.src)">
+    <img src="src/works_cover/leibes3.jpg" onclick="openLightbox(this.src)">
+    <img src="src/bild1.jpg" onclick="openLightbox(this.src)">
+    <img src="src/bild2.jpg" onclick="openLightbox(this.src)">
+    <img src="src/bild3.jpg" onclick="openLightbox(this.src)">
+    <img src="src/bild4.jpg" onclick="openLightbox(this.src)">
+    <img src="src/bild5.jpg" onclick="openLightbox(this.src)">
+    <img src="src/bild6.jpg" onclick="openLightbox(this.src)">
+    <img src="src/bild7.jpg" onclick="openLightbox(this.src)">
+    <img src="src/bild8.jpg" onclick="openLightbox(this.src)">
+    <img src="src/bild9.jpg" onclick="openLightbox(this.src)">
+    <img src="src/bild10.jpg" onclick="openLightbox(this.src)">
+    <img src="src/bild11.jpg" onclick="openLightbox(this.src)">
   </div>
-</a>
-  <!-- Reihe 2 -->
-  <img src="src/bild4.jpg" onclick="openLightbox(this.src)">
-  <img src="src/bild5.jpg" onclick="openLightbox(this.src)">
-  <img src="src/bild6.jpg" onclick="openLightbox(this.src)">
-  <img src="src/bild7.jpg" onclick="openLightbox(this.src)">
-  <img src="src/bild8.jpg" onclick="openLightbox(this.src)">
-  <img src="src/bild9.jpg" onclick="openLightbox(this.src)">
-  <img src="src/bild10.jpg" onclick="openLightbox(this.src)">
-  <img src="src/bild11.jpg" onclick="openLightbox(this.src)">
+
 </div>
 
 <!-- Lightbox -->
@@ -165,6 +185,16 @@ function openLightbox(src) {
 function closeLightbox() {
   document.getElementById("lightbox").style.display = "none";
 }
+
+/* ===== Fade-in on scroll ===== */
+const gallery = document.getElementById("gallery");
+
+window.addEventListener("scroll", () => {
+  const rect = gallery.getBoundingClientRect();
+  if (rect.top < window.innerHeight - 100) {
+    gallery.classList.add("visible");
+  }
+});
 </script>
 
 </body>
