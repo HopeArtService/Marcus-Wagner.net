@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scrollable Gallery</title>
+<title>Gallery Grid</title>
 
 <style>
 body {
@@ -39,20 +39,35 @@ body {
   background: rgba(0,0,0,0.5);
 }
 
-/* ===== Galerie (scrollbar) ===== */
+/* ===== Galerie ===== */
 .gallery {
-  position: relative;
+  position: absolute;
+  bottom: 0;      /* startet unten */
+  left: 0;
+  width: 100%;
   z-index: 2;
-  margin-top: 100vh; /* startet unter dem Screen */
+
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(8, 1fr); /* 8 Bilder */
 }
 
 .gallery img {
   width: 100%;
-  height: 200px;
+  height: 140px;
   object-fit: cover;
   cursor: pointer;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .gallery {
+    position: relative;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .gallery img {
+    height: 120px;
+  }
 }
 
 /* ===== Lightbox ===== */
@@ -91,11 +106,15 @@ body {
   <img src="src/portrait2.jpg" onclick="openLightbox(this.src)">
   <img src="src/20251006MarcusWagner4709.jpg" onclick="openLightbox(this.src)">
   <img src="src/works_cover/leibes3.jpg" onclick="openLightbox(this.src)">
+  <img src="src/bild1.jpg" onclick="openLightbox(this.src)">
+  <img src="src/bild2.jpg" onclick="openLightbox(this.src)">
+  <img src="src/bild3.jpg" onclick="openLightbox(this.src)">
 
-  <!-- einfach erweitern -->
-  <img src="src/portrait2.jpg" onclick="openLightbox(this.src)">
-  <img src="src/METEORID.jpg" onclick="openLightbox(this.src)">
-  <img src="src/20251006MarcusWagner4709.jpg" onclick="openLightbox(this.src)">
+  <!-- zweite Reihe -->
+  <img src="src/bild4.jpg" onclick="openLightbox(this.src)">
+  <img src="src/bild5.jpg" onclick="openLightbox(this.src)">
+  <img src="src/bild6.jpg" onclick="openLightbox(this.src)">
+  <img src="src/bild7.jpg" onclick="openLightbox(this.src)">
 </div>
 
 <!-- Lightbox -->
