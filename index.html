@@ -11,31 +11,34 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* ===== HERO ===== */
+/* ===== HERO SECTION ===== */
 .hero {
   position: relative;
-  height: 120vh;
+  min-height: 100vh;
+  padding-bottom: 60px;
+  overflow: hidden;
 }
 
 /* Background */
 .hero img.bg {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: 0;
 }
 
-/* Overlay layer */
+/* Content sits above background */
 .hero-content {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  z-index: 1;
 
   display: flex;
   flex-direction: column;
-
-  justify-content: flex-start;   /* FIXED */
   align-items: center;
 
-  padding-top: 80px; /* space under top */
+  padding-top: 80px;
 }
 
 /* ===== Contact ===== */
@@ -44,6 +47,7 @@ body {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 2;
 }
 
 .links a {
@@ -61,7 +65,7 @@ body {
   gap: 20px;
   align-items: center;
 
-  margin-top: 80px; /* ensures it sits under contact nicely */
+  margin-top: 120px;
 }
 
 .featured img {
@@ -71,10 +75,11 @@ body {
   cursor: pointer;
 }
 
-/* ===== GALLERY ===== */
+/* ===== GALLERY (separate section, no overlap) ===== */
 .gallery {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
+  gap: 0;
 }
 
 .gallery img {
@@ -82,14 +87,11 @@ body {
   height: 140px;
   object-fit: cover;
   cursor: pointer;
+  display: block;
 }
 
 /* ===== Mobile ===== */
 @media (max-width: 768px) {
-  .hero {
-    height: 110vh;
-  }
-
   .featured img {
     width: 160px;
     height: 220px;
@@ -127,15 +129,15 @@ body {
 <body>
 
 <!-- ===== HERO ===== -->
-<div class="hero">
+<section class="hero">
 
   <img src="src/ternitzportrait2.jpg" class="bg">
 
-  <div class="hero-content">
+  <div class="links">
+    <a href="info.html">Contact</a>
+  </div>
 
-    <div class="links">
-      <a href="info.html">Contact</a>
-    </div>
+  <div class="hero-content">
 
     <div class="featured">
       <img src="src/METEORID.jpg" onclick="openLightbox(this.src)">
@@ -145,13 +147,14 @@ body {
 
   </div>
 
-</div>
+</section>
 
-<!-- ===== GALLERY ===== -->
-<div class="gallery">
+<!-- ===== GALLERY (separate, no overlap) ===== -->
+<section class="gallery">
   <img src="src/20251006MarcusWagner4709.jpg" onclick="openLightbox(this.src)">
   <img src="src/works_cover/leibes3.jpg" onclick="openLightbox(this.src)">
-  <img src="src/painting_compilation/fleck_cropped.jpg" onclick="openLightbox(this.src)">
+  <img src="src/ternitzportrait1.JPG" onclick="openLightbox(this.src)">
+  <img src="src/painting_compilation/fleck.jpg" onclick="openLightbox(this.src)">
   <img src="src/bilder_weboptimiert_background/maske.jpg" onclick="openLightbox(this.src)">
   <img src="src/PHOTO-2024-05-13-22-08-58 3.JPG" onclick="openLightbox(this.src)">
   <img src="src/painting_compilation/spagetti.jpg" onclick="openLightbox(this.src)">
@@ -162,7 +165,7 @@ body {
   <img src="shoeshowmarcus_wagner.JPG" onclick="openLightbox(this.src)">
   <img src="src/pirate_1_crazy.jpg" onclick="openLightbox(this.src)">
   <img src="src/crowns_einzel_a48.jpg" onclick="openLightbox(this.src)">
-</div>
+</section>
 
 <!-- ===== Lightbox ===== -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
