@@ -11,13 +11,13 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* ===== HERO (scrolls normally) ===== */
+/* ===== HERO ===== */
 .hero {
   position: relative;
-  height: 120vh; /* taller so images fit nicely */
+  height: 120vh;
 }
 
-/* Background now SCROLLS */
+/* Background */
 .hero img.bg {
   width: 100%;
   height: 100%;
@@ -31,9 +31,11 @@ body {
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* push to bottom */
+
+  justify-content: flex-start;   /* FIXED */
   align-items: center;
-  padding-bottom: 40px;
+
+  padding-top: 80px; /* space under top */
 }
 
 /* ===== Contact ===== */
@@ -58,6 +60,8 @@ body {
   flex-direction: column;
   gap: 20px;
   align-items: center;
+
+  margin-top: 80px; /* ensures it sits under contact nicely */
 }
 
 .featured img {
@@ -125,18 +129,14 @@ body {
 <!-- ===== HERO ===== -->
 <div class="hero">
 
-  <!-- Background -->
   <img src="src/ternitzportrait2.jpg" class="bg">
 
-  <!-- Overlay content -->
   <div class="hero-content">
 
-    <!-- Contact -->
     <div class="links">
       <a href="info.html">Contact</a>
     </div>
 
-    <!-- Featured images -->
     <div class="featured">
       <img src="src/METEORID.jpg" onclick="openLightbox(this.src)">
       <img src="src/me.jpg" onclick="openLightbox(this.src)">
@@ -147,12 +147,11 @@ body {
 
 </div>
 
-<!-- ===== GALLERY (attached directly) ===== -->
+<!-- ===== GALLERY ===== -->
 <div class="gallery">
   <img src="src/20251006MarcusWagner4709.jpg" onclick="openLightbox(this.src)">
   <img src="src/works_cover/leibes3.jpg" onclick="openLightbox(this.src)">
-  <img src="src/ternitzportrait1.JPG" onclick="openLightbox(this.src)">
-  <img src="src/painting_compilation/fleck.jpg" onclick="openLightbox(this.src)">
+  <img src="src/painting_compilation/fleck_cropped.jpg" onclick="openLightbox(this.src)">
   <img src="src/bilder_weboptimiert_background/maske.jpg" onclick="openLightbox(this.src)">
   <img src="src/PHOTO-2024-05-13-22-08-58 3.JPG" onclick="openLightbox(this.src)">
   <img src="src/painting_compilation/spagetti.jpg" onclick="openLightbox(this.src)">
