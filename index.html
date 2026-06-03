@@ -9,16 +9,23 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: white;
+  overflow: hidden;
+  background: black;
 }
 
-/* HERO */
+/* FULLSCREEN BACKGROUND */
 .hero {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  cursor: pointer;
 }
 
 /* Top centered buttons */
@@ -41,92 +48,40 @@ body {
   background: rgba(0,0,0,0.4);
   border-radius: 5px;
 }
-
-/* CENTER IMAGE (always truly centered) */
-.main-image {
-  width: 280px;
-  height: auto;
-  object-fit: contain;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .main-image {
-    width: 140px;
-  }
-}
-
-/* SIDE IMAGE (does NOT affect centering) */
-.side-image-link {
-  position: absolute;
-  right: 60px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-}
-
-.side-image-link img {
-  width: 240px;
-  height: auto;
-  object-fit: contain;
-  opacity: 0.9;
-  transition: opacity 0.2s ease;
-}
-
-.side-image-link img:hover {
-  opacity: 1;
-}
-
-/* MOBILE STACK */
-@media (max-width: 768px) {
-
-  .side-image-link {
-    position: static;
-    transform: none;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .side-image-link img {
-    width: 160px;
-  }
-}
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
+<!-- BACKGROUND HERO -->
+<section class="hero" id="hero"></section>
 
-  <div class="links">
-    <a href="art.html">Archive</a>
-    <a href="info.html">Contact</a>
-  </div>
-
-  <!-- CENTER IMAGE -->
-  <img id="randomImage" class="main-image" alt="Artwork">
-
-  <!-- SIDE IMAGE -->
- 
-
-</section>
+<div class="links">
+  <a href="art.html">Archive</a>
+  <a href="info.html">Contact</a>
+</div>
 
 <script>
-  const images = [
-    "src/ternitzportrait1.JPG",
-  ];
+const images = [
+  "src/ternitzportrait1.JPG",
+  "src/painting_compilation/spagetti.jpg",
+  "src/ghosttown2.jpg",
+  "src/leibes_2.jpg",
+  "src/works_on_paper_other26.jpg"
+];
 
-  let index = Math.floor(Math.random() * images.length);
-  const img = document.getElementById("randomImage");
+let index = Math.floor(Math.random() * images.length);
 
-  img.src = images[index];
+const hero = document.getElementById("hero");
 
-  img.addEventListener("click", () => {
-    index = (index + 1) % images.length;
-    img.src = images[index];
-  });
+// set initial background
+hero.style.backgroundImage = `url('${images[index]}')`;
+
+// click to change image
+hero.addEventListener("click", () => {
+  index = (index + 1) % images.length;
+  hero.style.backgroundImage = `url('${images[index]}')`;
+});
 </script>
 
 </body>
