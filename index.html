@@ -9,23 +9,29 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  overflow: hidden;
   background: black;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-/* FULLSCREEN BACKGROUND */
+/* IMAGE CONTAINER (NOT FULLSCREEN ANYMORE) */
 .hero {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+}
+
+/* BIG IMAGE BUT NOT FULLSCREEN */
+.hero img {
+  max-width: 85vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
 }
 
 /* Top centered buttons */
@@ -37,7 +43,6 @@ body {
   display: flex;
   gap: 10px;
   z-index: 10;
-  align-items: center;
 }
 
 .links a {
@@ -53,13 +58,15 @@ body {
 
 <body>
 
-<!-- BACKGROUND HERO -->
-<section class="hero" id="hero"></section>
-
 <div class="links">
   <a href="art.html">Archive</a>
   <a href="info.html">Contact</a>
 </div>
+
+<!-- IMAGE DISPLAY -->
+<section class="hero" id="hero">
+  <img id="img" src="" alt="gallery image">
+</section>
 
 <script>
 const images = [
@@ -72,15 +79,15 @@ const images = [
 
 let index = Math.floor(Math.random() * images.length);
 
-const hero = document.getElementById("hero");
+const img = document.getElementById("img");
 
-// set initial background
-hero.style.backgroundImage = `url('${images[index]}')`;
+// initial image
+img.src = images[index];
 
 // click to change image
-hero.addEventListener("click", () => {
+document.getElementById("hero").addEventListener("click", () => {
   index = (index + 1) % images.length;
-  hero.style.backgroundImage = `url('${images[index]}')`;
+  img.src = images[index];
 });
 </script>
 
