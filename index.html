@@ -12,7 +12,7 @@ body {
   background: white;
 }
 
-/* HERO (image area) */
+/* HERO */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -20,14 +20,13 @@ body {
   align-items: center;
 }
 
-/* Top centered buttons (only Archive now) */
+/* Top centered buttons */
 .links {
   position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  flex-direction: column;
   gap: 10px;
   z-index: 10;
   align-items: center;
@@ -61,7 +60,7 @@ body {
   }
 }
 
-/* INFO SECTION AT BOTTOM */
+/* INFO */
 .info {
   max-width: 700px;
   margin: 80px auto;
@@ -90,34 +89,40 @@ body {
 
   <div class="links">
     <a href="art.html">Archive</a>
+    <a href="mailto:marcuswagnerinfo@gmail.com">Contact</a>
   </div>
 
   <div class="hero-content">
-    <img
-      src="src/ternitzportrait1.JPG"
-      class="main-image"
-      alt="Artwork"
-    >
+    <img id="randomImage" class="main-image" alt="Artwork">
   </div>
 
 </section>
 
-<!-- INFO SECTION (from info.html) -->
+<!-- INFO -->
 <section class="info">
 
   <a href="mailto:marcuswagnerinfo@gmail.com">marcuswagnerinfo@gmail.com</a>
 
   <p>*1996 Vienna, lives in Vienna</p>
-
   <p>Since 2017 - Painting and animated film, Judith Eisler, University of Applied Arts, Vienna</p>
-
   <p>2024 - University of Newcastle, UK</p>
-
   <p>2024/2025 - Klasse Maximiliane Baumgartner, Kunstakademie Düsseldorf</p>
-
   <p>2025 - Klasse Skulptur und Raum, Hans Schabus, University of Applied Arts, Vienna</p>
 
 </section>
+
+<script>
+  const images = [
+    "src/ternitzportrait1.JPG",
+    "src/ternitzportrait2.JPG",
+    "src/ternitzportrait3.JPG",
+    "src/ternitzportrait4.JPG"
+  ];
+
+  const img = document.getElementById("randomImage");
+  const randomIndex = Math.floor(Math.random() * images.length);
+  img.src = images[randomIndex];
+</script>
 
 </body>
 </html>
