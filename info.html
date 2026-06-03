@@ -12,7 +12,7 @@ body {
     max-width: 700px;
 }
 
-/* Images (left aligned, not centered anymore) */
+/* Images (content images) */
 img {
     width: 450px;
     height: auto;
@@ -38,7 +38,7 @@ p {
     margin-top: 50px;
 }
 
-/* Back-to-home Button */
+/* BACK HOME BUTTON */
 .back-home {
   position: fixed;
   bottom: 20px;
@@ -55,6 +55,38 @@ p {
 .back-home:hover {
   background-color: #ccc;
 }
+
+/* NEW FLOATING IMAGE LINK (BOTTOM RIGHT, MORE INWARD) */
+.side-image-link {
+  position: fixed;
+  right: 80px;   /* more inward from edge */
+  bottom: 80px;  /* slightly above back-home button */
+  z-index: 999;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.side-image-link img {
+  width: 160px;
+  height: auto;
+  display: block;
+}
+
+.side-image-link:hover {
+  opacity: 1;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .side-image-link {
+    right: 20px;
+    bottom: 100px;
+  }
+
+  .side-image-link img {
+    width: 110px;
+  }
+}
 </style>
 
 </head>
@@ -67,13 +99,9 @@ p {
 <main>
 <div>
 
-<a href="mailto:marcuswagnerinfo@gmail.com">marcuswagnerinfo@gmail.com</a>
-
-   
-
-
-
-
+<a href="mailto:marcuswagnerinfo@gmail.com">
+  marcuswagnerinfo@gmail.com
+</a>
 
 </div>
 </main>
@@ -81,6 +109,12 @@ p {
 <footer>
 </footer>
 
+<!-- FLOATING IMAGE LINK -->
+<a href="https://www.hopeartservice.vip" class="side-image-link">
+  <img src="src/hopenewlobo_visi.jpg" alt="Hope Art Service">
+</a>
+
+<!-- BACK HOME -->
 <a href="/" class="back-home">Back to Home</a>
 
 </body>
