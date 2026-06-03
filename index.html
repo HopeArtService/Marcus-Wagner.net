@@ -52,6 +52,7 @@ body {
   width: 280px;
   height: auto;
   object-fit: contain;
+  cursor: pointer; /* makes it feel clickable */
 }
 
 @media (max-width: 768px) {
@@ -60,16 +61,17 @@ body {
   }
 }
 
+/* RIGHT SIDE IMAGE (moved closer to center) */
 .side-image-link {
   position: fixed;
-  right: 10px;   /* moved closer to center (was 20px) */
+  right: 60px; /* moved more toward center */
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
 }
 
 .side-image-link img {
-  width: 240px;  /* doubled from 120px */
+  width: 240px;
   height: auto;
   object-fit: contain;
   opacity: 0.9;
@@ -81,29 +83,13 @@ body {
 }
 
 @media (max-width: 768px) {
-  .side-image-link img {
-    width: 70px;
+  .side-image-link {
+    right: 20px;
   }
-}
 
-/* INFO */
-.info {
-  max-width: 700px;
-  margin: 80px auto;
-  padding: 0 20px;
-  font-family: "Times New Roman", serif;
-  text-align: left;
-}
-
-.info p {
-  margin: 0 0 12px 0;
-}
-
-.info a {
-  display: block;
-  margin: 10px 0;
-  color: red;
-  text-decoration: none;
+  .side-image-link img {
+    width: 120px;
+  }
 }
 </style>
 </head>
@@ -118,7 +104,7 @@ body {
     <a href="info.html">Contact</a>
   </div>
 
-  <!-- MAIN IMAGE -->
+  <!-- MAIN IMAGE (click changes image) -->
   <div class="hero-content">
     <img id="randomImage" class="main-image" alt="Artwork">
   </div>
@@ -139,9 +125,17 @@ body {
     "src/works_on_paper_other26.jpg"
   ];
 
+  let index = Math.floor(Math.random() * images.length);
   const img = document.getElementById("randomImage");
-  const randomIndex = Math.floor(Math.random() * images.length);
-  img.src = images[randomIndex];
+
+  // initial image
+  img.src = images[index];
+
+  // change image on click
+  img.addEventListener("click", () => {
+    index = (index + 1) % images.length;
+    img.src = images[index];
+  });
 </script>
 
 </body>
