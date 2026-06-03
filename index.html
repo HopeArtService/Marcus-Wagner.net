@@ -60,6 +60,33 @@ body {
   }
 }
 
+/* RIGHT MIDDLE IMAGE LINK */
+.side-image-link {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.side-image-link img {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.side-image-link img:hover {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .side-image-link img {
+    width: 70px;
+  }
+}
+
 /* INFO */
 .info {
   max-width: 700px;
@@ -92,16 +119,24 @@ body {
     <a href="info.html">Contact</a>
   </div>
 
+  <!-- MAIN IMAGE -->
   <div class="hero-content">
     <img id="randomImage" class="main-image" alt="Artwork">
   </div>
+
+  <!-- RIGHT SIDE LINK IMAGE -->
+  <a href="www.hopeartservice.vip" class="side-image-link">
+    <img src="src/hopewetrust.png" alt="Side Link">
+  </a>
+
+</section>
 
 <script>
   const images = [
     "src/ternitzportrait1.JPG",
     "src/painting_compilation/spagetti.jpg",
     "src/ghosttown2.jpg",
-    "src/leibes_2.jpg"
+    "src/leibes_2.jpg",
     "src/works_on_paper_other26.jpg"
   ];
 
