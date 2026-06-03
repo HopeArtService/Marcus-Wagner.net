@@ -41,33 +41,25 @@ body {
   border-radius: 5px;
 }
 
-/* Center image */
-.hero-content {
+/* WRAPPER (main + side image together) */
+.hero-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 60px;
 }
 
+/* Center image */
 .main-image {
   width: 280px;
   height: auto;
   object-fit: contain;
-  cursor: pointer; /* makes it feel clickable */
+  cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  .main-image {
-    width: 140px;
-  }
-}
-
-/* RIGHT SIDE IMAGE (moved closer to center) */
+/* SIDE IMAGE (desktop) */
 .side-image-link {
-  position: fixed;
-  right: 60px; /* moved more toward center */
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
+  display: block;
 }
 
 .side-image-link img {
@@ -82,13 +74,20 @@ body {
   opacity: 1;
 }
 
+/* MOBILE LAYOUT */
 @media (max-width: 768px) {
-  .side-image-link {
-    right: 20px;
+
+  .hero-wrap {
+    flex-direction: column; /* stack vertically */
+    gap: 20px;
+  }
+
+  .main-image {
+    width: 140px;
   }
 
   .side-image-link img {
-    width: 120px;
+    width: 160px;
   }
 }
 </style>
@@ -104,15 +103,17 @@ body {
     <a href="info.html">Contact</a>
   </div>
 
-  <!-- MAIN IMAGE (click changes image) -->
-  <div class="hero-content">
-    <img id="randomImage" class="main-image" alt="Artwork">
-  </div>
+  <div class="hero-wrap">
 
-  <!-- RIGHT SIDE LINK IMAGE -->
-  <a href="https://www.hopeartservice.vip" class="side-image-link">
-    <img src="src/hopewetrust.png" alt="Side Link">
-  </a>
+    <!-- MAIN IMAGE -->
+    <img id="randomImage" class="main-image" alt="Artwork">
+
+    <!-- SIDE IMAGE -->
+    <a href="https://www.hopeartservice.vip" class="side-image-link">
+      <img src="src/hopewetrust.png" alt="Side Link">
+    </a>
+
+  </div>
 
 </section>
 
@@ -128,10 +129,9 @@ body {
   let index = Math.floor(Math.random() * images.length);
   const img = document.getElementById("randomImage");
 
-  // initial image
   img.src = images[index];
 
-  // change image on click
+  // click to change image
   img.addEventListener("click", () => {
     index = (index + 1) % images.length;
     img.src = images[index];
