@@ -33,12 +33,7 @@ p {
     margin: 0 0 12px 0;
 }
 
-/* Bigger gap before Exhibitions */
-.exhibitions-title {
-    margin-top: 50px;
-}
-
-/* BACK HOME BUTTON */
+/* Back-to-home Button */
 .back-home {
   position: fixed;
   bottom: 20px;
@@ -56,18 +51,18 @@ p {
   background-color: #ccc;
 }
 
-/* NEW FLOATING IMAGE LINK (BOTTOM RIGHT, MORE INWARD) */
+/* ================= SIDE IMAGE LINK (UPDATED) ================= */
 .side-image-link {
   position: fixed;
-  right: 80px;   /* more inward from edge */
-  bottom: 80px;  /* slightly above back-home button */
+  right: 55px;   /* moved left (was 80px) */
+  bottom: 60px;  /* moved up (was 80px) */
   z-index: 999;
   opacity: 0.9;
   transition: opacity 0.2s ease;
 }
 
 .side-image-link img {
-  width: 160px;
+  width: 185px;  /* +15% bigger (was 160px) */
   height: auto;
   display: block;
 }
@@ -80,11 +75,11 @@ p {
 @media (max-width: 768px) {
   .side-image-link {
     right: 20px;
-    bottom: 100px;
+    bottom: 90px;
   }
 
   .side-image-link img {
-    width: 110px;
+    width: 125px;
   }
 }
 </style>
@@ -92,9 +87,6 @@ p {
 </head>
 
 <body>
-
-<header>
-</header>
 
 <main>
 <div>
@@ -106,12 +98,9 @@ p {
 </div>
 </main>
 
-<footer>
-</footer>
-
 <!-- FLOATING IMAGE LINK -->
 <a href="https://www.hopeartservice.vip" class="side-image-link">
-  <img src="src/hopenewlobo_visi.jpg" alt="Hope Art Service">
+  <img src="src/hopewetrust.png" alt="Hope Art Service">
 </a>
 
 <!-- BACK HOME -->
