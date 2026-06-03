@@ -1,173 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery</title>
-
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-/* ===== HERO SECTION ===== */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  padding-bottom: 60px;
-  overflow: hidden;
-}
-
-/* Background */
-.hero img.bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-
-/* Content sits above background */
-.hero-content {
-  position: relative;
-  z-index: 1;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  padding-top: 80px;
-}
-
-/* ===== Contact ===== */
-.links {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-
-.links a {
-  padding: 8px 16px;
-  font-size: 0.9rem;
-  text-decoration: none;
-  color: white;
-  background: rgba(0,0,0,0.4);
-}
-
-/* ===== Featured images ===== */
-.featured {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-
-  margin-top: 10px; /* small space under Contact */
-}
-
-.featured img {
-  width: 260px;
-  height: 360px;
-  object-fit: cover;
-  cursor: pointer;
-}
-
-/* ===== GALLERY (separate section, no overlap) ===== */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: 0;
-}
-
-.gallery img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  cursor: pointer;
-  display: block;
-}
-
-/* ===== Mobile ===== */
-@media (max-width: 768px) {
-  .featured img {
-    width: 160px;
-    height: 220px;
-  }
-
-  .gallery {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  }
-
-  .gallery img {
-    height: 120px;
-  }
-}
-
-/* ===== Lightbox ===== */
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.9);
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-}
-</style>
-</head>
-
 <body>
 
-<!-- ===== HERO ===== -->
 <section class="hero">
-
-  <img src="src/ternitzportrait2.jpg" class="bg">
 
   <div class="links">
     <a href="info.html">Contact</a>
+    <a href="archive.html">Archive</a>
   </div>
 
   <div class="hero-content">
 
-    <div class="featured">
-      <img src="src/METEORID.jpg" onclick="openLightbox(this.src)">
-      <img src="src/me.jpg" onclick="openLightbox(this.src)">
-      <img src="src/portrait2.jpg" onclick="openLightbox(this.src)">
-    </div>
+    <img
+      src="src/METEORID.jpg"
+      class="main-image"
+      onclick="openLightbox(this.src)"
+    >
 
   </div>
 
 </section>
 
-<!-- ===== GALLERY (separate, no overlap) ===== -->
-<section class="gallery">
-  <img src="src/20251006MarcusWagner4709.jpg" onclick="openLightbox(this.src)">
-  <img src="src/works_cover/leibes3.jpg" onclick="openLightbox(this.src)">
-  <img src="src/ternitzportrait1.JPG" onclick="openLightbox(this.src)">
-  <img src="src/painting_compilation/fleck.jpg" onclick="openLightbox(this.src)">
-  <img src="src/bilder_weboptimiert_background/maske.jpg" onclick="openLightbox(this.src)">
-  <img src="src/PHOTO-2024-05-13-22-08-58 3.JPG" onclick="openLightbox(this.src)">
-  <img src="src/painting_compilation/spagetti.jpg" onclick="openLightbox(this.src)">
-  <img src="src/maler_hoody_nahe.jpg" onclick="openLightbox(this.src)">
-  <img src="src/dgu_polaroid.jpg" onclick="openLightbox(this.src)">
-  <img src="nothingshow_marcus.jpg" onclick="openLightbox(this.src)">
-  <img src="src/maler_winter.JPG" onclick="openLightbox(this.src)">
-  <img src="shoeshowmarcus_wagner.JPG" onclick="openLightbox(this.src)">
-  <img src="src/pirate_1_crazy.jpg" onclick="openLightbox(this.src)">
-  <img src="src/crowns_einzel_a48.jpg" onclick="openLightbox(this.src)">
-</section>
-
-<!-- ===== Lightbox ===== -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <img id="lightbox-img">
 </div>
@@ -184,4 +35,3 @@ function closeLightbox() {
 </script>
 
 </body>
-</html>
