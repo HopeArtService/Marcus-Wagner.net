@@ -36,6 +36,7 @@ body {
   text-decoration: none;
   color: white;
   background: rgba(0,0,0,0.4);
+  border-radius: 999px; /* pill-shaped buttons */
 }
 
 /* Center image */
@@ -50,29 +51,12 @@ body {
   width: 180px;
   height: auto;
   object-fit: contain;
-  cursor: pointer;
 }
 
 @media (max-width: 768px) {
   .main-image {
     width: 140px;
   }
-}
-
-/* Lightbox */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.9);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 90%;
 }
 </style>
 </head>
@@ -90,27 +74,11 @@ body {
     <img
       src="src/ternitzportrait1.JPG"
       class="main-image"
-      onclick="openLightbox(this.src)"
       alt="Artwork"
     >
   </div>
 
 </section>
-
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img" alt="">
-</div>
-
-<script>
-function openLightbox(src) {
-  document.getElementById("lightbox-img").src = src;
-  document.getElementById("lightbox").style.display = "flex";
-}
-
-function closeLightbox() {
-  document.getElementById("lightbox").style.display = "none";
-}
-</script>
 
 </body>
 </html>
