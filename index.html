@@ -12,6 +12,7 @@ body {
   background: white;
 }
 
+/* HERO (image area) */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -19,17 +20,17 @@ body {
   align-items: center;
 }
 
-/* Top centered buttons (stacked) */
+/* Top centered buttons (only Archive now) */
 .links {
   position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  flex-direction: column; /* makes buttons vertical */
+  flex-direction: column;
   gap: 10px;
   z-index: 10;
-  align-items: center; /* keeps them centered */
+  align-items: center;
 }
 
 .links a {
@@ -48,7 +49,6 @@ body {
   align-items: center;
 }
 
-/* Small featured image */
 .main-image {
   width: 280px;
   height: auto;
@@ -60,15 +60,35 @@ body {
     width: 140px;
   }
 }
+
+/* INFO SECTION AT BOTTOM */
+.info {
+  max-width: 700px;
+  margin: 80px auto;
+  padding: 0 20px;
+  font-family: "Times New Roman", serif;
+  text-align: left;
+}
+
+.info p {
+  margin: 0 0 12px 0;
+}
+
+.info a {
+  display: block;
+  margin: 10px 0;
+  color: red;
+  text-decoration: none;
+}
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
 
   <div class="links">
-    <a href="info.html">Info</a>
     <a href="art.html">Archive</a>
   </div>
 
@@ -79,6 +99,23 @@ body {
       alt="Artwork"
     >
   </div>
+
+</section>
+
+<!-- INFO SECTION (from info.html) -->
+<section class="info">
+
+  <a href="mailto:marcuswagnerinfo@gmail.com">marcuswagnerinfo@gmail.com</a>
+
+  <p>*1996 Vienna, lives in Vienna</p>
+
+  <p>Since 2017 - Painting and animated film, Judith Eisler, University of Applied Arts, Vienna</p>
+
+  <p>2024 - University of Newcastle, UK</p>
+
+  <p>2024/2025 - Klasse Maximiliane Baumgartner, Kunstakademie Düsseldorf</p>
+
+  <p>2025 - Klasse Skulptur und Raum, Hans Schabus, University of Applied Arts, Vienna</p>
 
 </section>
 
