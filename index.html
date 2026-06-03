@@ -19,15 +19,17 @@ body {
   align-items: center;
 }
 
-/* Top centered buttons */
+/* Top centered buttons (stacked) */
 .links {
   position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
+  flex-direction: column; /* makes buttons vertical */
   gap: 10px;
   z-index: 10;
+  align-items: center; /* keeps them centered */
 }
 
 .links a {
@@ -36,7 +38,7 @@ body {
   text-decoration: none;
   color: white;
   background: rgba(0,0,0,0.4);
-  border-radius: 5px; /* less rounded, like back-home button */
+  border-radius: 5px;
 }
 
 /* Center image */
