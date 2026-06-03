@@ -1,3 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: white;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Top centered buttons */
+.links {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.links a {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: white;
+  background: rgba(0,0,0,0.4);
+}
+
+/* Center image */
+.hero-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Small featured image */
+.main-image {
+  width: 180px;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .main-image {
+    width: 140px;
+  }
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+}
+</style>
+</head>
+
 <body>
 
 <section class="hero">
@@ -8,19 +87,18 @@
   </div>
 
   <div class="hero-content">
-
     <img
       src="src/METEORID.jpg"
       class="main-image"
       onclick="openLightbox(this.src)"
+      alt="Artwork"
     >
-
   </div>
 
 </section>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img">
+  <img id="lightbox-img" alt="">
 </div>
 
 <script>
@@ -35,3 +113,4 @@ function closeLightbox() {
 </script>
 
 </body>
+</html>
