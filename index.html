@@ -18,6 +18,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 /* Top centered buttons */
@@ -41,15 +42,7 @@ body {
   border-radius: 5px;
 }
 
-/* WRAPPER (main + side image together) */
-.hero-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 60px;
-}
-
-/* Center image */
+/* CENTER IMAGE (always truly centered) */
 .main-image {
   width: 280px;
   height: auto;
@@ -57,9 +50,19 @@ body {
   cursor: pointer;
 }
 
-/* SIDE IMAGE (desktop) */
+@media (max-width: 768px) {
+  .main-image {
+    width: 140px;
+  }
+}
+
+/* SIDE IMAGE (does NOT affect centering) */
 .side-image-link {
-  display: block;
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
 }
 
 .side-image-link img {
@@ -74,16 +77,15 @@ body {
   opacity: 1;
 }
 
-/* MOBILE LAYOUT */
+/* MOBILE STACK */
 @media (max-width: 768px) {
 
-  .hero-wrap {
-    flex-direction: column; /* stack vertically */
-    gap: 20px;
-  }
-
-  .main-image {
-    width: 140px;
+  .side-image-link {
+    position: static;
+    transform: none;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
   }
 
   .side-image-link img {
@@ -103,17 +105,13 @@ body {
     <a href="info.html">Contact</a>
   </div>
 
-  <div class="hero-wrap">
+  <!-- CENTER IMAGE -->
+  <img id="randomImage" class="main-image" alt="Artwork">
 
-    <!-- MAIN IMAGE -->
-    <img id="randomImage" class="main-image" alt="Artwork">
-
-    <!-- SIDE IMAGE -->
-    <a href="https://www.hopeartservice.vip" class="side-image-link">
-      <img src="src/hopewetrust.png" alt="Side Link">
-    </a>
-
-  </div>
+  <!-- SIDE IMAGE -->
+  <a href="https://www.hopeartservice.vip" class="side-image-link">
+    <img src="src/hopewetrust.png" alt="Side Link">
+  </a>
 
 </section>
 
@@ -131,7 +129,6 @@ body {
 
   img.src = images[index];
 
-  // click to change image
   img.addEventListener("click", () => {
     index = (index + 1) % images.length;
     img.src = images[index];
