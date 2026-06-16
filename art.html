@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -6,7 +7,6 @@
 <title>Marcus Wagner – Archive</title>
 
 <style>
-/* Alles inkludiert in box-sizing, verhindert horizontales Überlaufen */
 * {
     box-sizing: border-box;
 }
@@ -14,19 +14,21 @@
 body {
     font-family: "Courier New", monospace;
     margin: 0;
-    padding: 10px; /* kleine Seitenabstände */
+    padding: 10px;
 }
 
 .card {
     width: 100%;
     max-width: 100%;
-    padding: 0 10px; /* innen Padding für Abstand zum Bildschirmrand */
+    padding: 0 10px;
     position: relative;
     overflow-y: auto;
     text-align: center;
 }
 
-.card h1, .card h2, .card h3 {
+.card h1,
+.card h2,
+.card h3 {
     margin: 0 0 10px 0;
     font-weight: normal;
 }
@@ -39,9 +41,13 @@ body {
 .invisible-link {
     text-decoration: none;
 }
-.invisible-link:hover { text-decoration: underline; }
 
-.work, .link-only {
+.invisible-link:hover {
+    text-decoration: underline;
+}
+
+.work,
+.link-only {
     text-align: center;
     margin-bottom: 20px;
 }
@@ -55,46 +61,29 @@ body {
     cursor: pointer;
 }
 
-.work a, .link-only a {
+.work a,
+.link-only a {
     text-decoration: underline;
     font-size: 14px;
     display: block;
 }
 
 .back-home {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 15px;
-  text-decoration: none;
-  border-radius: 5px;
-  background-color: #eee;
-  color: black;
-  font-size: 14px;
-  z-index: 2000;
-  transition: background-color 0.3s;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #eee;
+    color: black;
+    font-size: 14px;
+    z-index: 2000;
+    transition: background-color 0.3s;
 }
 
 .back-home:hover {
-  background-color: #ccc;
-}    
-
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-#overlay img {
-    max-width: 90%;
-    max-height: 90%;
+    background-color: #ccc;
 }
 </style>
 </head>
@@ -107,60 +96,73 @@ body {
 
     <h3>Selected Works</h3>
     <h3>2026</h3>
-    
+
     <div class="link-only">
         <a href="https://popgunart.com/Exhibitions/Truth%20Detective/Truth%20Detective.html">
-        Truth Detective/PopGun/D
+            Truth Detective/PopGun/D
         </a>
     </div>
-    
+
     <div class="work">
-        <img src="src/works_cover/painting_compilation_1.jpg" alt="Painting Compilation; 2025">
+        <a href="art_underpage.html">
+            <img src="src/works_cover/painting_compilation_1.jpg" alt="Painting Compilation; 2025">
+        </a>
         <a href="art_underpage.html">Painting Compilation</a>
     </div>
 
     <div class="work">
-        <img src="src/works_cover/ghost_1.jpg" alt="Ghost City Hope Town; 2026">
+        <a href="art_ghosttown.html">
+            <img src="src/works_cover/ghost_1.jpg" alt="Ghost City Hope Town; 2026">
+        </a>
         <a href="art_ghosttown.html">Ghost City - Hope Town</a>
     </div>
 
     <div class="work">
-        <img src="src/works_cover/marriage.jpeg" alt="H Marriage; 2025">
         <a href="https://www.hopeartservice.vip/hmarriage.html">
-        H Marriage/H0pe Art Service
+            <img src="src/works_cover/marriage.jpeg" alt="H Marriage; 2025">
+        </a>
+        <a href="https://www.hopeartservice.vip/hmarriage.html">
+            H Marriage/H0pe Art Service
         </a>
     </div>
-    
+
     <h3>2025</h3>
-    
-    <div class="work">
-        <img src="src/works_cover/nothingshow.jpg" alt="The Nothing Show; 2025">
-        <a href="https://www.hopeartservice.vip/nothingshow.html">
-        The Nothing Show/H0pe Art Service
-        </a>
-    </div>
-    
-    <div class="link-only">
-        <a href="https://popgunart.com/Exhibitions/Miniotics/Miniotics.html">
-        Miniotics/PopGun/Weatherproof/US
-        </a>
-    </div>  
 
     <div class="work">
-        <img src="src/scream.JPG" alt="The Shoe Show">
+        <a href="https://www.hopeartservice.vip/nothingshow.html">
+            <img src="src/works_cover/nothingshow.jpg" alt="The Nothing Show; 2025">
+        </a>
+        <a href="https://www.hopeartservice.vip/nothingshow.html">
+            The Nothing Show/H0pe Art Service
+        </a>
+    </div>
+
+    <div class="link-only">
+        <a href="https://popgunart.com/Exhibitions/Miniotics/Miniotics.html">
+            Miniotics/PopGun/Weatherproof/US
+        </a>
+    </div>
+
+    <div class="work">
         <a href="https://www.hopeartservice.vip/shoeshow%202.html">
-        The Shoe Show/H0pe Art Service
+            <img src="src/scream.JPG" alt="The Shoe Show">
+        </a>
+        <a href="https://www.hopeartservice.vip/shoeshow%202.html">
+            The Shoe Show/H0pe Art Service
         </a>
     </div>
 
     <h3>2023</h3>
+
     <div class="work">
-        <img src="src/leibesuebungen/install1.jpg" alt="The Shoe Show">
-        <a href="art_leibesuebungen">
-        Die besten Leibesübungen, University of Applied Arts, Vienna
+        <a href="art_leibesuebungen.html">
+            <img src="src/leibesuebungen/install1.jpg" alt="Die besten Leibesübungen">
+        </a>
+        <a href="art_leibesuebungen.html">
+            Die besten Leibesübungen, University of Applied Arts, Vienna
         </a>
     </div>
-   
+
     <p>*1996 Wien, lebt in Wien und Klosterneuburg</p>
     <p>Seit 2017 – Malerei und Animationsfilm, Judith Eisler, Universität für Angewandte Kunst Wien</p>
     <p>2024 – University of Newcastle, UK</p>
@@ -170,26 +172,8 @@ body {
     <p><a href="index.html" class="invisible-link">← Back</a></p>
 </div>
 
-<div id="overlay">
-    <img src="" alt="Vergrößertes Bild">
-</div>
+<a href="index.html" class="back-home">Back Home</a>
 
-<script>
-const overlay = document.getElementById("overlay");
-const overlayImg = overlay.querySelector("img");
-
-document.querySelectorAll(".card img").forEach(img => {
-    img.addEventListener("click", () => {
-        overlayImg.src = img.src;
-        overlay.style.display = "flex";
-    });
-});
-
-overlay.addEventListener("click", () => {
-    overlay.style.display = "none";
-});
-</script>
-
-<a href="index.html" class="back-home">Back Home</a>    
 </body>
 </html>
+```
