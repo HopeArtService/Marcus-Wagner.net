@@ -17,14 +17,13 @@ body {
   overflow: hidden;
 }
 
-/* IMAGE CONTAINER (NOT FULLSCREEN ANYMORE) */
+/* LEFT INFO */
 .currently {
   position: fixed;
   left: 20px;
   top: 40%;
   transform: translateY(-50%);
   z-index: 10;
-
   font-family: "Courier New", monospace;
   font-size: 12px;
   color: white;
@@ -35,15 +34,14 @@ body {
   text-decoration: underline;
 }
 
-  
-  .hero {
+/* CENTER IMAGE */
+.hero {
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
 
-/* BIG IMAGE BUT NOT FULLSCREEN */
 .hero img {
   max-width: 85vw;
   max-height: 80vh;
@@ -52,7 +50,7 @@ body {
   box-shadow: 0 10px 40px rgba(0,0,0,0.6);
 }
 
-/* Top centered buttons */
+/* TOP LINKS */
 .links {
   position: fixed;
   top: 20px;
@@ -76,163 +74,62 @@ body {
 
 <body>
 
+<!-- TOP LINKS -->
 <div class="links">
   <a href="art.html">Archive</a>
   <a href="info.html">Contact</a>
 </div>
 
-<!-- IMAGE DISPLAY -->
+<!-- IMAGE -->
 <section class="hero" id="hero">
   <img id="img" src="" alt="gallery image">
 </section>
 
+<!-- LEFT TEXT -->
 <div class="currently">
-  Currently:
-  <a href="https://www.natur-kunst-vermittlung.at">wow this actually was a little lamp cleaning house; Ein-Bild-Galerie, Lampisterie, Kritzendorf Bahnhof; Opening 5.7.2026 (till - 4.8.2026)</a>
   <p>
-  <a href="https://www.garageshow.info">Gallery Bar, Garage Show, Groupshow, Salzburg; Opening 4.7.2026 </a>
+    <a href="https://www.natur-kunst-vermittlung.at">
+      wow this actually was a little lamp cleaning house; Ein-Bild-Galerie, Lampisterie, Kritzendorf Bahnhof; Opening 5.7.2026 (till - 4.8.2026)
+    </a>
+  </p>
+
   <p>
-  <a href="https://www.hopeartservice.vip">MMM(Sunshine City), Marie Schalli & Marcus Wagner, Curated by Hope Art Service, Wien Mitte; Vienna, 3.7.2026 </a>
-</div>
-  
-<script>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery</title>
+    <a href="https://www.garageshow.info">
+      Gallery Bar, Garage Show, Groupshow, Salzburg; Opening 4.7.2026
+    </a>
+  </p>
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: black;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-/* IMAGE CONTAINER (NOT FULLSCREEN ANYMORE) */
-.currently {
-  position: fixed;
-  left: 20px;
-  top: 40%;
-  transform: translateY(-50%);
-  z-index: 10;
-
-  font-family: "Courier New", monospace;
-  font-size: 12px;
-  color: white;
-}
-
-.currently a {
-  color: white;
-  text-decoration: underline;
-}
-
-  
-  .hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-/* BIG IMAGE BUT NOT FULLSCREEN */
-.hero img {
-  max-width: 85vw;
-  max-height: 80vh;
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-}
-
-/* Top centered buttons */
-.links {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 10;
-}
-
-.links a {
-  padding: 8px 16px;
-  font-size: 0.9rem;
-  text-decoration: none;
-  color: white;
-  background: rgba(0,0,0,0.4);
-  border-radius: 5px;
-}
-</style>
-</head>
-
-<body>
-
-<div class="links">
-  <a href="art.html">Archive</a>
-  <a href="info.html">Contact</a>
+  <p>
+    <a href="https://www.hopeartservice.vip">
+      MMM (Sunshine City), Marie Schalli & Marcus Wagner, Curated by Hope Art Service, Wien Mitte; Vienna, 3.7.2026
+    </a>
+  </p>
 </div>
 
-<!-- IMAGE DISPLAY -->
-<section class="hero" id="hero">
-  <img id="img" src="" alt="gallery image">
-</section>
-
-<div class="currently">
-  Currently:
-  <a href="https://www.natur-kunst-vermittlung.at">wow this actually was a little lamp cleaning house; Ein-Bild-Galerie, Lampisterie, Kritzendorf Bahnhof; Opening 5.7.2026 (till - 4.8.2026)</a>
-  <p>
-  <a href="https://www.garageshow.info">Gallery Bar, Garage Show, Groupshow, Salzburg; Opening 4.7.2026 </a>
-  <p>
-  <a href="https://www.hopeartservice.vip">MMM(Sunshine City), Marie Schalli & Marcus Wagner, Curated by Hope Art Service, Wien Mitte; Vienna, 3.7.2026 </a>
-</div>
-  
 <script>
 const images = [
   "src/works_cover/drawing_sun_dots.jpg",
   "src/20251006MarcusWagner4709.jpg",
   "src/painting_compilation/spagetti.jpg",
   "src/PHOTO-2024-05-13-22-08-58 3.JPG",
- "src/works_cover/drawing_head.jpg",
+  "src/works_cover/drawing_head.jpg",
   "src/ghosttown2.jpg",
   "src/leibes_2.jpg",
-  "src/works_cover/drawing_spinner.jpg"
-   "src/shoeshow/scream3.jpg",
-    "src/maler_winter.JPG"
+  "src/works_cover/drawing_spinner.jpg",
+  "src/shoeshow/scream3.jpg",
+  "src/maler_winter.JPG"
 ];
 
-let index = Math.floor(Math.random() * images.length);
-
 const img = document.getElementById("img");
+const hero = document.getElementById("hero");
+
+let index = Math.floor(Math.random() * images.length);
 
 // initial image
 img.src = images[index];
 
-// click to change image
-document.getElementById("hero").addEventListener("click", () => {
-  index = (index + 1) % images.length;
-  img.src = images[index];
-});
-</script>
-
-</body>
-</html>
-
-let index = Math.floor(Math.random() * images.length);
-
-const img = document.getElementById("img");
-
-// initial image
-img.src = images[index];
-
-// click to change image
-document.getElementById("hero").addEventListener("click", () => {
+// click to next image
+hero.addEventListener("click", () => {
   index = (index + 1) % images.length;
   img.src = images[index];
 });
