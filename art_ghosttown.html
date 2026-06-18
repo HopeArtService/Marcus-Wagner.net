@@ -91,6 +91,36 @@ body {
     border: 5px solid #fff;
 }
 
+#overlay {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    background: rgba(0,0,0,0.9);
+    display:none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index:1000;
+}
+
+#overlay img {
+    max-width: 90%;
+    max-height: 85%;
+    box-shadow: 0 0 20px #fff;
+    border: 5px solid #fff;
+}
+
+#caption {
+    margin-top: 15px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    max-width: 80%;
+    padding: 0 20px;
+}    
+
 .nav {
     position:absolute;
     top:50%;
@@ -175,54 +205,56 @@ body {
 <script>
 const overlay = document.getElementById("overlay");
 const overlayImg = overlay.querySelector("img");
+const caption = document.getElementById("caption");
 
 const images = Array.from(document.querySelectorAll(".card img"));
 
 let currentIndex = 0;
 
-// Bild anzeigen
+function updateImage() {
+    overlayImg.src = images[currentIndex].src;
+    caption.textContent =
+        images[currentIndex].dataset.caption ||
+        images[currentIndex].alt ||
+        "";
+}
+
 function showImage(index){
     currentIndex = index;
-    overlayImg.src = images[currentIndex].src;
+    updateImage();
     overlay.style.display = "flex";
 }
 
-// Klick auf Galerie-Bilder
 images.forEach((img,index)=>{
     img.addEventListener("click",()=>{
         showImage(index);
     });
 });
 
-// nächstes Bild
 function nextImage(){
-    currentIndex = (currentIndex+1) % images.length;
-    overlayImg.src = images[currentIndex].src;
+    currentIndex = (currentIndex + 1) % images.length;
+    updateImage();
 }
 
-// vorheriges Bild
 function prevImage(){
-    currentIndex = (currentIndex-1+images.length) % images.length;
-    overlayImg.src = images[currentIndex].src;
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateImage();
 }
 
-// Tastatursteuerung
 document.addEventListener("keydown",(e)=>{
     if(overlay.style.display !== "flex") return;
 
-    if(e.key==="ArrowRight") nextImage();
-    if(e.key==="ArrowLeft") prevImage();
-    if(e.key==="Escape") overlay.style.display="none";
+    if(e.key === "ArrowRight") nextImage();
+    if(e.key === "ArrowLeft") prevImage();
+    if(e.key === "Escape") overlay.style.display = "none";
 });
 
-// Klick außerhalb schließt
 overlay.addEventListener("click",(e)=>{
-    if(e.target===overlay){
-        overlay.style.display="none";
+    if(e.target === overlay){
+        overlay.style.display = "none";
     }
 });
 
-// Swipe (Handy)
 let touchStartX = 0;
 let touchEndX = 0;
 
@@ -236,23 +268,15 @@ overlay.addEventListener("touchend",(e)=>{
 });
 
 function handleSwipe(){
-
-    if(touchEndX < touchStartX - 50){
-        nextImage();
-    }
-
-    if(touchEndX > touchStartX + 50){
-        prevImage();
-    }
-
+    if(touchEndX < touchStartX - 50) nextImage();
+    if(touchEndX > touchStartX + 50) prevImage();
 }
 
-// Klick auf Bild = nächstes Bild
 overlayImg.addEventListener("click",(e)=>{
-    e.stopPropagation(); // verhindert Overlay-Klick
+    e.stopPropagation();
     nextImage();
 });
-    
+
 </script>
 
 </body>
