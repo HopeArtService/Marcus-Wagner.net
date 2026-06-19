@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>cv</title>
+
+<style>
+body {
+    font-family: "Times New Roman", serif;
+    margin: 40px;
+    text-align: left;
+    max-width: 700px;
+}
+
+/* Images (content images) */
+img {
+    width: 450px;
+    height: auto;
+    display: block;
+    margin: 20px 0;
+}
+
+/* Links */
+a {
+    display: block;
+    margin: 10px 0;
+    color: red;
+    text-decoration: none;
+}
+
+/* Paragraph spacing */
+p {
+    margin: 0 0 12px 0;
+}
+
+/* Back-to-home Button */
+
+.small-image {
+    width: 180px;
+    height: auto;
+    margin-top: 15px;
+}    
+    
+.back-home {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  z-index: 1000;
+  background-color: #eee;
+  color: red;
+  transition: background-color 0.3s;
+}
+
+.back-home:hover {
+  background-color: #ccc;
+}
+
+/* ================= SIDE IMAGE LINK (UPDATED) ================= */
+.side-image-link {
+  position: fixed;
+  right: 55px;   /* moved left (was 80px) */
+  bottom: 60px;  /* moved up (was 80px) */
+  z-index: 999;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.side-image-link img {
+  width: 185px;  /* +15% bigger (was 160px) */
+  height: auto;
+  display: block;
+}
+
+.side-image-link:hover {
+  opacity: 1;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .side-image-link {
+    right: 20px;
+    bottom: 90px;
+  }
+
+  .side-image-link img {
+    width: 125px;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<main>
+<div>
+
+
+ <p>⭑ ⭑ ⭑ ⭑ ⭑ ⭑ ⭑ ⭑ ⭑ ************ <p>
+ <p>*1996 Vienna, lives and works in Vienna, AT
+ Education
+2018-till now – Painting and Animated Film, Judith Eisler, University of Applied Arts, Vienna, AT
+2024 – Exchangeprogram Fine Art Department University of Newcastle, UK
+2024/2025 – Klasse Maximiliane Baumgartner, Kunstakademie Düsseldorf, GER
+2025/2026 – Gueststudent Sculpture and Space, Hans Schabus, University of Applied Arts, Vienna, AT</p> 
+<p></p>
+Exhibition List
+
+</div>
+
+    <img class="small-image"
+     src="src/ternitzportrait1.JPG"
+     alt="Bild">    
+</main>
+
+<!-- FLOATING IMAGE LINK -->
+
+
+<!-- BACK HOME -->
+<a href="/" class="back-home">Back to Home</a>
+
+</body>
+</html>
