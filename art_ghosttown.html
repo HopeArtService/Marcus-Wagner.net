@@ -13,11 +13,9 @@ body {
     align-items: center;
     height: 100vh;
     font-family: "Courier New", monospace;
-    margin:0;
+    margin: 0;
 }
 
-  
-    
 .card {
     width: 350px;
     max-height: 600px;
@@ -31,10 +29,9 @@ body {
     text-align: center;
 }
 
-/* Desktop */
 @media (min-width: 768px) {
     .card {
-        width: 900px; /* vorher 350px */
+        width: 900px;
     }
 }
 
@@ -52,22 +49,33 @@ body {
 }
 
 .card p {
-    font-size:14px;
-    margin:5px 0;
+    font-size: 14px;
+    margin: 5px 0;
 }
 
 /* Scrollbar */
-.card::-webkit-scrollbar { width: 8px; }
-.card::-webkit-scrollbar-track { background: #ffcc00; }
-.card::-webkit-scrollbar-thumb { background: #0000ff; border:1px solid #000; }
+.card::-webkit-scrollbar {
+    width: 8px;
+}
+
+.card::-webkit-scrollbar-track {
+    background: #ffcc00;
+}
+
+.card::-webkit-scrollbar-thumb {
+    background: #0000ff;
+    border: 1px solid #000;
+}
 
 .invisible-link {
     color: inherit;
     text-decoration: none;
 }
-.invisible-link:hover { text-decoration: underline; }
 
-/* Bilder in voller Breite innerhalb der Karte */
+.invisible-link:hover {
+    text-decoration: underline;
+}
+
 .card img {
     width: 95%;
     margin: 10px 0;
@@ -77,39 +85,19 @@ body {
     object-fit: cover;
 }
 
-/* Overlay für vergrößertes Bild */
+/* Overlay */
 #overlay {
     position: fixed;
-    top:0;
-    left:0;
-    width:100vw;
-    height:100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     background: rgba(0,0,0,0.9);
-    display:none;
-    justify-content: center;
-    align-items: center;
-    z-index:1000;
-}
-
-#overlay img {
-    max-width: 90%;
-    max-height: 90%;
-    box-shadow: 0 0 20px #fff;
-    border: 5px solid #fff;
-}
-
-#overlay {
-    position: fixed;
-    top:0;
-    left:0;
-    width:100vw;
-    height:100vh;
-    background: rgba(0,0,0,0.9);
-    display:none;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index:1000;
+    z-index: 1000;
 }
 
 #overlay img {
@@ -126,90 +114,57 @@ body {
     text-align: center;
     max-width: 80%;
     padding: 0 20px;
-}    
-
-.nav {
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    font-size:50px;
-    color:white;
-    cursor:pointer;
-    user-select:none;
-    padding:20px;
 }
 
-.prev { left:20px; }
-.next { right:20px; }
-
-.work {
-    text-align: left;      /* Link linksbündig unter dem Bild */
-    margin-bottom: 15px;   /* Abstand zu nächstem Bild */
-}
-
-.work img {
-    display: block;        /* verhindert, dass der Link neben dem Bild erscheint */
-    width: 95%;
-    margin-bottom: 5px;    /* kleiner Abstand zwischen Bild und Link */
-}
-
-.work a {
-    text-decoration: none;
-    color: #0000ff;        /* Linkfarbe anpassen */
-    font-size: 14px;
-}
-
-.work a:hover {
-    text-decoration: underline;
-}
-    
 </style>
 </head>
 <body>
 
 <div class="card">
+
     <h1>Ghost City - Hope Town</h1>
     <h2>Installation, University of Applied Arts Vienna, 2026</h2>
 
-    <!-- Bilder in voller Breite -->
-    <img src="src/ghosttown_neu/install1.jpg" alt="Artwork 1"  <div id="caption">Installationsview 1</div>>
-     <img src="src/ghosttown_neu/install2.jpg" alt="Artwork 1">
-      <img src="src/ghosttown_neu/mask1.jpg" alt="Artwork 1">
-     <img src="src/ghosttown_neu/mask2.jpg" alt="Artwork 1">
-    <img src="src/ghosttown_neu/install3.jpg" alt="Artwork 1">
-    <img src="src/ghosttown_neu/install4.jpg" alt="Artwork 1">
-    <img src="src/ghosttown_neu/install5_mask.jpg">
-     <img src="src/ghosttown_neu/face1.jpg" alt="Artwork 1">
-    <img src="src/ghosttown_neu/face2.jpg" alt="Artwork 1">
-    <img src="src/ghosttown_neu/hopetown_full.jpg" alt="Artwork 1">
-     <img src="src/ghosttown_neu/hopetown_closer.jpg" alt="Artwork 1">
-     <img src="src/ghosttown_neu/hopetown_close1.jpg" alt="Artwork 1">
-    <img src="src/ghosttown_neu/hopetown_close2.jpg" alt="Artwork 1">
-    <img src="src/ghosttown_neu/hopetown_close3.jpg" alt="Artwork 1">
-    <img src="src/ghosttown_neu/hopetown_close4.jpg" alt="Artwork 1">
-    <img src="src/ghosttown_neu/hopetown_close5.jpg" alt="Artwork 1">
-    <img src="src/ghosttown_neu/hopetown_close6.jpg" alt="Artwork 1">
-    <img src="src/ghosttown_neu/hopetown_close7.jpg" alt="Artwork 1">
-    <img src="src/ghosttown_neu/hopetown_close8.jpg" alt="Artwork 1">
-    <img src="src/ghosttown_neu/hopetown_close9.jpg" alt="Artwork 1">
-    <img src="src/ghosttown_neu/hopetown_close10.jpg" alt="Artwork 1">
-     <img src="src/ghosttown_neu/hopetown_close11.jpg" alt="Artwork 1">
-    <img src="src/ghosttown_neu/hopetown_close12.jpg" alt="Artwork 1">
-    <img src="src/ghosttown_neu/hopetown_close13.jpg" alt="Artwork 1">
-    <img src="src/ghosttown_neu/install_day.jpg" alt="Artwork 1">
-  
-    <p></p>
+    <img src="src/ghosttown_neu/install1.jpg" alt="Installationsansicht 1" data-caption="Installationsansicht 1">
+    <img src="src/ghosttown_neu/install2.jpg" alt="Installationsansicht 2" data-caption="Installationsansicht 2">
+    <img src="src/ghosttown_neu/mask1.jpg" alt="Maskendetail 1" data-caption="Maskendetail 1">
+    <img src="src/ghosttown_neu/mask2.jpg" alt="Maskendetail 2" data-caption="Maskendetail 2">
+    <img src="src/ghosttown_neu/install3.jpg" alt="Installationsansicht 3" data-caption="Installationsansicht 3">
+    <img src="src/ghosttown_neu/install4.jpg" alt="Installationsansicht 4" data-caption="Installationsansicht 4">
+    <img src="src/ghosttown_neu/install5_mask.jpg" alt="Installation mit Maske" data-caption="Installation mit Maske">
+    <img src="src/ghosttown_neu/face1.jpg" alt="Gesicht Detail 1" data-caption="Gesicht Detail 1">
+    <img src="src/ghosttown_neu/face2.jpg" alt="Gesicht Detail 2" data-caption="Gesicht Detail 2">
+    <img src="src/ghosttown_neu/hopetown_full.jpg" alt="Hope Town Gesamtansicht" data-caption="Hope Town Gesamtansicht">
+    <img src="src/ghosttown_neu/hopetown_closer.jpg" alt="Hope Town Detailansicht" data-caption="Hope Town Detailansicht">
+    <img src="src/ghosttown_neu/hopetown_close1.jpg" alt="Hope Town Detail 1" data-caption="Hope Town Detail 1">
+    <img src="src/ghosttown_neu/hopetown_close2.jpg" alt="Hope Town Detail 2" data-caption="Hope Town Detail 2">
+    <img src="src/ghosttown_neu/hopetown_close3.jpg" alt="Hope Town Detail 3" data-caption="Hope Town Detail 3">
+    <img src="src/ghosttown_neu/hopetown_close4.jpg" alt="Hope Town Detail 4" data-caption="Hope Town Detail 4">
+    <img src="src/ghosttown_neu/hopetown_close5.jpg" alt="Hope Town Detail 5" data-caption="Hope Town Detail 5">
+    <img src="src/ghosttown_neu/hopetown_close6.jpg" alt="Hope Town Detail 6" data-caption="Hope Town Detail 6">
+    <img src="src/ghosttown_neu/hopetown_close7.jpg" alt="Hope Town Detail 7" data-caption="Hope Town Detail 7">
+    <img src="src/ghosttown_neu/hopetown_close8.jpg" alt="Hope Town Detail 8" data-caption="Hope Town Detail 8">
+    <img src="src/ghosttown_neu/hopetown_close9.jpg" alt="Hope Town Detail 9" data-caption="Hope Town Detail 9">
+    <img src="src/ghosttown_neu/hopetown_close10.jpg" alt="Hope Town Detail 10" data-caption="Hope Town Detail 10">
+    <img src="src/ghosttown_neu/hopetown_close11.jpg" alt="Hope Town Detail 11" data-caption="Hope Town Detail 11">
+    <img src="src/ghosttown_neu/hopetown_close12.jpg" alt="Hope Town Detail 12" data-caption="Hope Town Detail 12">
+    <img src="src/ghosttown_neu/hopetown_close13.jpg" alt="Hope Town Detail 13" data-caption="Hope Town Detail 13">
+    <img src="src/ghosttown_neu/install_day.jpg" alt="Installationsansicht bei Tageslicht" data-caption="Installationsansicht bei Tageslicht">
 
-    <p><a href="art.html" class="invisible-link">← Back</a></p>
+    <p>
+        <a href="art.html" class="invisible-link">← Back</a>
+    </p>
+
 </div>
 
-<!-- Overlay für vergrößertes Bild -->
+<!-- Overlay -->
 <div id="overlay">
     <img src="" alt="Vergrößertes Bild">
-
+    <div id="caption"></div>
 </div>
 
 <script>
+
 const overlay = document.getElementById("overlay");
 const overlayImg = overlay.querySelector("img");
 const caption = document.getElementById("caption");
@@ -220,66 +175,82 @@ let currentIndex = 0;
 
 function updateImage() {
     overlayImg.src = images[currentIndex].src;
-    caption.textContent =
-        images[currentIndex].dataset.caption ||
-        images[currentIndex].alt ||
-        "";
+
+    if (caption) {
+        caption.textContent =
+            images[currentIndex].dataset.caption ||
+            images[currentIndex].alt ||
+            "";
+    }
 }
 
-function showImage(index){
+function showImage(index) {
     currentIndex = index;
     updateImage();
     overlay.style.display = "flex";
 }
 
-images.forEach((img,index)=>{
-    img.addEventListener("click",()=>{
+images.forEach((img, index) => {
+    img.addEventListener("click", () => {
         showImage(index);
     });
 });
 
-function nextImage(){
+function nextImage() {
     currentIndex = (currentIndex + 1) % images.length;
     updateImage();
 }
 
-function prevImage(){
+function prevImage() {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     updateImage();
 }
 
-document.addEventListener("keydown",(e)=>{
-    if(overlay.style.display !== "flex") return;
+document.addEventListener("keydown", (e) => {
 
-    if(e.key === "ArrowRight") nextImage();
-    if(e.key === "ArrowLeft") prevImage();
-    if(e.key === "Escape") overlay.style.display = "none";
-});
+    if (overlay.style.display !== "flex") return;
 
-overlay.addEventListener("click",(e)=>{
-    if(e.target === overlay){
+    if (e.key === "ArrowRight") nextImage();
+    if (e.key === "ArrowLeft") prevImage();
+
+    if (e.key === "Escape") {
         overlay.style.display = "none";
     }
 });
 
+overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+        overlay.style.display = "none";
+    }
+});
+
+/* Swipe für Mobilgeräte */
+
 let touchStartX = 0;
 let touchEndX = 0;
 
-overlay.addEventListener("touchstart",(e)=>{
+overlay.addEventListener("touchstart", (e) => {
     touchStartX = e.changedTouches[0].screenX;
 });
 
-overlay.addEventListener("touchend",(e)=>{
+overlay.addEventListener("touchend", (e) => {
     touchEndX = e.changedTouches[0].screenX;
     handleSwipe();
 });
 
-function handleSwipe(){
-    if(touchEndX < touchStartX - 50) nextImage();
-    if(touchEndX > touchStartX + 50) prevImage();
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        nextImage();
+    }
+
+    if (touchEndX > touchStartX + 50) {
+        prevImage();
+    }
 }
 
-overlayImg.addEventListener("click",(e)=>{
+/* Klick auf Bild = nächstes Bild */
+
+overlayImg.addEventListener("click", (e) => {
     e.stopPropagation();
     nextImage();
 });
