@@ -33,7 +33,10 @@ body {
 /* Desktop */
 @media (min-width: 768px) {
     .card {
-        width: 900px; /* vorher 350px */
+        width: calc(100vw - 100px);
+        height: calc(100vh - 100px);
+        max-height: 85vh;
+        box-sizing: border-box;
     }
 }
 
