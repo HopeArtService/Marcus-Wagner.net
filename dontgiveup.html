@@ -84,6 +84,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index:1000;
+    flex-direction: column;
 }
 
 #overlay img {
@@ -174,6 +175,7 @@ body {
 <!-- Overlay für vergrößertes Bild -->
 <div id="overlay">
     <img src="" alt="Vergrößertes Bild">
+    <div id="caption"></div>
 
 </div>
 
@@ -189,6 +191,10 @@ let currentIndex = 0;
 function showImage(index){
     currentIndex = index;
     overlayImg.src = images[currentIndex].src;
+    caption.textContent =
+        images[currentIndex].dataset.caption ||
+        images[currentIndex].alt ||
+        "";
     overlay.style.display = "flex";
 }
 
@@ -201,15 +207,23 @@ images.forEach((img,index)=>{
 
 // nächstes Bild
 function nextImage(){
-    currentIndex = (currentIndex+1) % images.length;
+    currentIndex = (currentIndex + 1) % images.length;
     overlayImg.src = images[currentIndex].src;
+    caption.textContent =
+        images[currentIndex].dataset.caption ||
+        images[currentIndex].alt ||
+        "";
 }
 
-// vorheriges Bild
 function prevImage(){
-    currentIndex = (currentIndex-1+images.length) % images.length;
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
     overlayImg.src = images[currentIndex].src;
+    caption.textContent =
+        images[currentIndex].dataset.caption ||
+        images[currentIndex].alt ||
+        "";
 }
+
 
 // Tastatursteuerung
 document.addEventListener("keydown",(e)=>{
