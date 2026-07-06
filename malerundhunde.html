@@ -146,21 +146,22 @@ body {
 <!-- Overlay für vergrößertes Bild -->
 <div id="overlay">
     <img src="" alt="Vergrößertes Bild">
+    <div id="caption"></div>
 </div>
 
 <script>
-// Klick auf Bilder zeigt Overlay
 const overlay = document.getElementById("overlay");
 const overlayImg = overlay.querySelector("img");
+const caption = document.getElementById("caption");
 
 document.querySelectorAll(".card img").forEach(img => {
     img.addEventListener("click", () => {
         overlayImg.src = img.src;
+        caption.textContent = img.dataset.caption || img.alt || "";
         overlay.style.display = "flex";
     });
 });
 
-// Klick auf Overlay schließt es
 overlay.addEventListener("click", () => {
     overlay.style.display = "none";
 });
