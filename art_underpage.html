@@ -33,18 +33,34 @@ body {
     box-sizing: border-box;
 }
 
-.card img {
+/* IMAGE AND CAPTION */
+.image-item {
+    margin: 15px auto 25px;
+    text-align: center;
+}
+
+.image-item img {
     display: block;
     width: auto;
     height: auto;
     max-width: 96%;
     max-height: 75vh;
-    margin: 10px auto;
+    margin: 0 auto;
     border: 3px solid #0000ff;
     box-shadow: 2px 2px 0 #ff00ff;
-    cursor: pointer;
     object-fit: contain;
     box-sizing: border-box;
+    cursor: default;
+}
+
+.image-caption {
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 8px auto 0;
+    max-width: 96%;
+    color: #000;
+    text-align: center;
 }
 
 .card h1 {
@@ -58,11 +74,6 @@ body {
     font-size: 16px;
     margin: 5px 0 15px;
     color: #ff0000;
-}
-
-.card p {
-    font-size: 14px;
-    margin: 5px 0;
 }
 
 /* SCROLLBAR */
@@ -89,44 +100,6 @@ body {
     text-decoration: underline;
 }
 
-/* IMAGE OVERLAY */
-#overlay {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 1000;
-    box-sizing: border-box;
-    padding: 20px;
-}
-
-#overlay img {
-    display: block;
-    max-width: 90vw;
-    max-height: 78vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    box-shadow: 0 0 20px #fff;
-    border: 5px solid #fff;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#caption {
-    margin-top: 15px;
-    color: white;
-    font-size: 16px;
-    text-align: center;
-    max-width: 80%;
-    padding: 0 20px;
-}
-
 /* MOBILE */
 @media (max-width: 767px) {
     body {
@@ -139,22 +112,17 @@ body {
         padding: 12px;
     }
 
-    .card img {
+    .image-item img {
         max-width: 100%;
         max-height: none;
     }
 
+    .image-caption {
+        font-size: 12px;
+    }
+
     .card h1 {
         font-size: 22px;
-    }
-
-    #overlay img {
-        max-width: 92vw;
-        max-height: 75vh;
-    }
-
-    #caption {
-        font-size: 13px;
     }
 }
 </style>
@@ -167,91 +135,145 @@ body {
     <h1>Painting Compilation</h1>
     <h2>2026, University of Applied Arts Vienna</h2>
 
-    <!-- PAINTINGS AND INSTALLATION VIEWS -->
+    <!-- IMAGE 1 -->
+    <div class="image-item">
+        <img
+            src="src/painting_compilation/fleck.jpg"
+            alt="Splash (small)"
+        >
+        <div class="image-caption">
+            Installationview Detail
+        </div>
+    </div>
 
-    <img
-        src="src/painting_compilation/fleck.jpg"
-        alt="Splash (small)"
-        data-caption="Installationview Detail"
-    >
+    <!-- IMAGE 2 -->
+    <div class="image-item">
+        <img
+            src="src/painting_compilation/spagetti.jpg"
+            alt="Splash (small)"
+        >
+        <div class="image-caption">
+            Installationview Detail 2
+        </div>
+    </div>
 
-    <img
-        src="src/painting_compilation/spagetti.jpg"
-        alt="Splash (small)"
-        data-caption="Installationview Detail 2"
-    >
+    <!-- IMAGE 3 -->
+    <div class="image-item">
+        <img
+            src="src/painting_compilation/install1.jpg"
+            alt="Installation view"
+        >
+        <div class="image-caption">
+            Installationview 3
+        </div>
+    </div>
 
-    <img
-        src="src/painting_compilation/install1.jpg"
-        alt="Installation view"
-        data-caption="Installationview 3"
-    >
+    <!-- IMAGE 4 -->
+    <div class="image-item">
+        <img
+            src="src/painting_compilation/install2.jpg"
+            alt="Installation view"
+        >
+        <div class="image-caption">
+            Installationview 4
+        </div>
+    </div>
 
-    <img
-        src="src/painting_compilation/install2.jpg"
-        alt="Installation view"
-        data-caption="Installationview 4"
-    >
+    <!-- IMAGE 5 -->
+    <div class="image-item">
+        <img
+            src="src/painting_compilation/spagettieater.jpg"
+            alt="Spagettieater"
+        >
+        <div class="image-caption">
+            Spagettieater, Silkscreenprint and oil on Linen, 2025
+        </div>
+    </div>
 
-    <img
-        src="src/painting_compilation/spagettieater.jpg"
-        alt="Spagettieater"
-        data-caption="Spagettieater, Silkscreenprint and oil on Linen, 2025"
-    >
+    <!-- IMAGE 6 -->
+    <div class="image-item">
+        <img
+            src="src/painting_compilation/fleck_cropped_smaller.jpg"
+            alt="Splash (small)"
+        >
+        <div class="image-caption">
+            Splash (Small), Silkscreenprint on Linen, 2025
+        </div>
+    </div>
+ <h1>Don´t give up, you´ve got the music in you</h1>
+    <h2>2026, Empty Rooms of Ex Bushplanet, Vienna</h2>
 
-    <img
-        src="src/painting_compilation/fleck_cropped_smaller.jpg"
-        alt="Splash (small)"
-        data-caption="Splash (Small), Silkscreenprint on Linen, 2025"
-    >
+    <!-- IMAGE 1 -->
+    <div class="image-item">
+        <img
+            src="src/painting_compilation/fleck.jpg"
+            alt="Splash (small)"
+        >
+        <div class="image-caption">
+            Installationview Detail
+        </div>
+    </div>
 
+    <!-- IMAGE 2 -->
+    <div class="image-item">
+        <img
+            src="src/painting_compilation/spagetti.jpg"
+            alt="Splash (small)"
+        >
+        <div class="image-caption">
+            Installationview Detail 2
+        </div>
+    </div>
+
+    <!-- IMAGE 3 -->
+    <div class="image-item">
+        <img
+            src="src/painting_compilation/install1.jpg"
+            alt="Installation view"
+        >
+        <div class="image-caption">
+            Installationview 3
+        </div>
+    </div>
+
+    <!-- IMAGE 4 -->
+    <div class="image-item">
+        <img
+            src="src/painting_compilation/install2.jpg"
+            alt="Installation view"
+        >
+        <div class="image-caption">
+            Installationview 4
+        </div>
+    </div>
+
+    <!-- IMAGE 5 -->
+    <div class="image-item">
+        <img
+            src="src/painting_compilation/spagettieater.jpg"
+            alt="Spagettieater"
+        >
+        <div class="image-caption">
+            Spagettieater, Silkscreenprint and oil on Linen, 2025
+        </div>
+    </div>
+
+    <!-- IMAGE 6 -->
+    <div class="image-item">
+        <img
+            src="src/painting_compilation/fleck_cropped_smaller.jpg"
+            alt="Splash (small)"
+        >
+        <div class="image-caption">
+            Splash (Small), Silkscreenprint on Linen, 2025
+        </div>
+    </div>
+    
     <p>
         <a href="art.html" class="invisible-link">← Back</a>
     </p>
 
 </div>
-
-<!-- IMAGE OVERLAY -->
-<div id="overlay">
-    <img src="" alt="Vergrößertes Bild">
-    <div id="caption"></div>
-</div>
-
-<script>
-// CLICK ON IMAGES TO OPEN OVERLAY
-const overlay = document.getElementById("overlay");
-const overlayImg = overlay.querySelector("img");
-const caption = document.getElementById("caption");
-
-document.querySelectorAll(".card img").forEach(img => {
-    img.addEventListener("click", (event) => {
-        event.stopPropagation();
-
-        overlayImg.src = img.src;
-        overlayImg.alt = img.alt || "Vergrößertes Bild";
-        caption.textContent = img.dataset.caption || img.alt || "";
-
-        overlay.style.display = "flex";
-    });
-});
-
-// CLICK OUTSIDE IMAGE TO CLOSE
-overlay.addEventListener("click", () => {
-    overlay.style.display = "none";
-});
-
-// PREVENT CLICKING THE IMAGE FROM CLOSING THE OVERLAY
-overlayImg.addEventListener("click", (event) => {
-    event.stopPropagation();
-});
-
-// CLOSE WITH ESCAPE KEY
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-        overlay.style.display = "none";
-    }
-});
-</script>
 
 </body>
 </html>
