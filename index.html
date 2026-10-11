@@ -109,6 +109,7 @@ body {
   </p>
 </div>
  -->
+```html
 <script>
 const images = [
   "src/dontgiveup/3E4C2886.jpg",
@@ -124,19 +125,12 @@ const images = [
 ];
 
 const img = document.getElementById("img");
-const hero = document.getElementById("hero");
 
-let index = Math.floor(Math.random() * images.length);
-
-// initial image
+// Choose a random image on every page load
+const index = Math.floor(Math.random() * images.length);
 img.src = images[index];
-
-// click to next image
-hero.addEventListener("click", () => {
-  index = (index + 1) % images.length;
-  img.src = images[index];
-});
 </script>
+```
 
 </body>
 </html>
