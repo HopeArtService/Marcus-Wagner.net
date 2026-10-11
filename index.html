@@ -16,8 +16,6 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-
-}
 }
 
 /* LEFT INFO */
@@ -65,12 +63,17 @@ body {
 }
 
 .links a {
-  padding: 8px 16px;
+  padding: 10px 15px;
   font-size: 0.9rem;
   text-decoration: none;
-  color: white;
-  background: rgba(0,0,0,0.4);
   border-radius: 5px;
+  background-color: #eee;
+  color: black;
+  transition: background-color 0.3s;
+}
+
+.links a:hover {
+  background-color: #ccc;
 }
 </style>
 </head>
@@ -89,9 +92,9 @@ body {
 </section>
 
 <!-- LEFT TEXT -->
-  <!--
+<!--
 <div class="currently">
-   Currently:
+  Currently:
   <p>
     <a href="https://www.natur-kunst-vermittlung.at">
       wow this actually was a little lamp cleaning house; Ein-Bild-Galerie, Lampisterie, Kritzendorf Bahnhof; Opening 5.7.2026 (till - 4.8.2026)
@@ -110,10 +113,7 @@ body {
     </a>
   </p>
 </div>
-    <!--   
- 
- -->
- 
+-->
 
 <script>
 const images = [
@@ -135,8 +135,6 @@ const img = document.getElementById("img");
 const index = Math.floor(Math.random() * images.length);
 img.src = images[index];
 </script>
-
-
 
 </body>
 </html>
