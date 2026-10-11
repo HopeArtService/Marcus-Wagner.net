@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -7,7 +8,7 @@
 
 <style>
 body {
-    background-color: #00ffff;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,16 +18,14 @@ body {
     padding: 15px 0;
 }
 
-/* CRAZY CARD DESIGN */
+/* SIMPLE LAYOUT */
 .card {
     width: 96vw;
     max-width: 1400px;
     max-height: 90vh;
-    background: linear-gradient(135deg, #ffcc00, #ff6600);
-    border: 3px solid #0000ff;
-    box-shadow: 5px 5px 0 #ff00ff;
+    background: white;
     padding: 20px;
-    color: #000;
+    color: black;
     position: relative;
     overflow-y: auto;
     text-align: center;
@@ -46,8 +45,6 @@ body {
     max-width: 96%;
     max-height: 75vh;
     margin: 0 auto;
-    border: 3px solid #0000ff;
-    box-shadow: 2px 2px 0 #ff00ff;
     object-fit: contain;
     box-sizing: border-box;
     cursor: default;
@@ -59,40 +56,27 @@ body {
     line-height: 1.4;
     margin: 8px auto 0;
     max-width: 96%;
-    color: #000;
+    color: black;
     text-align: center;
 }
 
 .card h1 {
     font-size: 24px;
     margin: 0;
-    color: #000080;
-    text-shadow: 1px 1px #fff;
+    font-weight: normal;
+    color: black;
 }
 
 .card h2 {
     font-size: 16px;
     margin: 5px 0 15px;
-    color: #ff0000;
-}
-
-/* SCROLLBAR */
-.card::-webkit-scrollbar {
-    width: 8px;
-}
-
-.card::-webkit-scrollbar-track {
-    background: #ffcc00;
-}
-
-.card::-webkit-scrollbar-thumb {
-    background: #0000ff;
-    border: 1px solid #000;
+    font-weight: normal;
+    color: black;
 }
 
 /* BACK LINK */
 .invisible-link {
-    color: inherit;
+    color: black;
     text-decoration: none;
 }
 
@@ -135,140 +119,77 @@ body {
     <h1>Painting Compilation</h1>
     <h2>2026, University of Applied Arts Vienna</h2>
 
-    <!-- IMAGE 1 -->
     <div class="image-item">
-        <img
-            src="src/painting_compilation/fleck.jpg"
-            alt="Splash (small)"
-        >
-        <div class="image-caption">
-            Installationview Detail
-        </div>
+        <img src="src/painting_compilation/fleck.jpg" alt="Splash (small)">
+        <div class="image-caption">Installationview Detail</div>
     </div>
 
-    <!-- IMAGE 2 -->
     <div class="image-item">
-        <img
-            src="src/painting_compilation/spagetti.jpg"
-            alt="Splash (small)"
-        >
-        <div class="image-caption">
-            Installationview Detail 2
-        </div>
+        <img src="src/painting_compilation/spagetti.jpg" alt="Splash (small)">
+        <div class="image-caption">Installationview Detail 2</div>
     </div>
 
-    <!-- IMAGE 3 -->
     <div class="image-item">
-        <img
-            src="src/painting_compilation/install1.jpg"
-            alt="Installation view"
-        >
-        <div class="image-caption">
-            Installationview 3
-        </div>
+        <img src="src/painting_compilation/install1.jpg" alt="Installation view">
+        <div class="image-caption">Installationview 3</div>
     </div>
 
-    <!-- IMAGE 4 -->
     <div class="image-item">
-        <img
-            src="src/painting_compilation/install2.jpg"
-            alt="Installation view"
-        >
-        <div class="image-caption">
-            Installationview 4
-        </div>
+        <img src="src/painting_compilation/install2.jpg" alt="Installation view">
+        <div class="image-caption">Installationview 4</div>
     </div>
 
-    <!-- IMAGE 5 -->
     <div class="image-item">
-        <img
-            src="src/painting_compilation/spagettieater.jpg"
-            alt="Spagettieater"
-        >
+        <img src="src/painting_compilation/spagettieater.jpg" alt="Spagettieater">
         <div class="image-caption">
             Spagettieater, Silkscreenprint and oil on Linen, 2025
         </div>
     </div>
 
-    <!-- IMAGE 6 -->
     <div class="image-item">
-        <img
-            src="src/painting_compilation/fleck_cropped_smaller.jpg"
-            alt="Splash (small)"
-        >
+        <img src="src/painting_compilation/fleck_cropped_smaller.jpg" alt="Splash (small)">
         <div class="image-caption">
             Splash (Small), Silkscreenprint on Linen, 2025
         </div>
     </div>
- <h1>Don´t give up, you´ve got the music in you</h1>
+
+    <h1>Don´t give up, you´ve got the music in you</h1>
     <h2>2026, Empty Rooms of Ex Bushplanet, Vienna</h2>
 
-    <!-- IMAGE 1 -->
     <div class="image-item">
-        <img
-            src="src/painting_compilation/fleck.jpg"
-            alt="Splash (small)"
-        >
-        <div class="image-caption">
-            Installationview Detail
-        </div>
+        <img src="src/painting_compilation/fleck.jpg" alt="Splash (small)">
+        <div class="image-caption">Installationview Detail</div>
     </div>
 
-    <!-- IMAGE 2 -->
     <div class="image-item">
-        <img
-            src="src/painting_compilation/spagetti.jpg"
-            alt="Splash (small)"
-        >
-        <div class="image-caption">
-            Installationview Detail 2
-        </div>
+        <img src="src/painting_compilation/spagetti.jpg" alt="Splash (small)">
+        <div class="image-caption">Installationview Detail 2</div>
     </div>
 
-    <!-- IMAGE 3 -->
     <div class="image-item">
-        <img
-            src="src/painting_compilation/install1.jpg"
-            alt="Installation view"
-        >
-        <div class="image-caption">
-            Installationview 3
-        </div>
+        <img src="src/painting_compilation/install1.jpg" alt="Installation view">
+        <div class="image-caption">Installationview 3</div>
     </div>
 
-    <!-- IMAGE 4 -->
     <div class="image-item">
-        <img
-            src="src/painting_compilation/install2.jpg"
-            alt="Installation view"
-        >
-        <div class="image-caption">
-            Installationview 4
-        </div>
+        <img src="src/painting_compilation/install2.jpg" alt="Installation view">
+        <div class="image-caption">Installationview 4</div>
     </div>
 
-    <!-- IMAGE 5 -->
     <div class="image-item">
-        <img
-            src="src/painting_compilation/spagettieater.jpg"
-            alt="Spagettieater"
-        >
+        <img src="src/painting_compilation/spagettieater.jpg" alt="Spagettieater">
         <div class="image-caption">
             Spagettieater, Silkscreenprint and oil on Linen, 2025
         </div>
     </div>
 
-    <!-- IMAGE 6 -->
     <div class="image-item">
-        <img
-            src="src/painting_compilation/fleck_cropped_smaller.jpg"
-            alt="Splash (small)"
-        >
+        <img src="src/painting_compilation/fleck_cropped_smaller.jpg" alt="Splash (small)">
         <div class="image-caption">
             Splash (Small), Silkscreenprint on Linen, 2025
         </div>
     </div>
-    
+
     <p>
         <a href="art.html" class="invisible-link">← Back</a>
     </p>
@@ -277,3 +198,4 @@ body {
 
 </body>
 </html>
+```
