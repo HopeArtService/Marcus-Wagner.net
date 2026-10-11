@@ -1,261 +1,334 @@
+```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HopeTown</title>
+<title>Ghost City - Hope Town</title>
 
 <style>
 body {
-    background-color: #00ffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: "Courier New", monospace;
-    margin: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: white;
+  color: black;
 }
 
-.card {
-    width: 88vw;
-    max-width: 1200px;
-    max-height: 90vh;
-    background: linear-gradient(135deg, #ffcc00, #ff6600);
-    border: 3px solid #0000ff;
-    box-shadow: 5px 5px 0 #ff00ff;
-    padding: 20px;
-    color: #000;
-    position: relative;
-    overflow-y: auto;
-    text-align: center;
+/* HEADINGS */
+h1 {
+  font-family: "Courier New", monospace;
+  font-size: 24px;
+  margin: 20px 0 5px;
+  font-weight: normal;
 }
 
-.card img {
-    display: block;
-    width: 96%;
-    max-width: 900px;
-    height: auto;
-    margin: 10px auto;
-    border: 3px solid #0000ff;
-    box-shadow: 2px 2px 0 #ff00ff;
-    cursor: pointer;
+h2 {
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0 0 25px;
 }
 
-
-.card h1 {
-    font-size: 24px;
-    margin: 0;
-    color: #000080;
-    text-shadow: 1px 1px #fff;
+/* TEXT */
+.text pre {
+  width: 1000px;
+  max-width: 95%;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  margin: 0;
+  padding: 0;
+  font-family: "Times New Roman", Times, serif;
 }
 
-.card h2 {
-    font-size: 16px;
-    margin: 5px 0 15px;
-    color: #ff0000;
+/* IMAGES */
+.images img {
+  display: block;
+  width: 1000px;
+  max-width: 95%;
+  height: auto;
+  margin: 0 0 5px;
+  cursor: pointer;
 }
 
-.card p {
-    font-size: 14px;
-    margin: 5px 0;
+/* BACK LINK */
+.back-home {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: black;
+  background: white;
+  border-radius: 5px;
+  z-index: 1000;
 }
 
-/* Scrollbar */
-.card::-webkit-scrollbar {
-    width: 8px;
-}
-
-.card::-webkit-scrollbar-track {
-    background: #ffcc00;
-}
-
-.card::-webkit-scrollbar-thumb {
-    background: #0000ff;
-    border: 1px solid #000;
-}
-
-.invisible-link {
-    color: inherit;
-    text-decoration: none;
-}
-
-.invisible-link:hover {
-    text-decoration: underline;
-}
-
-
-
-/* Overlay */
+/* IMAGE OVERLAY */
 #overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.9);
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
 }
 
 #overlay img {
-    max-width: 90%;
-    max-height: 85%;
-    box-shadow: 0 0 20px #fff;
-    border: 5px solid #fff;
+  max-width: 90vw;
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
 }
 
 #caption {
-    margin-top: 15px;
-    color: white;
-    font-size: 16px;
-    text-align: center;
-    max-width: 80%;
-    padding: 0 20px;
+  margin-top: 15px;
+  color: white;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  text-align: center;
+  max-width: 85vw;
 }
 
+/* DESKTOP BACKGROUND - OPTIONAL */
+/*
+@media (min-width: 768px) {
+  body {
+    background-image: url("src/dein-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
+*/
 </style>
 </head>
+
 <body>
 
-<div class="card">
+<h1>Ghost City - Hope Town</h1>
 
-    <h1>Ghost City - Hope Town</h1>
-    <h2>Installation, Klasse Skulptur und Raum, University of Applied Arts Vienna, 2026</h2>
+<div class="text">
+<pre>Installation
+Klasse Skulptur und Raum
+University of Applied Arts Vienna, 2026
+</pre>
+</div>
 
-    <img src="src/ghosttown_neu/install1.jpg" alt="Installationsansicht 1" data-caption="Installationsansicht 1">
-    <img src="src/ghosttown_neu/install2.jpg" alt="Installationsansicht 2" data-caption="Installationsansicht 2">
-    <img src="src/ghosttown_neu/mask1.jpg" alt="Maskendetail 1" data-caption="Maskendetail 1">
-    <img src="src/ghosttown_neu/mask2.jpg" alt="Maskendetail 2" data-caption="Maskendetail 2">
-    <img src="src/ghosttown_neu/install3.jpg" alt="Installationsansicht 3" data-caption="Installationsansicht 3">
-    <img src="src/ghosttown_neu/install4.jpg" alt="Installationsansicht 4" data-caption="Installationsansicht 4">
-    <img src="src/ghosttown_neu/install5_mask.jpg" alt="Installation mit Maske" data-caption="Installation mit Maske">
-    <img src="src/ghosttown_neu/face1.jpg" alt="Gesicht Detail 1" data-caption="How to be blind, Mixed media, 2026">
-    <img src="src/ghosttown_neu/face2.jpg" alt="Gesicht Detail 2" data-caption="How to be blind, Mixed media, 2026">
-    <img src="src/ghosttown_neu/hopetown_full.jpg" alt="Hope Town Gesamtansicht" data-caption="Hope Town Gesamtansicht">
-    <img src="src/ghosttown_neu/hopetown_closer.jpg" alt="Hope Town Detailansicht" data-caption="Hope Town Detailansicht">
-    <img src="src/ghosttown_neu/hopetown_close1.jpg" alt="Hope Town Detail 1" data-caption="Hope Town Detail 1">
-    <img src="src/ghosttown_neu/hopetown_close2.jpg" alt="Hope Town Detail 2" data-caption="Hope Town Detail 2">
-    <img src="src/ghosttown_neu/hopetown_close3.jpg" alt="Hope Town Detail 3" data-caption="Hope Town Detail 3">
-    <img src="src/ghosttown_neu/hopetown_close4.jpg" alt="Hope Town Detail 4" data-caption="Hope Town Detail 4">
-    <img src="src/ghosttown_neu/hopetown_close5.jpg" alt="Hope Town Detail 5" data-caption="Hope Town Detail 5">
-    <img src="src/ghosttown_neu/hopetown_close6.jpg" alt="Hope Town Detail 6" data-caption="Hope Town Detail 6">
-    <img src="src/ghosttown_neu/hopetown_close7.jpg" alt="Hope Town Detail 7" data-caption="Hope Town Detail 7">
-    <img src="src/ghosttown_neu/hopetown_close8.jpg" alt="Hope Town Detail 8" data-caption="Hope Town Detail 8">
-    <img src="src/ghosttown_neu/hopetown_close9.jpg" alt="Hope Town Detail 9" data-caption="Hope Town Detail 9">
-    <img src="src/ghosttown_neu/hopetown_close10.jpg" alt="Hope Town Detail 10" data-caption="Hope Town Detail 10">
-    <img src="src/ghosttown_neu/hopetown_close11.jpg" alt="Hope Town Detail 11" data-caption="Hope Town Detail 11">
-    <img src="src/ghosttown_neu/hopetown_close12.jpg" alt="Hope Town Detail 12" data-caption="Hope Town Detail 12">
-    <img src="src/ghosttown_neu/hopetown_close13.jpg" alt="Hope Town Detail 13" data-caption="Hope Town Detail 13">
-    <img src="src/ghosttown_neu/install_day.jpg" alt="Installationsansicht bei Tageslicht" data-caption="Installationsansicht bei Tageslicht">
-    <p>
+<p></p>
 
-        <a href="art.html" class="invisible-link">← Back</a>
-    </p>
+<!-- HOPE TOWN IMAGES -->
+
+<div class="images">
+
+<img src="src/ghosttown_neu/install1.jpg"
+     alt="Installationsansicht 1"
+     data-caption="Installationsansicht 1">
+
+<img src="src/ghosttown_neu/install2.jpg"
+     alt="Installationsansicht 2"
+     data-caption="Installationsansicht 2">
+
+<img src="src/ghosttown_neu/mask1.jpg"
+     alt="Maskendetail 1"
+     data-caption="Maskendetail 1">
+
+<img src="src/ghosttown_neu/mask2.jpg"
+     alt="Maskendetail 2"
+     data-caption="Maskendetail 2">
+
+<img src="src/ghosttown_neu/install3.jpg"
+     alt="Installationsansicht 3"
+     data-caption="Installationsansicht 3">
+
+<img src="src/ghosttown_neu/install4.jpg"
+     alt="Installationsansicht 4"
+     data-caption="Installationsansicht 4">
+
+<img src="src/ghosttown_neu/install5_mask.jpg"
+     alt="Installation mit Maske"
+     data-caption="Installation mit Maske">
+
+<img src="src/ghosttown_neu/face1.jpg"
+     alt="Gesicht Detail 1"
+     data-caption="How to be blind, Mixed media, 2026">
+
+<img src="src/ghosttown_neu/face2.jpg"
+     alt="Gesicht Detail 2"
+     data-caption="How to be blind, Mixed media, 2026">
+
+<img src="src/ghosttown_neu/hopetown_full.jpg"
+     alt="Hope Town Gesamtansicht"
+     data-caption="Hope Town Gesamtansicht">
+
+<img src="src/ghosttown_neu/hopetown_closer.jpg"
+     alt="Hope Town Detailansicht"
+     data-caption="Hope Town Detailansicht">
+
+<img src="src/ghosttown_neu/hopetown_close1.jpg"
+     alt="Hope Town Detail 1"
+     data-caption="Hope Town Detail 1">
+
+<img src="src/ghosttown_neu/hopetown_close2.jpg"
+     alt="Hope Town Detail 2"
+     data-caption="Hope Town Detail 2">
+
+<img src="src/ghosttown_neu/hopetown_close3.jpg"
+     alt="Hope Town Detail 3"
+     data-caption="Hope Town Detail 3">
+
+<img src="src/ghosttown_neu/hopetown_close4.jpg"
+     alt="Hope Town Detail 4"
+     data-caption="Hope Town Detail 4">
+
+<img src="src/ghosttown_neu/hopetown_close5.jpg"
+     alt="Hope Town Detail 5"
+     data-caption="Hope Town Detail 5">
+
+<img src="src/ghosttown_neu/hopetown_close6.jpg"
+     alt="Hope Town Detail 6"
+     data-caption="Hope Town Detail 6">
+
+<img src="src/ghosttown_neu/hopetown_close7.jpg"
+     alt="Hope Town Detail 7"
+     data-caption="Hope Town Detail 7">
+
+<img src="src/ghosttown_neu/hopetown_close8.jpg"
+     alt="Hope Town Detail 8"
+     data-caption="Hope Town Detail 8">
+
+<img src="src/ghosttown_neu/hopetown_close9.jpg"
+     alt="Hope Town Detail 9"
+     data-caption="Hope Town Detail 9">
+
+<img src="src/ghosttown_neu/hopetown_close10.jpg"
+     alt="Hope Town Detail 10"
+     data-caption="Hope Town Detail 10">
+
+<img src="src/ghosttown_neu/hopetown_close11.jpg"
+     alt="Hope Town Detail 11"
+     data-caption="Hope Town Detail 11">
+
+<img src="src/ghosttown_neu/hopetown_close12.jpg"
+     alt="Hope Town Detail 12"
+     data-caption="Hope Town Detail 12">
+
+<img src="src/ghosttown_neu/hopetown_close13.jpg"
+     alt="Hope Town Detail 13"
+     data-caption="Hope Town Detail 13">
+
+<img src="src/ghosttown_neu/install_day.jpg"
+     alt="Installationsansicht bei Tageslicht"
+     data-caption="Installationsansicht bei Tageslicht">
 
 </div>
 
-<!-- Overlay -->
+<!-- BACK LINK -->
+<a href="art.html" class="back-home">Back</a>
+
+<!-- IMAGE OVERLAY -->
 <div id="overlay">
-    <img src="" alt="Vergrößertes Bild">
-    <div id="caption"></div>
+  <img src="" alt="Vergrößertes Bild">
+  <div id="caption"></div>
 </div>
 
 <script>
-
 const overlay = document.getElementById("overlay");
 const overlayImg = overlay.querySelector("img");
 const caption = document.getElementById("caption");
 
-const images = Array.from(document.querySelectorAll(".card img"));
+const images = Array.from(
+  document.querySelectorAll(".images img")
+);
 
 let currentIndex = 0;
 
 function updateImage() {
-    overlayImg.src = images[currentIndex].src;
+  overlayImg.src = images[currentIndex].src;
 
-    if (caption) {
-        caption.textContent =
-            images[currentIndex].dataset.caption ||
-            images[currentIndex].alt ||
-            "";
-    }
+  caption.textContent =
+    images[currentIndex].dataset.caption ||
+    images[currentIndex].alt ||
+    "";
 }
 
 function showImage(index) {
-    currentIndex = index;
-    updateImage();
-    overlay.style.display = "flex";
+  currentIndex = index;
+  updateImage();
+  overlay.style.display = "flex";
 }
 
-images.forEach((img, index) => {
-    img.addEventListener("click", () => {
-        showImage(index);
-    });
-});
-
 function nextImage() {
-    currentIndex = (currentIndex + 1) % images.length;
-    updateImage();
+  currentIndex = (currentIndex + 1) % images.length;
+  updateImage();
 }
 
 function prevImage() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateImage();
+  currentIndex =
+    (currentIndex - 1 + images.length) % images.length;
+
+  updateImage();
 }
 
+/* CLICK ON THUMBNAIL */
+images.forEach((img, index) => {
+  img.addEventListener("click", () => {
+    showImage(index);
+  });
+});
+
+/* KEYBOARD NAVIGATION */
 document.addEventListener("keydown", (e) => {
+  if (overlay.style.display !== "flex") return;
 
-    if (overlay.style.display !== "flex") return;
+  if (e.key === "ArrowRight") nextImage();
+  if (e.key === "ArrowLeft") prevImage();
 
-    if (e.key === "ArrowRight") nextImage();
-    if (e.key === "ArrowLeft") prevImage();
-
-    if (e.key === "Escape") {
-        overlay.style.display = "none";
-    }
+  if (e.key === "Escape") {
+    overlay.style.display = "none";
+  }
 });
 
+/* CLICK ON BACKGROUND TO CLOSE */
 overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) {
-        overlay.style.display = "none";
-    }
+  if (e.target === overlay) {
+    overlay.style.display = "none";
+  }
 });
 
-/* Swipe für Mobilgeräte */
+/* CLICK ON ENLARGED IMAGE TO GO NEXT */
+overlayImg.addEventListener("click", (e) => {
+  e.stopPropagation();
+  nextImage();
+});
 
+/* SWIPE FOR MOBILE */
 let touchStartX = 0;
 let touchEndX = 0;
 
 overlay.addEventListener("touchstart", (e) => {
-    touchStartX = e.changedTouches[0].screenX;
+  touchStartX = e.changedTouches[0].screenX;
 });
 
 overlay.addEventListener("touchend", (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-});
+  touchEndX = e.changedTouches[0].screenX;
 
-function handleSwipe() {
-    if (touchEndX < touchStartX - 50) {
-        nextImage();
-    }
-
-    if (touchEndX > touchStartX + 50) {
-        prevImage();
-    }
-}
-
-/* Klick auf Bild = nächstes Bild */
-
-overlayImg.addEventListener("click", (e) => {
-    e.stopPropagation();
+  if (touchEndX < touchStartX - 50) {
     nextImage();
-});
+  }
 
+  if (touchEndX > touchStartX + 50) {
+    prevImage();
+  }
+});
 </script>
 
 </body>
 </html>
+```
