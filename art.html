@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -14,176 +14,225 @@
 body {
     font-family: "Courier New", monospace;
     margin: 0;
-    padding: 10px;
-          /* weiße Schrift */
+    padding: 15px;
+    background: white;
+    color: black;
 }
 
-
-    
-.card {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 10px;
-    position: relative;
-    overflow-y: auto;
-    text-align: center;
+/* HEADER */
+header {
+    margin-bottom: 35px;
 }
 
-.card h1,
-.card h2,
-.card h3 {
-    margin: 0 0 10px 0;
+h1, h2, h3 {
     font-weight: normal;
+    margin: 0;
 }
 
-.card p {
+h1 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+h3 {
     font-size: 14px;
-    margin: 5px 0;
+    margin-bottom: 12px;
 }
 
-.invisible-link {
+/* YEAR LABELS */
+.year {
+    font-size: 14px;
+    font-weight: normal;
+    margin: 30px 0 12px;
+}
+
+/* IMAGE GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px 12px;
+    width: 100%;
+}
+
+/* EACH WORK */
+.work {
+    min-width: 0;
+    text-align: left;
+}
+
+.work a {
+    color: black;
     text-decoration: none;
-}
-
-.invisible-link:hover {
-    text-decoration: underline;
-}
-
-.work,
-.link-only {
-    text-align: center;
-    margin-bottom: 20px;
 }
 
 .work img {
     display: block;
     width: 100%;
-    max-width: 800px;
-    margin: 0 auto 5px auto;
-    object-fit: cover;
+    height: auto;
+    margin: 0 0 8px;
+    object-fit: contain;
     cursor: pointer;
 }
 
-.work a,
-.link-only a {
+.work a:hover {
     text-decoration: underline;
-    font-size: 14px;
-    display: block;
 }
 
+.work p {
+    font-size: 12px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* BACK LINK */
 .back-home {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 15px;
-    text-decoration: none;
-    border-radius: 5px;
-    background-color: #eee;
+    bottom: 15px;
+    right: 15px;
+    padding: 8px 12px;
+    background: white;
     color: black;
-    font-size: 14px;
-    z-index: 2000;
-    transition: background-color 0.3s;
+    border: 1px solid black;
+    text-decoration: none;
+    font-size: 12px;
+    z-index: 100;
 }
 
 .back-home:hover {
-    background-color: #ccc;
+    background: black;
+    color: white;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px 10px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 8px;
+    }
+
+    .work p {
+        font-size: 11px;
+    }
+
+    header {
+        margin-bottom: 25px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<header>
     <h1>Marcus Wagner</h1>
     <h2>Archive</h2>
-
     <h3>Selected Works</h3>
-    <h3>2026</h3>
+</header>
 
- <div class="work">
-        <a href="art_underpage.html">
-            <img src="src/radierungen/texas_1.jpg" alt="Painting Compilation; 2025">
-        </a>
-        <a href="art_underpage.html">Prints, 2026</a>
-    </div>    
-    
+<h3 class="year">2026</h3>
+
+<div class="grid">
+
     <div class="work">
         <a href="art_underpage.html">
-            <img src="src/works_cover/painting_compilation_1.jpg" alt="Painting Compilation; 2025">
+            <img src="src/radierungen/texas_1.jpg" alt="Prints">
+            <p>Prints, 2026</p>
         </a>
-        <a href="art_underpage.html">Painting Compilation, 2026, University of Applied Arts, Vienna</a>
+    </div>
+
+    <div class="work">
+        <a href="art_underpage.html">
+            <img src="src/works_cover/painting_compilation_1.jpg" alt="Painting Compilation">
+            <p>Painting Compilation, 2026, University of Applied Arts, Vienna</p>
+        </a>
     </div>
 
     <div class="work">
         <a href="dontgiveup.html">
-            <img src="src/dontgiveup/3E4C2886.jpg" alt="Don´t give up, you´ve got the music in you; 2026">
+            <img src="src/dontgiveup/3E4C2886.jpg" alt="Don't give up, you've got the music in you">
+            <p>Don't give up, you've got the music in you, 2026, Vienna</p>
         </a>
-        <a href="art_ghosttown.html">Don´t give up, you´ve got the music in you, 2026, Vienna</a>
     </div>
-    
+
     <div class="work">
         <a href="art_ghosttown.html">
-            <img src="src/works_cover/ghost_1.jpg" alt="Ghost City Hope Town; 2026">
+            <img src="src/works_cover/ghost_1.jpg" alt="Ghost City - Hope Town">
+            <p>Ghost City – Hope Town, 2026, University of Applied Arts, Vienna</p>
         </a>
-        <a href="art_ghosttown.html">Ghost City - Hope Town, 2026, University of Applied Arts, Vienna</a>
     </div>
 
     <div class="work">
         <a href="https://www.hopeartservice.vip/hmarriage.html">
-            <img src="src/works_cover/marriage.jpeg" alt="H Marriage; 2025">
-        </a>
-        <a href="https://www.hopeartservice.vip/hmarriage.html">
-            H Marriage/H0pe Art Service, 2026, Vienna
+            <img src="src/works_cover/marriage.jpeg" alt="H Marriage">
+            <p>H Marriage / H0pe Art Service, 2026, Vienna</p>
         </a>
     </div>
 
-    <h3>2025</h3>
+</div>
+
+<h3 class="year">2025</h3>
+
+<div class="grid">
 
     <div class="work">
         <a href="https://www.hopeartservice.vip/nothingshow.html">
-            <img src="src/works_cover/nothingshow.jpg" alt="The Nothing Show; 2025">
-        </a>
-        <a href="https://www.hopeartservice.vip/nothingshow.html">
-            The Nothing Show/H0pe Art Service, 2025, Vienna
+            <img src="src/works_cover/nothingshow.jpg" alt="The Nothing Show">
+            <p>The Nothing Show / H0pe Art Service, 2025, Vienna</p>
         </a>
     </div>
 
     <div class="work">
         <a href="https://www.hopeartservice.vip/shoeshow%202.html">
             <img src="src/scream.JPG" alt="The Shoe Show">
-        </a>
-        <a href="https://www.hopeartservice.vip/shoeshow%202.html">
-            The Shoe Show/H0pe Art Service, 2025, Düsseldorf, GER
+            <p>The Shoe Show / H0pe Art Service, 2025, Düsseldorf, GER</p>
         </a>
     </div>
 
-     <div class="work">
+    <div class="work">
         <a href="https://www.hopeartservice.vip/gardenofeldon%20.html">
             <img src="src/gardenofeldon_2.jpg" alt="Garden of Eldon">
-        </a>
-        <a href="https://www.hopeartservice.vip/gardenofeldon%20.html">
-            Garden of Eldon/H0pe Art Service, 2024, Newcastle Upon Tyne, UK
+            <p>Garden of Eldon / H0pe Art Service, 2024, Newcastle Upon Tyne, UK</p>
         </a>
     </div>
 
-    <h3>2023</h3>
+</div>
+
+<h3 class="year">2023</h3>
+
+<div class="grid">
 
     <div class="work">
         <a href="art_leibesuebungen.html">
             <img src="src/leibesuebungen/install1.jpg" alt="Die besten Leibesübungen">
-        </a>
-        <a href="art_leibesuebungen.html">
-            Die besten Leibesübungen, 2023, University of Applied Arts, Vienna
+            <p>Die besten Leibesübungen, 2023, University of Applied Arts, Vienna</p>
         </a>
     </div>
- 
-    
 
-    <p><a href="index.html" class="invisible-link">← Back</a></p>
 </div>
+
+<p style="margin-top: 35px;">
+    <a href="index.html" style="color: black; text-decoration: none;">← Back</a>
+</p>
 
 <a href="index.html" class="back-home">Back Home</a>
 
 </body>
 </html>
-
+```
