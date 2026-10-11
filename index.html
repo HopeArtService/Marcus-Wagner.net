@@ -114,30 +114,28 @@ body {
  
  -->
  
+
 <script>
 const images = [
-    "src/20251006MarcusWagner4709.jpg",
-   "src/20251006MarcusWagner4709.jpg",
+  "src/20251006MarcusWagner4709.jpg",
   "src/painting_compilation/spagetti.jpg",
   "src/PHOTO-2024-05-13-22-08-58 3.JPG",
   "src/works_cover/drawing_head.jpg",
   "src/ghosttown2.jpg",
   "src/leibes_2.jpg",
   "src/shoeshow/scream3.jpg",
-  "src/works_cover/bluedog_130x90_2025.jpg"
-   "src/dontgiveup/3E4C2886.jpg",
-  "src/works_cover/drawing_sun_dots.jpg",
+  "src/works_cover/bluedog_130x90_2025.jpg",
+  "src/dontgiveup/3E4C2886.jpg",
+  "src/works_cover/drawing_sun_dots.jpg"
 ];
-  
 
-
-     
 const img = document.getElementById("img");
 
-// Choose a random image on every page load
+// Zufälliges Bild bei jedem Seitenaufruf
 const index = Math.floor(Math.random() * images.length);
 img.src = images[index];
 </script>
+
 
 
 </body>
