@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -11,11 +12,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     font-family: "Courier New", monospace;
-    margin:0;
+    margin: 0;
+    padding: 15px 0;
 }
 
+/* CRAZY CARD DESIGN */
 .card {
     width: 96vw;
     max-width: 1400px;
@@ -28,17 +31,21 @@ body {
     position: relative;
     overflow-y: auto;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .card img {
     display: block;
-    width: 96%;
-    max-width: 900px;
+    width: auto;
     height: auto;
+    max-width: 96%;
+    max-height: 75vh;
     margin: 10px auto;
     border: 3px solid #0000ff;
     box-shadow: 2px 2px 0 #ff00ff;
     cursor: pointer;
+    object-fit: contain;
+    box-sizing: border-box;
 }
 
 .card h1 {
@@ -55,41 +62,61 @@ body {
 }
 
 .card p {
-    font-size:14px;
-    margin:5px 0;
+    font-size: 14px;
+    margin: 5px 0;
 }
 
-/* Scrollbar */
-.card::-webkit-scrollbar { width: 8px; }
-.card::-webkit-scrollbar-track { background: #ffcc00; }
-.card::-webkit-scrollbar-thumb { background: #0000ff; border:1px solid #000; }
+/* SCROLLBAR */
+.card::-webkit-scrollbar {
+    width: 8px;
+}
 
+.card::-webkit-scrollbar-track {
+    background: #ffcc00;
+}
+
+.card::-webkit-scrollbar-thumb {
+    background: #0000ff;
+    border: 1px solid #000;
+}
+
+/* BACK LINK */
 .invisible-link {
     color: inherit;
     text-decoration: none;
 }
-.invisible-link:hover { text-decoration: underline; }
 
+.invisible-link:hover {
+    text-decoration: underline;
+}
 
-/* Overlay für vergrößertes Bild */
+/* IMAGE OVERLAY */
 #overlay {
     position: fixed;
-    top:0;
-    left:0;
-    width:100vw;
-    height:100vh;
-    background: rgba(0,0,0,0.8);
-    display:none;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
     justify-content: center;
     align-items: center;
-    z-index:1000;
+    flex-direction: column;
+    z-index: 1000;
+    box-sizing: border-box;
+    padding: 20px;
 }
+
 #overlay img {
-    max-width: 90%;
-    max-height: 90%;
+    display: block;
+    max-width: 90vw;
+    max-height: 78vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
     box-shadow: 0 0 20px #fff;
     border: 5px solid #fff;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 #caption {
@@ -99,71 +126,133 @@ body {
     text-align: center;
     max-width: 80%;
     padding: 0 20px;
-}    
-.work {
-    text-align: left;      /* Link linksbündig unter dem Bild */
-    margin-bottom: 15px;   /* Abstand zu nächstem Bild */
 }
 
-.work img {
-    display: block;        /* verhindert, dass der Link neben dem Bild erscheint */
-    width: 95%;
-    margin-bottom: 5px;    /* kleiner Abstand zwischen Bild und Link */
-}
+/* MOBILE */
+@media (max-width: 767px) {
+    body {
+        align-items: flex-start;
+        padding: 10px 0;
+    }
 
-.work a {
-    text-decoration: none;
-    color: #0000ff;        /* Linkfarbe anpassen */
-    font-size: 14px;
-}
+    .card {
+        max-height: none;
+        padding: 12px;
+    }
 
-.work a:hover {
-    text-decoration: underline;
+    .card img {
+        max-width: 100%;
+        max-height: none;
+    }
+
+    .card h1 {
+        font-size: 22px;
+    }
+
+    #overlay img {
+        max-width: 92vw;
+        max-height: 75vh;
+    }
+
+    #caption {
+        font-size: 13px;
+    }
 }
-    
 </style>
 </head>
+
 <body>
 
 <div class="card">
+
     <h1>Painting Compilation</h1>
     <h2>2026, University of Applied Arts Vienna</h2>
 
-    <!-- Bilder in voller Breite -->
-    <img src="src/painting_compilation/fleck.jpg" alt="Splash(small)" data-caption="Installationview Detail">
-    <img src="src/painting_compilation/spagetti.jpg"alt="Splash(small)" data-caption="Installationview Detail 2">
-    <img src="src/painting_compilation/install1.jpg"alt="Splash(small)" data-caption="Installationview 3">
-     <img src="src/painting_compilation/install2.jpg"alt="Splash(small)" data-caption="Installationview 4">
-     <img src="src/painting_compilation/spagettieater.jpg"alt="Spagettieater" data-caption="Spagettieater, Silkscreenprint and oil on Linen, 2025">
-     <img src="src/painting_compilation/fleck_cropped_smaller.jpg"alt="Splash(small)" data-caption="Splash(Small), Silkscreenprint on Linen, 2025">
-    <p></p>
+    <!-- PAINTINGS AND INSTALLATION VIEWS -->
 
-    <p><a href="art.html" class="invisible-link">← Back</a></p>
+    <img
+        src="src/painting_compilation/fleck.jpg"
+        alt="Splash (small)"
+        data-caption="Installationview Detail"
+    >
+
+    <img
+        src="src/painting_compilation/spagetti.jpg"
+        alt="Splash (small)"
+        data-caption="Installationview Detail 2"
+    >
+
+    <img
+        src="src/painting_compilation/install1.jpg"
+        alt="Installation view"
+        data-caption="Installationview 3"
+    >
+
+    <img
+        src="src/painting_compilation/install2.jpg"
+        alt="Installation view"
+        data-caption="Installationview 4"
+    >
+
+    <img
+        src="src/painting_compilation/spagettieater.jpg"
+        alt="Spagettieater"
+        data-caption="Spagettieater, Silkscreenprint and oil on Linen, 2025"
+    >
+
+    <img
+        src="src/painting_compilation/fleck_cropped_smaller.jpg"
+        alt="Splash (small)"
+        data-caption="Splash (Small), Silkscreenprint on Linen, 2025"
+    >
+
+    <p>
+        <a href="art.html" class="invisible-link">← Back</a>
+    </p>
+
 </div>
 
-<!-- Overlay für vergrößertes Bild -->
+<!-- IMAGE OVERLAY -->
 <div id="overlay">
     <img src="" alt="Vergrößertes Bild">
     <div id="caption"></div>
 </div>
 
 <script>
-// Klick auf Bilder zeigt Overlay
+// CLICK ON IMAGES TO OPEN OVERLAY
 const overlay = document.getElementById("overlay");
 const overlayImg = overlay.querySelector("img");
 const caption = document.getElementById("caption");
 
 document.querySelectorAll(".card img").forEach(img => {
-    img.addEventListener("click", () => {
+    img.addEventListener("click", (event) => {
+        event.stopPropagation();
+
         overlayImg.src = img.src;
+        overlayImg.alt = img.alt || "Vergrößertes Bild";
         caption.textContent = img.dataset.caption || img.alt || "";
+
         overlay.style.display = "flex";
     });
 });
 
+// CLICK OUTSIDE IMAGE TO CLOSE
 overlay.addEventListener("click", () => {
     overlay.style.display = "none";
 });
+
+// PREVENT CLICKING THE IMAGE FROM CLOSING THE OVERLAY
+overlayImg.addEventListener("click", (event) => {
+    event.stopPropagation();
+});
+
+// CLOSE WITH ESCAPE KEY
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        overlay.style.display = "none";
+    }
+});
+</script>
 
 </body>
 </html>
