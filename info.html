@@ -1,7 +1,9 @@
+```html
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8"/>
 <title>info</title>
 
 <style>
@@ -11,15 +13,18 @@ body {
     text-align: left;
     max-width: 700px;
 }
+
 .card h1,
 .card h2,
 .card h3 {
     margin: 0 0 10px 0;
     font-weight: normal;
 }
-/* Images (content images) */
+
+/* Images */
 img {
     width: 450px;
+    max-width: 100%;
     height: auto;
     display: block;
     margin: 20px 0;
@@ -38,103 +43,195 @@ p {
     margin: 0 0 12px 0;
 }
 
-/* Back-to-home Button */
+/* Translation controls */
+.translation {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 30px 0;
+    font-size: 14px;
+}
 
-.small-image {
-    width: 350px;
-    height: auto;
-    margin-top: 15px;
-}    
-    
+.translation select,
+.translation button {
+    font-family: "Times New Roman", serif;
+    font-size: 14px;
+    padding: 7px 10px;
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: #eee;
+    color: red;
+}
+
+.translation button {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.translation button:hover {
+    background-color: #ccc;
+}
+
+/* Back-to-home button */
 .back-home {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 15px;
-  text-decoration: none;
-  border-radius: 5px;
-  z-index: 1000;
-  background-color: #eee;
-  color: red;
-  transition: background-color 0.3s;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    z-index: 1000;
+    background-color: #eee;
+    color: red;
+    transition: background-color 0.3s;
 }
 
 .back-home:hover {
-  background-color: #ccc;
+    background-color: #ccc;
 }
 
-/* ================= SIDE IMAGE LINK (UPDATED) ================= */
-.side-image-link {
-  position: fixed;
-  right: 55px;   /* moved left (was 80px) */
-  bottom: 60px;  /* moved up (was 80px) */
-  z-index: 999;
-  opacity: 0.9;
-  transition: opacity 0.2s ease;
+/* Small image */
+.small-image {
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    margin-top: 15px;
 }
 
-.side-image-link img {
-  width: 250px;  /* +15% bigger (was 160px) */
-  height: auto;
-  display: block;
-}
-
-.side-image-link:hover {
-  opacity: 1;
-}
-
-/* MOBILE */
+/* Mobile */
 @media (max-width: 768px) {
-  .side-image-link {
-    right: 20px;
-    bottom: 90px;
-  }
+    body {
+        margin: 20px;
+        padding-bottom: 60px;
+    }
 
-  .side-image-link img {
-    width: 125px;
-  }
+    .translation {
+        gap: 8px;
+    }
+
+    .translation select {
+        max-width: 100%;
+    }
+
+    .back-home {
+        bottom: 15px;
+        right: 15px;
+    }
 }
 </style>
-
 </head>
 
 <body>
 
 <main>
-<div>
-   <p>
 
-My work is mainly driven by spontaneity and the self-reflective process of making art. Other words to describe my practice are expressiveness and mystery. I like painting that holds back its potential for gesture, but I also like big gestures. I like the quietness and rawness of drawing.
+<!-- TRANSLATION BUTTON -->
+<div class="translation">
+    <label for="language">Translate:</label>
 
-My choice of medium changes frequently, as I enjoy presenting work that differs from what I have shown before. A similar excitement comes from organizing exhibitions, where I invite others to develop their own work around a word or theme I propose. There is something about the simplicity or banality of this situation that brings me joy, ease, and a sense of freedom. Over time, it has become an important part of my artistic practice. It is also driven by a desire for community and the hope of creating a positive feeling within the art world, beyond individual self-expression.
+    <select id="language" aria-label="Choose translation language">
+        <option value="de">German / Deutsch</option>
+        <option value="fr">French / Français</option>
+        <option value="es">Spanish / Español</option>
+        <option value="it">Italian / Italiano</option>
+        <option value="pt">Portuguese / Português</option>
+        <option value="nl">Dutch / Nederlands</option>
+        <option value="pl">Polish / Polski</option>
+        <option value="sv">Swedish / Svenska</option>
+        <option value="da">Danish / Dansk</option>
+        <option value="no">Norwegian / Norsk</option>
+        <option value="fi">Finnish / Suomi</option>
+        <option value="el">Greek / Ελληνικά</option>
+        <option value="tr">Turkish / Türkçe</option>
+        <option value="ru">Russian / Русский</option>
+        <option value="uk">Ukrainian / Українська</option>
+        <option value="ar">Arabic / العربية</option>
+        <option value="he">Hebrew / עברית</option>
+        <option value="hi">Hindi / हिन्दी</option>
+        <option value="zh-CN">Chinese (Simplified)</option>
+        <option value="zh-TW">Chinese (Traditional)</option>
+        <option value="ja">Japanese / 日本語</option>
+        <option value="ko">Korean / 한국어</option>
+        <option value="th">Thai / ไทย</option>
+        <option value="vi">Vietnamese / Tiếng Việt</option>
+        <option value="id">Indonesian / Bahasa Indonesia</option>
+        <option value="cs">Czech / Čeština</option>
+        <option value="ro">Romanian / Română</option>
+        <option value="hu">Hungarian / Magyar</option>
+        <option value="hr">Croatian / Hrvatski</option>
+        <option value="sr">Serbian / Српски</option>
+        <option value="bg">Bulgarian / Български</option>
+        <option value="ca">Catalan / Català</option>
+        <option value="fa">Persian / فارسی</option>
+        <option value="sw">Swahili / Kiswahili</option>
+        <option value="en">English</option>
+    </select>
 
-I also use these exhibitions as an opportunity to present my own work, creating something new within the circumstances I have set in motion. The work I develop in the studio, on the other hand, is sometimes a more direct reflection of how I feel when working alone. </p>
-<a href="mailto:marcuswagnerinfo@gmail.com">
-  marcuswagnerinfo@gmail.com
-</a>
- <p>⭑ ⭑ ⭑ ⭑ ⭑ ⭑ ⭑ ⭑ ⭑ ************ <p>
- <p>Curatorial Project</p> 
-<a href="https://www.hopeartservice.vip">
-  Hope Projects Art Service
-</a>
+    <button type="button" onclick="translatePage()">
+        Translate
+    </button>
 </div>
 
- <h3><a href="cv_2.html">
-            cv
-        </a>
-            </h3>    
-    <img class="small-image"
-     src="src/selbstportrait_maske_normal.jpg"
-     alt="Bild">  
- 
+<div>
+
+<p>
+My work is mainly driven by spontaneity and the self-reflective process of making art. Other words to describe my practice are expressiveness and mystery. I like painting that holds back its potential for gesture, but I also like big gestures. I like the quietness and rawness of drawing.
+</p>
+
+<p>
+My choice of medium changes frequently, as I enjoy presenting work that differs from what I have shown before. A similar excitement comes from organizing exhibitions, where I invite others to develop their own work around a word or theme I propose. There is something about the simplicity or banality of this situation that brings me joy, ease, and a sense of freedom. Over time, it has become an important part of my artistic practice. It is also driven by a desire for community and the hope of creating a positive feeling within the art world, beyond individual self-expression.
+</p>
+
+<p>
+I also use these exhibitions as an opportunity to present my own work, creating something new within the circumstances I have set in motion. The work I develop in the studio, on the other hand, is sometimes a more direct reflection of how I feel when working alone.
+</p>
+
+<a href="mailto:marcuswagnerinfo@gmail.com">
+    marcuswagnerinfo@gmail.com
+</a>
+
+<p>⭑ ⭑ ⭑ ⭑ ⭑ ⭑ ⭑ ⭑ ⭑ ************</p>
+
+<p>Curatorial Project</p>
+
+<a href="https://www.hopeartservice.vip">
+    Hope Projects Art Service
+</a>
+
+</div>
+
+<h3>
+    <a href="cv_2.html">cv</a>
+</h3>
+
+<img
+    class="small-image"
+    src="src/selbstportrait_maske_normal.jpg"
+    alt="Self-portrait"
+/>
+
 </main>
 
-    
-<!-- FLOATING IMAGE LINK -->
+<!-- TRANSLATION SCRIPT -->
+<script>
+function translatePage() {
+    const language = document.getElementById("language").value;
+    const pageURL = window.location.href;
 
+    const translateURL =
+        "https://translate.google.com/translate?sl=en&tl="
+        + encodeURIComponent(language)
+        + "&u="
+        + encodeURIComponent(pageURL);
+
+    window.open(translateURL, "_blank", "noopener,noreferrer");
+}
+</script>
 
 <!-- BACK HOME -->
 <a href="/" class="back-home">Back to Home</a>
 
 </body>
 </html>
+```
