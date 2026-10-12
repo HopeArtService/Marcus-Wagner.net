@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -33,6 +34,7 @@ body {
     border: none;
     background: none;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .work img {
@@ -99,7 +101,7 @@ body {
         type="button"
         class="image-button"
         id="nextImage"
-        aria-label="Next image"
+        aria-label="Nächstes Bild anzeigen"
     >
         <img
             id="galleryImage"
@@ -125,46 +127,44 @@ const images = [
     },
     {
         src: "src/painting_compilation/spagettieater.jpg",
-        alt: "Texas Sun 2",
-        caption: "Texas Sun 2, Etching, 2025"
+        alt: "Spagettieater",
+        caption: "Spagettieater, Silkscreenprint and oil on Linen, 2025"
     },
     {
         src: "src/dontgiveup/3E4C2886.jpg",
-        alt: "Texas Sun 3",
-        caption: "Texas Sun 3, Etching, 2025"
-    }
-  {
+        alt: "Don't give up, you've got the music in you",
+        caption: "Don't give up, you've got the music in you, 2026"
+    },
+    {
         src: "src/dontgiveup/3E4C3156.jpg",
-        alt: "Texas Sun 3",
-        caption: "Texas Sun 3, Etching, 2025"
-    }
-  {
+        alt: "Don't give up, you've got the music in you",
+        caption: "Don't give up, you've got the music in you, 2026"
+    },
+    {
         src: "src/Scan 10.jpg",
-        alt: "Texas Sun 3",
-        caption: "Texas Sun 3, Etching, 2025"
-    }
-      {
+        alt: "Scan 10",
+        caption: "Scan 10"
+    },
+    {
         src: "src/ghosttown2.jpg",
-        alt: "Texas Sun 3",
-        caption: "Texas Sun 3, Etching, 2025"
-    }
-       {
+        alt: "Ghost City",
+        caption: "Ghost City – Hope Town, 2026"
+    },
+    {
         src: "src/hmarriage_closeup.jpeg",
-        alt: "Texas Sun 3",
-        caption: "Texas Sun 3, Etching, 2025"
-    }
-       {
+        alt: "H Marriage",
+        caption: "H Marriage, 2026"
+    },
+    {
         src: "src/leibes_2.jpg",
-        alt: "Texas Sun 3",
-        caption: "Texas Sun 3, Etching, 2025"
-    }
-       {
+        alt: "Die besten Leibesübungen",
+        caption: "Die besten Leibesübungen, 2023"
+    },
+    {
         src: "src/pirate_1_crazy.jpg",
-        alt: "Texas Sun 3",
-        caption: "Texas Sun 3, Etching, 2025"
+        alt: "Pirate",
+        caption: "Pirate"
     }
-   
-   
 ];
 
 let currentIndex = 0;
@@ -184,4 +184,4 @@ nextImage.addEventListener("click", function () {
 
 </body>
 </html>
-
+```
