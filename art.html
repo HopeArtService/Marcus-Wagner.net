@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marcus Wagner – Archive</title>
+<title>For access to full archive, contact me</title>
 
 <style>
 * {
@@ -13,125 +13,78 @@
 body {
     font-family: "Courier New", monospace;
     margin: 0;
-    padding: 15px;
+    padding: 30px 15px;
     background: white;
     color: black;
+    text-align: center;
 }
 
-/* HEADER */
-header {
-    margin-bottom: 35px;
-}
-
-h1, h2, h3 {
-    font-weight: normal;
-    margin: 0;
-}
-
+/* MAIN TITLE */
 h1 {
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-h2 {
-    font-size: 16px;
-    margin-bottom: 25px;
-}
-
-h3 {
-    font-size: 14px;
-    margin-bottom: 12px;
-}
-
-/* YEAR LABELS */
-.year {
-    font-size: 14px;
+    font-size: 32px;
     font-weight: normal;
-    margin: 30px 0 12px;
+    margin: 20px 0 35px;
 }
 
-/* IMAGE GRID */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 25px 12px;
-    width: 100%;
-}
-
-/* EACH WORK */
+/* CENTRAL IMAGE */
 .work {
-    min-width: 0;
-    text-align: left;
-}
-
-.work a {
-    color: black;
-    text-decoration: none;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .work img {
     display: block;
     width: 100%;
     height: auto;
-    margin: 0 0 8px;
+    margin: 0 auto;
     object-fit: contain;
-    cursor: pointer;
 }
 
-.work a:hover {
-    text-decoration: underline;
+/* TEXT UNDER IMAGE */
+.caption {
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 12px auto 0;
+    text-align: center;
 }
 
-.work p {
-    font-size: 12px;
-    line-height: 1.4;
-    margin: 0;
-}
-
-/* BACK LINK */
 /* BACK HOME BUTTON */
 .back-home {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 15px;
-  text-decoration: none;
-  border-radius: 5px;
-  z-index: 1000;
-  background-color: #eee;
-  color: black;
-  transition: background-color 0.3s;
-}
-    
-.back-home:hover {
-  background-color: #ccc;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    z-index: 1000;
+    background-color: #eee;
+    color: black;
+    transition: background-color 0.3s;
 }
 
-/* TABLET */
-@media (max-width: 900px) {
-    .grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 22px 10px;
-    }
+.back-home:hover {
+    background-color: #ccc;
 }
 
 /* MOBILE */
 @media (max-width: 600px) {
     body {
-        padding: 10px;
+        padding: 20px 12px;
     }
 
-    .grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 20px 8px;
+    h1 {
+        font-size: 25px;
+        margin: 20px 0 25px;
     }
 
-    .work p {
-        font-size: 11px;
+    .caption {
+        font-size: 12px;
     }
 
-    header {
-        margin-bottom: 25px;
+    .back-home {
+        bottom: 15px;
+        right: 15px;
     }
 }
 </style>
@@ -139,96 +92,18 @@ h3 {
 
 <body>
 
-<header>
-    <h1>Marcus Wagner</h1>
-    <h2>Archive</h2>
-    <h3>Selected Works</h3>
-</header>
+<h1>Marcus Wagner</h1>
 
-<h3 class="year">2026</h3>
+<div class="work">
+    <img
+        src="src/radierungen/texas_1.jpg"
+        alt="Texas Sun"
+    >
 
-<div class="grid">
-
-    <div class="work">
-        <a href="art_underpage.html">
-            <img src="src/radierungen/texas_1.jpg" alt="Prints">
-            <p>Prints, 2026</p>
-        </a>
-    </div>
-
-    <div class="work">
-        <a href="art_underpage.html">
-            <img src="src/works_cover/painting_compilation_1.jpg" alt="Painting Compilation">
-            <p>Painting Compilation, 2026, University of Applied Arts, Vienna</p>
-        </a>
-    </div>
-
-    <div class="work">
-        <a href="dontgiveup.html">
-            <img src="src/dontgiveup/3E4C2886.jpg" alt="Don't give up, you've got the music in you">
-            <p>Don't give up, you've got the music in you, 2026, Vienna</p>
-        </a>
-    </div>
-
-    <div class="work">
-        <a href="art_ghosttown.html">
-            <img src="src/works_cover/ghost_1.jpg" alt="Ghost City - Hope Town">
-            <p>Ghost City – Hope Town, 2026, University of Applied Arts, Vienna</p>
-        </a>
-    </div>
-
-    <div class="work">
-        <a href="https://www.hopeartservice.vip/hmarriage.html">
-            <img src="src/works_cover/marriage.jpeg" alt="H Marriage">
-            <p>H Marriage / H0pe Art Service, 2026, Vienna</p>
-        </a>
-    </div>
-
+    <p class="caption">
+       Texas Sun, Etching, 2025
+    </p>
 </div>
-
-<h3 class="year">2025</h3>
-
-<div class="grid">
-
-    <div class="work">
-        <a href="https://www.hopeartservice.vip/nothingshow.html">
-            <img src="src/works_cover/nothingshow.jpg" alt="The Nothing Show">
-            <p>The Nothing Show / H0pe Art Service, 2025, Vienna</p>
-        </a>
-    </div>
-
-    <div class="work">
-        <a href="https://www.hopeartservice.vip/shoeshow%202.html">
-            <img src="src/scream.JPG" alt="The Shoe Show">
-            <p>The Shoe Show / H0pe Art Service, 2025, Düsseldorf, GER</p>
-        </a>
-    </div>
-
-    <div class="work">
-        <a href="https://www.hopeartservice.vip/gardenofeldon%20.html">
-            <img src="src/gardenofeldon_2.jpg" alt="Garden of Eldon">
-            <p>Garden of Eldon / H0pe Art Service, 2024, Newcastle Upon Tyne, UK</p>
-        </a>
-    </div>
-
-</div>
-
-<h3 class="year">2023</h3>
-
-<div class="grid">
-
-    <div class="work">
-        <a href="art_leibesuebungen.html">
-            <img src="src/leibesuebungen/install1.jpg" alt="Die besten Leibesübungen">
-            <p>Die besten Leibesübungen, 2023, University of Applied Arts, Vienna</p>
-        </a>
-    </div>
-
-</div>
-
-<p style="margin-top: 35px;">
-    <a href="index.html" style="color: black; text-decoration: none;">← Back</a>
-</p>
 
 <a href="index.html" class="back-home">Back Home</a>
 
