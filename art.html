@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -19,18 +20,20 @@ body {
     text-align: center;
 }
 
-/* MAIN TITLE */
-h1 {
-    font-size: 16px;
-    font-weight: normal;
-    margin: 20px 0 35px;
-}
-
 /* CENTRAL IMAGE */
 .work {
     width: 100%;
     max-width: 900px;
-    margin: 0 auto;
+    margin: 20px auto 0;
+}
+
+.image-button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
 }
 
 .work img {
@@ -73,9 +76,8 @@ h1 {
         padding: 20px 12px;
     }
 
-    h1 {
-        font-size: 25px;
-        margin: 20px 0 25px;
+    .work img {
+        width: 100%;
     }
 
     .caption {
@@ -92,19 +94,63 @@ h1 {
 
 <body>
 
-
 <div class="work">
-    <img
-        src="src/radierungen/texas_1.jpg"
-        alt="Texas Sun"
-    >
 
-    <p class="caption">
-       Texas Sun, Etching, 2025
+    <button
+        type="button"
+        class="image-button"
+        id="nextImage"
+        aria-label="Next image"
+    >
+        <img
+            id="galleryImage"
+            src="src/radierungen/texas_1.jpg"
+            alt="Texas Sun"
+        >
+    </button>
+
+    <p class="caption" id="imageCaption">
+        Texas Sun, Etching, 2025
     </p>
+
 </div>
 
 <a href="index.html" class="back-home">Back Home</a>
 
+<script>
+const images = [
+    {
+        src: "src/radierungen/texas_1.jpg",
+        alt: "Texas Sun",
+        caption: "Texas Sun, Etching, 2025"
+    },
+    {
+        src: "src/painting_compilation/spagettieater.jpg",
+        alt: "Texas Sun 2",
+        caption: "Texas Sun 2, Etching, 2025"
+    },
+    {
+        src: "src/dontgiveup/3E4C2886.jpg",
+        alt: "Texas Sun 3",
+        caption: "Texas Sun 3, Etching, 2025"
+    }
+];
+
+let currentIndex = 0;
+
+const galleryImage = document.getElementById("galleryImage");
+const imageCaption = document.getElementById("imageCaption");
+const nextImage = document.getElementById("nextImage");
+
+nextImage.addEventListener("click", function () {
+    currentIndex = (currentIndex + 1) % images.length;
+
+    galleryImage.src = images[currentIndex].src;
+    galleryImage.alt = images[currentIndex].alt;
+    imageCaption.textContent = images[currentIndex].caption;
+});
+</script>
+
 </body>
 </html>
+```
