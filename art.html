@@ -116,7 +116,160 @@ body {
 
 </div>
 
+<div class="work">
+
+    <button
+        type="button"
+        class="image-button"
+        id="nextImage"
+        aria-label="Nächstes Bild anzeigen"
+    >
+        <img
+            id="galleryImage"
+            src="src/painting_compilation/spagettieater.jpg"
+            alt="Spagettieater, 2026"
+        >
+    </button>
+
+    <p class="caption" id="imageCaption">
+        Spagettieater, 2026
+    </p>
+
+</div>  
+
+
+
+    <div class="work">
+
+    <button
+        type="button"
+        class="image-button"
+        id="nextImage"
+        aria-label="Nächstes Bild anzeigen"
+    >
+        <img
+            id="galleryImage"
+            src="src/dontgiveup/3E4C2886.jpg"
+            alt="Collage 1, Steel, Cake Form, Magnets, Drawing, Plastic Sheet, 2026"
+        >
+    </button>
+
+    <p class="caption" id="imageCaption">
+        Collage 1; Steel, Cake Form, Magnets, Drawing, Plastic Sheet, 2026
+    </p>
+
+</div> 
+
+
+    <div class="work">
+
+    <button
+        type="button"
+        class="image-button"
+        id="nextImage"
+        aria-label="Nächstes Bild anzeigen"
+    >
+        <img
+            id="galleryImage"
+            src="src/dontgiveup/3E4C3156.jpg"
+            alt="Collage 1, Steel, Cake Form, Magnets, Drawing, Plastic Sheet, 2026"
+        >
+    </button>
+
+    <p class="caption" id="imageCaption">
+        Collage 1; Steel, Cake Form, Magnets, Drawing, Plastic Sheet, 2026
+    </p>
+
+</div>  
+
+        <div class="work">
+
+    <button
+        type="button"
+        class="image-button"
+        id="nextImage"
+        aria-label="Nächstes Bild anzeigen"
+    >
+        <img
+            id="galleryImage"
+            src="src/Scan 10.jpg"
+            alt="Untitled, 21x29cm, Paper, 2024"
+        >
+    </button>
+
+    <p class="caption" id="imageCaption">
+        Untitled; 21x29cm, Paper, 2024
+    </p>
+
+</div>   
+
+           <div class="work">
+
+    <button
+        type="button"
+        class="image-button"
+        id="nextImage"
+        aria-label="Nächstes Bild anzeigen"
+    >
+        <img
+            id="galleryImage"
+            src="src/hmarriage_closeup.jpeg"
+            alt="Self Marriage; 21x21cm, Digital Print, 2025"
+        >
+    </button>
+
+    <p class="caption" id="imageCaption">
+        Self Marriage; 21x21cm, Digital Print, 2025
+    </p>
+
+</div>   
+
+
+        <div class="work">
+
+    <button
+        type="button"
+        class="image-button"
+        id="nextImage"
+        aria-label="Nächstes Bild anzeigen"
+    >
+        <img
+            id="galleryImage"
+            src="src/leibes_2.jpg"
+            alt="Installationview, Tomb; Die Besten Leibesübungen, University of Applied Arts, 2023"
+        >
+    </button>
+
+    <p class="caption" id="imageCaption">
+        Installationview, Tomb; Die Besten Leibesübungen, University of Applied Arts, 2023
+    </p>
+
+</div>  
+
+
+     <div class="work">
+
+    <button
+        type="button"
+        class="image-button"
+        id="nextImage"
+        aria-label="Nächstes Bild anzeigen"
+    >
+        <img
+            id="galleryImage"
+            src="src/pirate_1_crazy.jpg"
+            alt="Apocalypse 2, Mixed Media, 2026"
+        >
+    </button>
+
+    <p class="caption" id="imageCaption">
+        Apocalypse 2, Mixed Media, 2026
+    </p>
+
+</div>  
+
 <a href="index.html" class="back-home">Back Home</a>
+
 
 <script>
 const images = [
@@ -174,13 +327,26 @@ const imageCaption = document.getElementById("imageCaption");
 const nextImage = document.getElementById("nextImage");
 
 nextImage.addEventListener("click", function () {
-    currentIndex = (currentIndex + 1) % images.length;
+    const nextIndex = (currentIndex + 1) % images.length;
+    const next = images[nextIndex];
 
-    galleryImage.src = images[currentIndex].src;
-    galleryImage.alt = images[currentIndex].alt;
-    imageCaption.textContent = images[currentIndex].caption;
+    const preload = new Image();
+
+    preload.onload = function () {
+        galleryImage.src = next.src;
+        galleryImage.alt = next.alt;
+        imageCaption.textContent = next.caption;
+        currentIndex = nextIndex;
+    };
+
+    preload.onerror = function () {
+        alert("Bild konnte nicht geladen werden: " + next.src);
+    };
+
+    preload.src = next.src;
 });
 </script>
+```
 
 </body>
 </html>
