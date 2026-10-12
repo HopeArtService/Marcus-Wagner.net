@@ -43,35 +43,6 @@ p {
     margin: 0 0 12px 0;
 }
 
-/* Translation controls */
-.translation {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 0 0 30px 0;
-    font-size: 14px;
-}
-
-.translation select,
-.translation button {
-    font-family: "Times New Roman", serif;
-    font-size: 14px;
-    padding: 7px 10px;
-    border: 1px solid red;
-    border-radius: 5px;
-    background-color: #eee;
-    color: red;
-}
-
-.translation button {
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.translation button:hover {
-    background-color: #ccc;
-}
 
 /* Back-to-home button */
 .back-home {
@@ -142,51 +113,7 @@ My choice of medium changes frequently, as I enjoy presenting work that differs 
 I also use these exhibitions as an opportunity to present my own work, creating something new within the circumstances I have set in motion. The work I develop in the studio, on the other hand, is sometimes a more direct reflection of how I feel when working alone.
 </p>
 
-<!-- TRANSLATION BUTTON -->
-<div class="translation">
-    <label for="language">Translate:</label>
-
-    <select id="language" aria-label="Choose translation language">
-        <option value="de">German / Deutsch</option>
-        <option value="fr">French / Français</option>
-        <option value="es">Spanish / Español</option>
-        <option value="it">Italian / Italiano</option>
-        <option value="pt">Portuguese / Português</option>
-        <option value="nl">Dutch / Nederlands</option>
-        <option value="pl">Polish / Polski</option>
-        <option value="sv">Swedish / Svenska</option>
-        <option value="da">Danish / Dansk</option>
-        <option value="no">Norwegian / Norsk</option>
-        <option value="fi">Finnish / Suomi</option>
-        <option value="el">Greek / Ελληνικά</option>
-        <option value="tr">Turkish / Türkçe</option>
-        <option value="ru">Russian / Русский</option>
-        <option value="uk">Ukrainian / Українська</option>
-        <option value="ar">Arabic / العربية</option>
-        <option value="he">Hebrew / עברית</option>
-        <option value="hi">Hindi / हिन्दी</option>
-        <option value="zh-CN">Chinese (Simplified)</option>
-        <option value="zh-TW">Chinese (Traditional)</option>
-        <option value="ja">Japanese / 日本語</option>
-        <option value="ko">Korean / 한국어</option>
-        <option value="th">Thai / ไทย</option>
-        <option value="vi">Vietnamese / Tiếng Việt</option>
-        <option value="id">Indonesian / Bahasa Indonesia</option>
-        <option value="cs">Czech / Čeština</option>
-        <option value="ro">Romanian / Română</option>
-        <option value="hu">Hungarian / Magyar</option>
-        <option value="hr">Croatian / Hrvatski</option>
-        <option value="sr">Serbian / Српски</option>
-        <option value="bg">Bulgarian / Български</option>
-        <option value="ca">Catalan / Català</option>
-        <option value="fa">Persian / فارسی</option>
-        <option value="sw">Swahili / Kiswahili</option>
-        <option value="en">English</option>
-    </select>
-
-    <button type="button" onclick="translatePage()">
-        Translate
-    </button>
+    
 </div>    
 
 <a href="mailto:marcuswagnerinfo@gmail.com">
